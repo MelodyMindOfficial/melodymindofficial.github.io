@@ -68,7 +68,7 @@ export default function App() {
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
-                {pages.includes(window.location.pathname.slice(20)) ? (
+                {pages.includes(window.location.pathname.slice(1)) ? (
                     <Footer isActive={(current) => activeSection(current)} />
                 ) : null}
             </BrowserRouter>

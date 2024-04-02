@@ -69,21 +69,21 @@ export const mainTrends = [{
     title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
     author: 'Исполнитель',
     price: 3000,
-    image: '/MelodyMindOfficial/track/0.png',
+    image: '/track/0.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/MelodyMindOfficial/track/1.png',
+    image: '/track/1.png',
     id: 234561,
     idAuthor: 543216
 }, {
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/MelodyMindOfficial/track/2.png',
+    image: '/track/2.png',
     id: 345612,
     idAuthor: 432165
 }, {
@@ -97,66 +97,66 @@ export const mainTrends = [{
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/MelodyMindOfficial/track/4.png',
+    image: '/track/4.png',
     id: 612345,
     idAuthor: 216543
 }, {
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/MelodyMindOfficial/track/5.png',
+    image: '/track/5.png',
     id: 162534,
     idAuthor: 615243
 }, ]
 
 export const mainTracks = [{
     title: 'Хип-хоп',
-    image: '/MelodyMindOfficial/6.png'
+    image: '/6.png'
 }, {
     title: 'Поп',
-    image: '/MelodyMindOfficial/7.png'
+    image: '/7.png'
 }, {
     title: 'R&B',
-    image: '/MelodyMindOfficial/8.png'
+    image: '/8.png'
 }, {
     title: 'Рок',
-    image: '/MelodyMindOfficial/9.png'
+    image: '/9.png'
 }, {
     title: 'Электронная',
-    image: '/MelodyMindOfficial/10.png'
+    image: '/10.png'
 }, {
     title: 'Регги',
-    image: '/MelodyMindOfficial/11.png'
+    image: '/11.png'
 }, ]
 
 export const team = [{
     name: 'Никита Никишин',
     status: 'Backend-разработчик',
-    image: '/MelodyMindOfficial/NNikishin.png'
+    image: '/NNikishin.png'
 }, {
     name: 'Валерий Краснихин',
     status: 'Документовед',
-    image: '/MelodyMindOfficial/VKrasnihin.png'
+    image: '/VKrasnihin.png'
 }, {
     name: 'Степан Лапухин',
     status: 'Контент-менеджер',
-    image: '/MelodyMindOfficial/SLapuhin.png'
+    image: '/SLapuhin.png'
 }, {
     name: 'Андрей Добрынский',
     status: 'Тестировщик',
-    image: '/MelodyMindOfficial/ADobrynskiy.png'
+    image: '/ADobrynskiy.png'
 }, {
     name: 'Михаил Затуржинский',
     status: 'Fullstack-разработчик, Тимлид',
-    image: '/MelodyMindOfficial/MZaturzhinskiy.png'
+    image: '/MZaturzhinskiy.png'
 }, {
     name: 'Даниил Ступко',
     status: 'Аналитик',
-    image: '/MelodyMindOfficial/DStupko.png'
+    image: '/DStupko.png'
 }, {
     name: 'Егор Филиппов',
     status: 'Дизайнер',
-    image: '/MelodyMindOfficial/EFilippov.png'
+    image: '/EFilippov.png'
 }, ]
 
 export const contacts = [{
