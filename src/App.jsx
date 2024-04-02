@@ -34,7 +34,7 @@ export default function App() {
 
     return (
         <>
-            <BrowserRouter>
+            <BrowserRouter basename="/MelodyMindOfficial">
                 <Header
                     active={active}
                     isActive={(current) => activeSection(current)}
