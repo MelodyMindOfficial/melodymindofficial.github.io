@@ -12,7 +12,7 @@ import About from './components/About/About';
 import Contacts from './components/About/Contacts';
 
 export default function App() {
-    localStorage.setItem('active', window.location.pathname.slice(1));
+    localStorage.setItem('active', window.location.pathname.slice(20));
 
     const [active, setActive] = useState(
         localStorage.getItem('active') || 'main'
