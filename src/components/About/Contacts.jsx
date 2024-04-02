@@ -31,7 +31,7 @@ export default function Contacts({ isActive }) {
                             </Link>
                         </div>
                         <div className="">
-                            <img src="/contacts.png" alt="" />
+                            <img src="/public/contacts.png" alt="" />
                         </div>
                     </section>
                     {contacts.map((e) => (
