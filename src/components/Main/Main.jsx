@@ -13,7 +13,9 @@ export default function Main() {
 
     var i = 0;
     const [invalid, setInvalid] = useState(true);
-    const [image, setImage] = useState('/public/track/' + previous + '.png');
+    const [image, setImage] = useState(
+        '/MelodyMindOfficial/public/track/' + previous + '.png'
+    );
 
     function handleEmailChange(event) {
         if (event.target.value.trim().length != 0) setInvalid(false);
@@ -28,7 +30,7 @@ export default function Main() {
                 current = getRandomInt(numTracks);
             }
             previous = current;
-            setImage('/public/track/' + current + '.png');
+            setImage('/MelodyMindOfficial/public/track/' + current + '.png');
         }, 3000);
 
         return () => {
@@ -66,13 +68,34 @@ export default function Main() {
                 <div className="trustSection">
                     {[...Array(2)].map(() => (
                         <div key={i++} className="imageTrust">
-                            <img src="/public/slider_0.png" alt="" />
-                            <img src="/public/slider_1.png" alt="" />
-                            <img src="/public/slider_2.png" alt="" />
-                            <img src="/public/slider_3.png" alt="" />
-                            <img src="/public/slider_4.png" alt="" />
-                            <img src="/public/slider_5.png" alt="" />
-                            <img src="/public/slider_6.png" alt="" />
+                            <img
+                                src="/MelodyMindOfficial/public/slider_0.png"
+                                alt=""
+                            />
+                            <img
+                                src="/MelodyMindOfficial/public/slider_1.png"
+                                alt=""
+                            />
+                            <img
+                                src="/MelodyMindOfficial/public/slider_2.png"
+                                alt=""
+                            />
+                            <img
+                                src="/MelodyMindOfficial/public/slider_3.png"
+                                alt=""
+                            />
+                            <img
+                                src="/MelodyMindOfficial/public/slider_4.png"
+                                alt=""
+                            />
+                            <img
+                                src="/MelodyMindOfficial/public/slider_5.png"
+                                alt=""
+                            />
+                            <img
+                                src="/MelodyMindOfficial/public/slider_6.png"
+                                alt=""
+                            />
                         </div>
                     ))}
                 </div>

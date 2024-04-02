@@ -31,7 +31,10 @@ export default function Contacts({ isActive }) {
                             </Link>
                         </div>
                         <div className="">
-                            <img src="/public/contacts.png" alt="" />
+                            <img
+                                src="/MelodyMindOfficial/public/contacts.png"
+                                alt=""
+                            />
                         </div>
                     </section>
                     {contacts.map((e) => (

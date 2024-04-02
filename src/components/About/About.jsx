@@ -29,7 +29,10 @@ export default function About({ isActive }) {
                     креаторов
                 </p>
                 <div className="aboutImage">
-                    <img src="/public/map_world.png" alt="" />
+                    <img
+                        src="/MelodyMindOfficial/public/map_world.png"
+                        alt=""
+                    />
                 </div>
             </section>
             <section className="aboutTeam">
