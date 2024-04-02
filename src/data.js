@@ -1,6 +1,6 @@
 export const numTracks = 7;
 
-export const pages = ['', 'feed', 'tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy']
+export const pages = ['/MelodyMindOfficial/', '/MelodyMindOfficial/feed', '/MelodyMindOfficial/tracks', '/MelodyMindOfficial/sounds', '/MelodyMindOfficial/about', '/MelodyMindOfficial/contacts', '/MelodyMindOfficial/how-to-buy', '/MelodyMindOfficial/payment', '/MelodyMindOfficial/rules-of-sale', '/MelodyMindOfficial/privacy-policy', '/MelodyMindOfficial/buy']
 
 export const headerList = [{
     title: 'Лента',
