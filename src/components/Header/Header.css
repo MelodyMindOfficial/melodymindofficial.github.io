@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    user-select: none;
+    z-index: 100;
+}
+
+.headerSection {
+    position: relative;
+    height: 65px;
+    background-color: #141414;
+    border-bottom: 0.5px solid #696363;
+    z-index: 101;
+}
+
+.headerLogo {
+    margin-left: -17px;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    font-size: 24px;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.headerSection a img {
+    height: 53px;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.headerForm {
+    padding: 8px 0px;
+    width: 500px;
+    background-color: #383838;
+    border: 1px solid #707070;
+    border-radius: 17px;
+}
+
+.headerForm button {
+    margin: 0px 18px;
+    height: 20px;
+    width: 20px;
+    color: inherit;
+    font-size: inherit;
+    background: none;
+}
+
+.headerForm input {
+    width: calc(100% - 74px);
+    color: inherit;
+    font-size: inherit;
+    background: none;
+}
+
+.headerTools {
+    display: flex;
+    align-items: center;
+}
+
+.headerLoginButton {
+    margin-right: 10px;
+    padding: 2px 16.5px;
+    height: 25px;
+    color: inherit;
+    font-size: inherit;
+    background-color: #696363;
+    border-radius: 4px;
+    transition: 150ms;
+}
+
+.headerLoginButton:hover,
+.headerLoginButton:focus {
+    filter: brightness(1.25);
+}
+
+.headerLoginButton:last-child {
+    margin-right: 18px;
+    background-color: #3342CB;
+}
+
+.headerCart {
+    color: inherit;
+    font-size: inherit;
+    background: none;
+    height: 35px;
+    width: 45px;
+    border-radius: 25px;
+    transition: 150ms;
+}
+
+.headerCart:hover,
+.headerCart:focus {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.fa-chevron-down {
+    font-size: 9px;
+    transform: translate(50%, -25%);
+}
+
+.headerNav {
+    height: 50px;
+    width: 100%;
+    background-color: #1a1a1a;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    transition: 150ms;
+}
+
+.headerNav.hide {
+    margin-top: -60px;
+}
+
+.headerList {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.headerList li a {
+    margin-right: 30px;
+    padding: 14px 0px;
+    color: #cacaca;
+    transition: 150ms;
+}
+
+.headerList li:hover a,
+.headerList a:focus,
+.headerList a.active {
+    color: #fff;
+    border-bottom: 1.5px solid #fff;
+}
+
+.headerSwitchLink {
+    margin: 0px 26.5px;
+    color: #9e9e9e;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 150ms;
+}
+
+.headerSwitchLink:hover,
+.headerSwitchLink.active {
+    color: inherit;
+}
