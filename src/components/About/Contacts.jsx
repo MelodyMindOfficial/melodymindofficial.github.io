@@ -32,7 +32,7 @@ export default function Contacts({ isActive }) {
                         </div>
                         <div className="">
                             <img
-                                src="/MelodyMindOfficial/public/contacts.png"
+                                src="/MelodyMindOfficial/contacts.png"
                                 alt=""
                             />
                         </div>
