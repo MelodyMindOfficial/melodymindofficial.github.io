@@ -68,7 +68,9 @@ export default function App() {
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
-                {pages.includes(window.location.pathname.slice(1)) ? (
+                {pages.includes(
+                    '/MelodyMindOfficial' + window.location.pathname.slice(1)
+                ) ? (
                     <Footer isActive={(current) => activeSection(current)} />
                 ) : null}
             </BrowserRouter>
