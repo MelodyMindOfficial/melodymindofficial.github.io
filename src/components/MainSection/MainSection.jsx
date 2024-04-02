@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { mainTrends } from '../../data';
 import './MainSection.css';
+import noneImage from '/none_image.png';
 
 export default function MainSection({ children }) {
     return (
@@ -19,9 +20,7 @@ export default function MainSection({ children }) {
                     {children.map((item) => (
                         <div className="trackSection" key={item.image}>
                             <img
-                                src={
-                                    item.image ? item.image : '/none_image.png'
-                                }
+                                src={item.image ? item.image : noneImage}
                                 alt="Track"
                             />
                             <Link
