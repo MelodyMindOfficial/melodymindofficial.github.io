@@ -7,14 +7,35 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export default function MainSection({ children }) {
+    function checkWindow() {
+        if (window.innerWidth < 1250 && window.innerWidth >= 1050) {
+            return 5;
+        } else if (window.innerWidth < 1050 && window.innerWidth >= 850) {
+            return 4;
+        } else if (window.innerWidth < 850 && window.innerWidth >= 625) {
+            return 3;
+        } else if (window.innerWidth < 625 && window.innerWidth >= 425) {
+            return 2;
+        } else if (window.innerWidth < 425 && window.innerWidth >= 325) {
+            return 1.5;
+        } else if (window.innerWidth < 325 && window.innerWidth >= 0) {
+            return 1.2;
+        } else {
+            return 6;
+        }
+    }
+
     var settings = {
         arrows: false,
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 6,
+        slidesToShow: checkWindow(),
+        slidesToScroll: checkWindow() / 6,
         swipeToSlide: true,
     };
+
+    console.log(settings.slidesToScroll);
 
     return (
         <section className="mainSection">
