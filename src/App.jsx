@@ -10,6 +10,8 @@ import Tracks from './components/Tracks';
 import Sounds from './components/Sounds';
 import About from './components/About/About';
 import Contacts from './components/About/Contacts';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import './index.css';
 
 export default function App() {
     localStorage.setItem('active', window.location.pathname.slice(1));
@@ -45,6 +47,10 @@ export default function App() {
                         <Route path="/feed" element={<Feed />} />
                         <Route path="/tracks" element={<Tracks />} />
                         <Route path="/sounds" element={<Sounds />} />
+                        <Route
+                            path="/privacy-policy"
+                            element={<PrivacyPolicy />}
+                        />
                         <Route
                             path="/about"
                             element={

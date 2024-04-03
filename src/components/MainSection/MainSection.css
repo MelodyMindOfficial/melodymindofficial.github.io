@@ -26,21 +26,46 @@
     margin-left: -13px;
     margin-right: -13px;
     margin-bottom: 45px;
+    overflow-x: auto;
+    /* white-space: nowrap; */
+    scroll-snap-type: x mandatory;
+    /* scroll-padding: 0 24px; */
+}
+
+
+.sectionTracks::-webkit-scrollbar {
+    display: none;
 }
 
 .trackSection {
     display: flex;
     flex-direction: column;
+    margin-right: 15px;
     padding: 10px;
     width: 214px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0);
     transition: 150ms;
+    scroll-snap-align: start;
 }
 
 .trackSection:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.trackSection div {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.trackSection div:hover::after {
+    display: block;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .trackSection img {
@@ -68,8 +93,6 @@
     font-size: 16px;
     font-weight: 600;
 }
-
-#title:hover {}
 
 #author {
     color: #bebebe;

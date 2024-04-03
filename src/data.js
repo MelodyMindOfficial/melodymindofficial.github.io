@@ -1,4 +1,4 @@
-export const numTracks = 7;
+export const numTracks = 13;
 
 export const pages = ['', 'feed', 'tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy']
 
@@ -53,7 +53,8 @@ export const footerList = [{
             },
             {
                 label: 'Политика конфиденциальности',
-                id: 'privacy-policy'
+                id: 'privacy-policy',
+                download: true
             }
         ]
     }, {
@@ -73,17 +74,59 @@ export const mainTrends = [{
     id: 123456,
     idAuthor: 654321
 }, {
-    title: 'Название трека',
+    title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
     author: 'Исполнитель',
     price: 3000,
     image: '/track/1.png',
+    id: 123456,
+    idAuthor: 654321
+}, {
+    title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
+    author: 'Исполнитель',
+    price: 3000,
+    image: '/track/2.png',
+    id: 123456,
+    idAuthor: 654321
+}, {
+    title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
+    author: 'Исполнитель',
+    price: 3000,
+    image: '/track/3.png',
+    id: 123456,
+    idAuthor: 654321
+}, {
+    title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
+    author: 'Исполнитель',
+    price: 3000,
+    image: '/track/4.png',
+    id: 123456,
+    idAuthor: 654321
+}, {
+    title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
+    author: 'Исполнитель',
+    price: 3000,
+    image: '/track/5.png',
+    id: 123456,
+    idAuthor: 654321
+}, {
+    title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
+    author: 'Исполнитель',
+    price: 3000,
+    image: '/track/6.png',
+    id: 123456,
+    idAuthor: 654321
+}, {
+    title: 'Название трека',
+    author: 'Исполнитель',
+    price: 3000,
+    image: '/track/7.png',
     id: 234561,
     idAuthor: 543216
 }, {
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/2.png',
+    image: '/track/8.png',
     id: 345612,
     idAuthor: 432165
 }, {
@@ -97,14 +140,14 @@ export const mainTrends = [{
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/4.png',
+    image: '/track/10.png',
     id: 612345,
     idAuthor: 216543
 }, {
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/5.png',
+    image: '/track/11.png',
     id: 162534,
     idAuthor: 615243
 }, ]

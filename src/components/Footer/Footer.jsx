@@ -32,6 +32,7 @@ export default function Footer({ isActive }) {
                                             to={'/' + item.id}
                                             className="footerLink"
                                             onClick={() => isActive(item.id)}
+                                            download={item.download}
                                         >
                                             {item.label}
                                         </Link>

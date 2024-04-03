@@ -19,17 +19,23 @@ export default function MainSection({ children }) {
                 <div className="sectionTracks">
                     {children.map((item) => (
                         <div className="trackSection" key={item.image}>
-                            <img
-                                src={item.image ? item.image : noneImage}
-                                alt="Track"
-                            />
-                            <Link
+                            <div>
+                                <img
+                                    src={item.image ? item.image : noneImage}
+                                    alt="Track"
+                                />
+                            </div>
+                            <p
+                                style={{
+                                    cursor: 'default',
+                                    userSelect: 'none',
+                                }}
                                 to={'/' + item.id}
                                 id="price"
                                 className="trackItem"
                             >
                                 {item.price && item.price + ' рублей'}
-                            </Link>
+                            </p>
                             <Link
                                 to={'/' + item.id}
                                 id="title"
