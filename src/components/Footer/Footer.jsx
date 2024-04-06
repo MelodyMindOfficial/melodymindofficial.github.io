@@ -4,6 +4,19 @@ import logo from '/logo.png';
 import './Footer.css';
 
 export default function Footer({ isActive }) {
+    function checkWindow() {
+        if (window.innerWidth < 1024) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function showList(id) {
+        document.getElementById(id).classList.toggle('showed');
+        document.getElementById('i ' + id).classList.toggle('showed');
+    }
+
     return (
         <footer>
             <div className="footerContainer _container">
@@ -17,15 +30,36 @@ export default function Footer({ isActive }) {
                             <img
                                 src={logo}
                                 alt="Logo"
-                                style={{ marginLeft: '-17px', height: '63px' }}
+                                style={{
+                                    marginLeft: '-17px',
+                                    height: '63px',
+                                }}
                             />
                         </Link>
                         <p>Lorem ipsum dolor sit.</p>
                     </div>
                     {footerList.map((item) => (
                         <div className="footerColumn" key={item.title}>
-                            <h3 className="footerTitle">{item.title}</h3>
-                            <ul>
+                            <h3
+                                className="footerTitle"
+                                onClick={
+                                    checkWindow()
+                                        ? () => showList(item.title)
+                                        : null
+                                }
+                            >
+                                {item.title}
+                                {checkWindow() && (
+                                    <i
+                                        id={'i ' + item.title}
+                                        className="fa-solid fa-chevron-down"
+                                        style={{
+                                            fontSize: '16px',
+                                        }}
+                                    ></i>
+                                )}
+                            </h3>
+                            <ul id={item.title}>
                                 {item.list.map((item) => (
                                     <li key={item.id} className="footerItem">
                                         <Link

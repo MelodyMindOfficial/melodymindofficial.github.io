@@ -5,6 +5,48 @@
     padding: 45px 0px 70px 0px;
 }
 
+@media (max-width: 1024px) {
+    .footerNav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerColumn:first-child {
+        display: none;
+    }
+
+    .footerTitle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 320px;
+    }
+
+    .footerColumn ul {
+        display: none;
+    }
+
+    .footerColumn ul.showed {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .footerColumn i {
+        transform: rotate(0deg);
+        transition: 150ms;
+    }
+
+    .footerColumn i.showed {
+        transform: rotate(-180deg);
+    }
+}
+
+@media (max-width: 375px) {
+    .footerTitle {
+        width: 290px;
+    }
+}
+
 .footerTitle {
     margin-bottom: 11px;
 }

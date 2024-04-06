@@ -35,8 +35,6 @@ export default function MainSection({ children }) {
         swipeToSlide: true,
     };
 
-    console.log(settings.slidesToScroll);
-
     return (
         <section className="mainSection">
             <div className="_container">

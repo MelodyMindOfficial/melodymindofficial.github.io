@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { pages } from './data';
 import NotFound from './components/NotFound/NotFound';
+import Authorization from './components/Authorization/Authorization';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
@@ -20,6 +21,8 @@ export default function App() {
         localStorage.getItem('active') || 'main'
     );
 
+    const [modal, setModal] = useState(false);
+
     useEffect(() => {
         localStorage.setItem('active', active);
         <Header active={active} />;
@@ -36,10 +39,19 @@ export default function App() {
 
     return (
         <>
+            <Authorization open={modal}>
+                <button onClick={() => setModal(false)}>Close</button>
+                <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Amet tenetur necessitatibus possimus eaque, at, ex tempora
+                    unde vel saepe rerum beatae, iusto eius. Cupiditate, animi!
+                </div>
+            </Authorization>
             <BrowserRouter>
                 <Header
                     active={active}
                     isActive={(current) => activeSection(current)}
+                    isModal={(current) => setModal(current)}
                 />
                 <main style={{ marginTop: '115px' }}>
                     <Routes>

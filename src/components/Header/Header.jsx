@@ -3,7 +3,7 @@ import { headerList } from '../../data';
 import logo from '/logo.png';
 import './Header.css';
 
-export default function Header({ active, isActive }) {
+export default function Header({ active, isActive, isModal }) {
     let lastScroll = 0;
     const defaultOffset = 200;
     const scrollPosition = () =>
@@ -76,13 +76,13 @@ export default function Header({ active, isActive }) {
                         {/* Если нет логина */}
                         <div className="HeaderLoginButtons">
                             <button
-                                // onClick={() => (window.location = "sign-in")}
+                                onClick={() => isModal(true)}
                                 className="headerLoginButton"
                             >
                                 Войти
                             </button>
                             <button
-                                // onClick={() => (window.location = "sign-up")}
+                                onClick={() => isModal(true)}
                                 className="headerLoginButton"
                             >
                                 Регистрация
