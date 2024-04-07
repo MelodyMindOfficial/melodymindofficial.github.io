@@ -31,7 +31,7 @@ export default function Authorization({ isModal, open, target }) {
                     Продолжить с
                 </h3>
                 <form
-                    action="./src/damn.php"
+                    action="./src/login.html"
                     method="post"
                     className="signSelf"
                     target={target}
