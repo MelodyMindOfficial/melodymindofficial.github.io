@@ -53,8 +53,10 @@
 }
 
 .introTitle {
+    line-height: 1.2;
     font-size: 64px;
     font-weight: 700;
+    margin-bottom: 20px;
 }
 
 .introForm {

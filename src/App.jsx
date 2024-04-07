@@ -12,6 +12,7 @@ import Sounds from './components/Sounds';
 import About from './components/About/About';
 import Contacts from './components/About/Contacts';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Notify from './components/Notify/Notify';
 import './index.css';
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
     );
     const [modal, setModal] = useState(false);
     const [search, setSeacrh] = useState('');
+    const [notify, setNotify] = useState('');
 
     useEffect(() => {
         localStorage.setItem('active', active);
@@ -46,6 +48,7 @@ export default function App() {
                 isModal={(current) => setModal(current)}
                 target={'_blank'}
             />
+            {notify && <Notify setShow={() => setNotify('')}>{notify}</Notify>}
             <BrowserRouter>
                 {window.location.pathname.slice(1) != 'sign-in' && (
                     <Header
@@ -64,6 +67,7 @@ export default function App() {
                                 <Main
                                     search={search}
                                     setSearch={(current) => setSeacrh(current)}
+                                    isNotify={(current) => setNotify(current)}
                                 />
                             }
                         />

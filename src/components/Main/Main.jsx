@@ -1,12 +1,38 @@
 import { useEffect, useState } from 'react';
 import { mainTrends, mainTracks, numTracks } from '../../data';
 import MainSection from '../MainSection/MainSection';
+import emailjs from '@emailjs/browser';
 import './Main.css';
 
-export default function Main({ search, setSearch }) {
+export default function Main({ search, setSearch, isNotify }) {
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm('mail', 'template_isk5d14', e.target, {
+                publicKey: 'WmNrBY16kNyn5fA6M',
+            })
+            .then(
+                () => {
+                    document.querySelector('.mainEmailForm').reset();
+                    document.querySelector('#email').blur();
+                    isNotify(
+                        'Мы только что отправили вам электронное письмо с инструкциями по выполнению этого запроса'
+                    );
+                    setInvalid(true);
+                },
+                (error) => {
+                    isNotify(
+                        'Не удалось отправить письмо! Попробуйте обновить старинцу!'
+                    );
+                    console.log('FAILED...', error.text);
+                }
+            );
+    };
 
     var previous = getRandomInt(numTracks);
     var current = getRandomInt(numTracks);
@@ -44,7 +70,11 @@ export default function Main({ search, setSearch }) {
         <>
             <div className="introSection">
                 <div className="introContent _container">
-                    <h2 className="introTitle">Lorem ipsum dolor sit amet</h2>
+                    <h2 className="introTitle">
+                        Live by the <span style={{ color: 'red' }}>beat</span>
+                        <br /> of your
+                        <span style={{ color: 'red' }}>heart</span>
+                    </h2>
                     <form action="" className="introForm">
                         <button className="leftSubmit" type="submit">
                             <i className="fa-solid fa-magnifying-glass"></i>
@@ -89,9 +119,11 @@ export default function Main({ search, setSearch }) {
                     Присылайте нам персональные советы по покупкам и продажам на
                     MelodyMind
                 </h3>
-                <form action="" className="mainEmailForm">
+                <form onSubmit={sendEmail} className="mainEmailForm">
                     <i className="fa-solid fa-envelope"></i>
                     <input
+                        id="email"
+                        name="email"
                         onChange={handleEmailChange}
                         type="email"
                         placeholder="Введите свою почту"

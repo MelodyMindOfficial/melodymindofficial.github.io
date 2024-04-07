@@ -1,0 +1,28 @@
+.notifyForm {
+    display: flex;
+    align-items: center;
+    padding: 14px 5px;
+    position: fixed;
+    bottom: 35px;
+    left: 50%;
+    height: 50px;
+    max-width: 820px;
+    background-color: #323232;
+    border-radius: 12px;
+    transform: translate(-50%);
+    z-index: 100;
+}
+
+.notifyForm p {
+    margin: 0px 15px;
+    font-size: 14px;
+}
+
+.notifyForm button {
+    padding: 0px 15px;
+    height: 20px;
+    color: #fff;
+    font-size: 14px;
+    background: none;
+    border-left: 1px solid #fff;
+}
