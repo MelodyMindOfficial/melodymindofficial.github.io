@@ -3,7 +3,13 @@ import { headerList } from '../../data';
 import logo from '/logo.png';
 import './Header.css';
 
-export default function Header({ active, isActive, isModal }) {
+export default function Header({
+    active,
+    search,
+    isActive,
+    isModal,
+    setSearch,
+}) {
     let lastScroll = 0;
     const defaultOffset = 200;
     const scrollPosition = () =>
@@ -27,6 +33,10 @@ export default function Header({ active, isActive, isModal }) {
         lastScroll = scrollPosition();
     });
 
+    function handleSearch(e) {
+        setSearch(e.target.value);
+    }
+
     return (
         <header>
             <section className="headerSection">
@@ -44,7 +54,13 @@ export default function Header({ active, isActive, isModal }) {
                             <button type="submit">
                                 <i className="fa-solid fa-magnifying-glass"></i>
                             </button>
-                            <input type="text" placeholder="Что ты ищешь?" />
+                            <input
+                                className="headerInput"
+                                type="text"
+                                placeholder="Что ты ищешь?"
+                                value={search}
+                                onChange={(e) => handleSearch(e)}
+                            />
                         </form>
                     ) : (
                         <div>
@@ -79,7 +95,7 @@ export default function Header({ active, isActive, isModal }) {
                                 onClick={() => isModal(true)}
                                 className="headerLoginButton"
                             >
-                                Войти
+                                Вход
                             </button>
                             <button
                                 onClick={() => isModal(true)}

@@ -14,7 +14,7 @@ export default function Footer({ isActive, isModal }) {
 
     function showList(id) {
         document.getElementById(id).classList.toggle('showed');
-        document.getElementById('i ' + id).classList.toggle('showed');
+        document.getElementById('i_' + id).classList.toggle('showed');
     }
 
     return (
@@ -44,14 +44,14 @@ export default function Footer({ isActive, isModal }) {
                                 className="footerTitle"
                                 onClick={
                                     checkWindow()
-                                        ? () => showList(item.title)
+                                        ? () => showList(item.id)
                                         : null
                                 }
                             >
                                 {item.title}
                                 {checkWindow() && (
                                     <i
-                                        id={'i ' + item.title}
+                                        id={'i_' + item.id}
                                         className="fa-solid fa-chevron-down"
                                         style={{
                                             fontSize: '16px',
@@ -59,7 +59,7 @@ export default function Footer({ isActive, isModal }) {
                                     ></i>
                                 )}
                             </h3>
-                            <ul id={item.title}>
+                            <ul id={item.id}>
                                 {item.list.map((item) => (
                                     <li key={item.id} className="footerItem">
                                         <Link

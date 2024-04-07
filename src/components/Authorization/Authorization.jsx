@@ -1,19 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
 
-export default function Authorization({ isModal, open }) {
+export default function Authorization({ isModal, open, target }) {
     const dialog = useRef();
 
     const [disable, setDisable] = useState(true);
 
-    function setInput() {
-        if (document.querySelector('#email').value) {
-            document.querySelector('.signButton').classList.add('active');
-            setDisable(false);
-        } else {
-            document.querySelector('.signButton').classList.remove('active');
-            setDisable(true);
-        }
+    function handleLoginChange(event) {
+        if (event.target.value.trim().length != 0) setDisable(false);
+        else setDisable(true);
     }
 
     useEffect(() => {
@@ -28,21 +23,29 @@ export default function Authorization({ isModal, open }) {
         <dialog ref={dialog}>
             <div className="signWrap">
                 <h3 className="signTitle">
-                    <button onClick={() => isModal(false)}>
-                        <i className="fa-solid fa-xmark"></i>
-                    </button>
+                    {target && (
+                        <button onClick={() => isModal(false)}>
+                            <i className="fa-solid fa-xmark"></i>
+                        </button>
+                    )}
                     Продолжить с
                 </h3>
-                <form action="" method="post" className="signSelf">
-                    <label htmlFor="email">Эл.почта</label>
+                <form
+                    action="./src/damn.php"
+                    method="post"
+                    className="signSelf"
+                    target={target}
+                >
+                    <label htmlFor="login">Эл.почта</label>
                     <input
                         type="email"
-                        name="email"
-                        id="email"
-                        onChange={() => setInput()}
+                        name="login"
+                        id="login"
+                        onChange={handleLoginChange}
+                        required
                     />
                     <button
-                        className="signButton"
+                        className={!disable ? 'active' : null}
                         disabled={disable}
                         type="submit"
                     >
@@ -50,7 +53,12 @@ export default function Authorization({ isModal, open }) {
                     </button>
                 </form>
                 <p className="hr-line">или</p>
-                <form action="" method="post" className="signAuth">
+                <form
+                    action="./"
+                    method="post"
+                    className="signAuth"
+                    target="_blank"
+                >
                     <button className="active" type="">
                         <img src="/google.png" alt="Google" />
                         Войти с аккаунтом Google

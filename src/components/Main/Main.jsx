@@ -3,7 +3,7 @@ import { mainTrends, mainTracks, numTracks } from '../../data';
 import MainSection from '../MainSection/MainSection';
 import './Main.css';
 
-export default function Main() {
+export default function Main({ search, setSearch }) {
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
@@ -35,34 +35,40 @@ export default function Main() {
             clearInterval(interval);
         };
     }, []);
+
+    function handleSearch(e) {
+        setSearch(e.target.value);
+    }
+
     return (
         <>
             <div className="introSection">
                 <div className="introContent _container">
                     <h2 className="introTitle">Lorem ipsum dolor sit amet</h2>
                     <form action="" className="introForm">
-                        <button type="submit">
+                        <button className="leftSubmit" type="submit">
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
                         <input
                             type="text"
                             placeholder="Исследуйте новые звуки - ищите ритмы и продюсеров"
+                            className="mainInput"
+                            value={search}
+                            onChange={(e) => handleSearch(e)}
                         />
-                        <button type="submit">Поиск</button>
+                        <button className="rigthSubmit" type="submit">
+                            Поиск
+                        </button>
                     </form>
                 </div>
                 <div className="introImage">
                     <div className="introImageGradient"></div>
-                    <img
-                        // style={{ animation: 'show 5s infinite' }}
-                        src={image}
-                        alt="Intro"
-                    />
+                    <img src={image} alt="Intro" />
                 </div>
             </div>
             <MainSection>{mainTrends}</MainSection>
             <div className="mainTrust">
-                <h3 style={{ fontSize: '24px' }}>Мы доверяем:</h3>
+                <h3>Мы доверяем:</h3>
                 <div className="trustSection">
                     {[...Array(2)].map(() => (
                         <div key={i++} className="imageTrust">

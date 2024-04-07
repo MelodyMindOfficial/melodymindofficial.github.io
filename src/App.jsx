@@ -21,6 +21,7 @@ export default function App() {
         localStorage.getItem('active') || 'main'
     );
     const [modal, setModal] = useState(false);
+    const [search, setSeacrh] = useState('');
 
     useEffect(() => {
         localStorage.setItem('active', active);
@@ -28,12 +29,14 @@ export default function App() {
     }, [active]);
 
     function activeSection(current) {
-        setActive(current),
+        setActive(current);
+        if (active == setActive(current)) {
             window.scrollTo({
                 top: 0,
                 left: 0,
                 behavior: 'smooth',
             });
+        }
     }
 
     return (
@@ -41,18 +44,29 @@ export default function App() {
             <Authorization
                 open={modal}
                 isModal={(current) => setModal(current)}
+                target={'_blank'}
             />
             <BrowserRouter>
-                {active != 'sign-in' && (
+                {window.location.pathname.slice(1) != 'sign-in' && (
                     <Header
                         active={active}
                         isActive={(current) => activeSection(current)}
                         isModal={(current) => setModal(current)}
+                        search={search}
+                        setSearch={(current) => setSeacrh(current)}
                     />
                 )}
                 <main style={{ marginTop: '115px' }}>
                     <Routes>
-                        <Route path="/" element={<Main />} />
+                        <Route
+                            path="/"
+                            element={
+                                <Main
+                                    search={search}
+                                    setSearch={(current) => setSeacrh(current)}
+                                />
+                            }
+                        />
                         <Route path="/feed" element={<Feed />} />
                         <Route path="/tracks" element={<Tracks />} />
                         <Route path="/sounds" element={<Sounds />} />
@@ -82,7 +96,7 @@ export default function App() {
                         />
                         <Route
                             path="sign-in"
-                            element={<Authorization open={modal} />}
+                            element={<Authorization open={true} />}
                         />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
@@ -90,7 +104,7 @@ export default function App() {
                 {pages.includes(window.location.pathname.slice(1)) ? (
                     <Footer
                         isActive={(current) => activeSection(current)}
-                        // isModal={(current) => setModal(current)}
+                        isModal={(current) => setModal(current)}
                     />
                 ) : null}
             </BrowserRouter>

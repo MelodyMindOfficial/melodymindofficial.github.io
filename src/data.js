@@ -15,6 +15,7 @@ export const headerList = [{
 
 export const footerList = [{
         title: 'Карта сайта',
+        id: 'map-site',
         list: [{
             label: 'Вход/Регистрация',
             id: 'sign-in',
@@ -32,6 +33,7 @@ export const footerList = [{
         }]
     }, {
         title: 'Компания',
+        id: 'company',
         list: [{
             label: 'О нас',
             id: 'about'
@@ -43,6 +45,7 @@ export const footerList = [{
     },
     {
         title: 'Покупателям',
+        id: 'for-sellers',
         list: [{
                 label: 'Как покупать биты',
                 id: 'how-to-buy'
@@ -61,6 +64,7 @@ export const footerList = [{
         ]
     }, {
         title: 'Партнерам',
+        id: 'for-partners',
         list: [{
             label: 'Продавайте на MelodyMind',
             id: 'buy'
