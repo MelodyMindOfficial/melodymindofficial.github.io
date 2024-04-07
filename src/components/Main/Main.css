@@ -133,6 +133,17 @@
     object-fit: cover;
 }
 
+@media (max-width: 769px) {
+    .introImageGradient {
+        display: none;
+    }
+
+    .introImage img {
+        width: 100%;
+        filter: brightness(0.3);
+    }
+}
+
 .invisible {
     animation: show 3s infinite;
 }
