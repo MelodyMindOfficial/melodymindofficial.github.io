@@ -20,7 +20,6 @@ export default function App() {
     const [active, setActive] = useState(
         localStorage.getItem('active') || 'main'
     );
-
     const [modal, setModal] = useState(false);
 
     useEffect(() => {
@@ -39,20 +38,18 @@ export default function App() {
 
     return (
         <>
-            <Authorization open={modal}>
-                <button onClick={() => setModal(false)}>Close</button>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Amet tenetur necessitatibus possimus eaque, at, ex tempora
-                    unde vel saepe rerum beatae, iusto eius. Cupiditate, animi!
-                </div>
-            </Authorization>
+            <Authorization
+                open={modal}
+                isModal={(current) => setModal(current)}
+            />
             <BrowserRouter>
-                <Header
-                    active={active}
-                    isActive={(current) => activeSection(current)}
-                    isModal={(current) => setModal(current)}
-                />
+                {active != 'sign-in' && (
+                    <Header
+                        active={active}
+                        isActive={(current) => activeSection(current)}
+                        isModal={(current) => setModal(current)}
+                    />
+                )}
                 <main style={{ marginTop: '115px' }}>
                     <Routes>
                         <Route path="/" element={<Main />} />
@@ -83,11 +80,18 @@ export default function App() {
                                 />
                             }
                         />
+                        <Route
+                            path="sign-in"
+                            element={<Authorization open={modal} />}
+                        />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
                 {pages.includes(window.location.pathname.slice(1)) ? (
-                    <Footer isActive={(current) => activeSection(current)} />
+                    <Footer
+                        isActive={(current) => activeSection(current)}
+                        // isModal={(current) => setModal(current)}
+                    />
                 ) : null}
             </BrowserRouter>
         </>

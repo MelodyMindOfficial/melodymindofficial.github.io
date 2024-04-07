@@ -17,7 +17,9 @@ export const footerList = [{
         title: 'Карта сайта',
         list: [{
             label: 'Вход/Регистрация',
-            id: 'sign-in'
+            id: 'sign-in',
+            target: '_blank',
+            bool: true
         }, {
             label: 'Лента',
             id: 'feed'
@@ -53,7 +55,7 @@ export const footerList = [{
             },
             {
                 label: 'Политика конфиденциальности',
-                id: 'privacy-policy',
+                id: 'src/assets/docs/Политика конфиденциальности.pdf',
                 download: true
             }
         ]

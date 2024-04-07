@@ -3,7 +3,7 @@ import { footerList } from '../../data';
 import logo from '/logo.png';
 import './Footer.css';
 
-export default function Footer({ isActive }) {
+export default function Footer({ isActive, isModal }) {
     function checkWindow() {
         if (window.innerWidth < 1024) {
             return true;
@@ -67,6 +67,7 @@ export default function Footer({ isActive }) {
                                             className="footerLink"
                                             onClick={() => isActive(item.id)}
                                             download={item.download}
+                                            target={item.target}
                                         >
                                             {item.label}
                                         </Link>

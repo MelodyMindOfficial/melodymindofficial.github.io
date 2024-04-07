@@ -80,8 +80,7 @@ header {
     transition: 150ms;
 }
 
-.headerLoginButton:hover,
-.headerLoginButton:focus {
+.headerLoginButton:hover {
     filter: brightness(1.25);
 }
 
@@ -100,8 +99,7 @@ header {
     transition: 150ms;
 }
 
-.headerCart:hover,
-.headerCart:focus {
+.headerCart:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
@@ -136,7 +134,6 @@ header {
 }
 
 .headerList li:hover a,
-.headerList a:focus,
 .headerList a.active {
     color: #fff;
     border-bottom: 1.5px solid #fff;
