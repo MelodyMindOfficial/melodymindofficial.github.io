@@ -31,7 +31,7 @@ export default function Authorization({ isModal, open, target }) {
                     Продолжить с
                 </h3>
                 <form
-                    action="./src/login.html"
+                    action="./login.html"
                     method="post"
                     className="signSelf"
                     target={target}
@@ -54,7 +54,7 @@ export default function Authorization({ isModal, open, target }) {
                 </form>
                 <p className="hr-line">или</p>
                 <form
-                    action="./"
+                    action="./register.html"
                     method="post"
                     className="signAuth"
                     target="_blank"
