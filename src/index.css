@@ -113,12 +113,12 @@ body {
   background-color: #0A0A09;
   opacity: 0;
   transition: 150ms;
-  z-index: 1000;
+  z-index: -1;
 }
 
 #preloader.show {
   opacity: 1;
-  z-index: -1;
+  z-index: 1000;
 }
 
 .spinner {

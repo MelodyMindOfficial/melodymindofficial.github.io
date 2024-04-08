@@ -41,15 +41,14 @@ export default function App() {
         }
     }
 
-    document.addEventListener(
-        'DOMContentLoaded',
-        document.getElementById('preloader').classList.remove('show')
-    );
+    window.onload = () => {
+        document.getElementById('preloader').classList.remove('show');
+    };
 
     return (
         <>
-            <div id="preloader" class="show">
-                <div class="spinner"></div>
+            <div id="preloader" className="show">
+                <div className="spinner"></div>
             </div>
             <Authorization
                 open={modal}
