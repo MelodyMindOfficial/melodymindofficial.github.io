@@ -90,22 +90,68 @@ header {
 }
 
 .headerCart {
+    margin-right: 5px;
+    height: 35px;
+    width: 45px;
     color: inherit;
     font-size: inherit;
     background: none;
-    height: 35px;
-    width: 45px;
     border-radius: 25px;
     transition: 150ms;
+}
+
+.headerCart:last-child {
+    margin-right: 0px;
+    /* font-size: 24px; */
 }
 
 .headerCart:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
+.headerCart img {
+    margin-top: 2px;
+    height: 55%;
+}
+
 .fa-chevron-down {
     font-size: 9px;
     transform: translate(50%, -25%);
+}
+
+.burger {
+    padding: 10px;
+    position: fixed;
+    top: 55px;
+    left: calc(80% - 2px);
+    /* height: 100px; */
+    width: 100px;
+    background-color: #383838;
+    border-radius: 6px;
+}
+
+.burger ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.burger li {
+    margin: 10px 0px;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    background-color: #696363;
+    border-radius: 6px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+    transition: 150ms;
+    cursor: pointer;
+}
+
+.burger li:hover {
+    /* transform: scale(0.95); */
+    background-color: #756f6f;
+    filter: brightness(110%);
 }
 
 .headerNav {

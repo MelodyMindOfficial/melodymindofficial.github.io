@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { headerList } from '../../data';
 import logo from '/logo.png';
 import './Header.css';
+import { useState } from 'react';
 
 export default function Header({
     active,
@@ -10,6 +11,7 @@ export default function Header({
     isModal,
     setSearch,
 }) {
+    const [burger, setBurger] = useState('');
     let lastScroll = 0;
     const defaultOffset = 200;
     const scrollPosition = () =>
@@ -104,9 +106,36 @@ export default function Header({
                                 Регистрация
                             </button>
                         </div>
-                        <button className="headerCart">
+                        {burger && (
+                            <section className="burger">
+                                {burger == 'language' ? (
+                                    <ul>
+                                        <li>Русский</li>
+                                        <li>English</li>
+                                    </ul>
+                                ) : null}
+                            </section>
+                        )}
+                        <button
+                            className="headerCart"
+                            onClick={() =>
+                                burger != 'cart'
+                                    ? setBurger('cart')
+                                    : setBurger('')
+                            }
+                        >
                             <i className="fa-solid fa-cart-shopping"></i>
                             <i className="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <button
+                            className="headerCart"
+                            onClick={() =>
+                                burger != 'language'
+                                    ? setBurger('language')
+                                    : setBurger('')
+                            }
+                        >
+                            <img src="/language.svg" alt="" />
                         </button>
                     </section>
                 </div>
