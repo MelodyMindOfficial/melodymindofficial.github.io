@@ -41,8 +41,16 @@ export default function App() {
         }
     }
 
+    document.addEventListener(
+        'DOMContentLoaded',
+        document.getElementById('preloader').classList.remove('show')
+    );
+
     return (
         <>
+            <div id="preloader" class="show">
+                <div class="spinner"></div>
+            </div>
             <Authorization
                 open={modal}
                 isModal={(current) => setModal(current)}
