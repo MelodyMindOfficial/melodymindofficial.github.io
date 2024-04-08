@@ -47,7 +47,7 @@ export default function App() {
 
     return (
         <>
-            <div id="preloader" className="show">
+            <div id="preloader" className="">
                 <div className="spinner"></div>
             </div>
             <Authorization
