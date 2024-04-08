@@ -9,8 +9,12 @@ export default function Main({ search, setSearch, isNotify }) {
         return Math.floor(Math.random() * max);
     }
 
+    const [button, setButton] = useState(true);
+
     const sendEmail = (e) => {
         e.preventDefault();
+
+        setButton(false);
 
         emailjs
             .sendForm('mail', 'template_isk5d14', e.target, {
@@ -18,6 +22,7 @@ export default function Main({ search, setSearch, isNotify }) {
             })
             .then(
                 () => {
+                    setButton(true);
                     document.querySelector('.mainEmailForm').reset();
                     document.querySelector('#email').blur();
                     isNotify(
@@ -26,6 +31,7 @@ export default function Main({ search, setSearch, isNotify }) {
                     setInvalid(true);
                 },
                 (error) => {
+                    setButton(true);
                     isNotify(
                         'Не удалось отправить письмо! Попробуйте обновить старинцу!'
                     );
@@ -134,7 +140,11 @@ export default function Main({ search, setSearch, isNotify }) {
                         className={!invalid ? 'active' : null}
                         type="submit"
                     >
-                        Подписаться
+                        {button ? (
+                            'Подписаться'
+                        ) : (
+                            <div className="spinner"></div>
+                        )}
                     </button>
                 </form>
             </div>
