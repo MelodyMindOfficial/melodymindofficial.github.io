@@ -103,30 +103,19 @@ dialog+.backdrop {
 }
 
 .hr-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     color: #9F9F9F;
     font-size: 14px;
     margin: 2px 0px 14px 0px;
 }
 
-.hr-line::after,
-.hr-line::before {
-    display: inline-block;
-    position: relative;
-    content: '';
+.hr-line hr {
     height: 1px;
-    width: 645%;
-    background-color: #4A4A4A;
-    vertical-align: middle;
-}
-
-.hr-line:before {
-    right: 8px;
-    margin: 0 0 0 -645%;
-}
-
-.hr-line:after {
-    left: 8px;
-    margin: 0 -645% 0 0;
+    width: calc(50% - 20px);
+    background-color: #9F9F9F;
 }
 
 .signPolicy {

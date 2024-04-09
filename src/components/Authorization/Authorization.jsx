@@ -3,7 +3,7 @@ import './Authorization.css';
 
 export default function Authorization({ isModal, open, target }) {
     const dialog = useRef();
-
+    const language = localStorage.getItem('language');
     const [disable, setDisable] = useState(true);
 
     function handleLoginChange(event) {
@@ -28,7 +28,7 @@ export default function Authorization({ isModal, open, target }) {
                             <i className="fa-solid fa-xmark"></i>
                         </button>
                     )}
-                    Продолжить с
+                    {language == 'en' ? 'Continue with' : 'Продолжить с'}
                 </h3>
                 <form
                     action="./login.html"
@@ -36,7 +36,9 @@ export default function Authorization({ isModal, open, target }) {
                     className="signSelf"
                     target={target}
                 >
-                    <label htmlFor="login">Эл.почта</label>
+                    <label htmlFor="login">
+                        {language == 'en' ? 'Email' : 'Эл.почта'}
+                    </label>
                     <input
                         type="email"
                         name="login"
@@ -49,10 +51,14 @@ export default function Authorization({ isModal, open, target }) {
                         disabled={disable}
                         type="submit"
                     >
-                        Продолжить
+                        {language == 'en' ? 'Continue' : 'Продолжить'}
                     </button>
                 </form>
-                <p className="hr-line">или</p>
+                <div className="hr-line">
+                    <hr />
+                    {language == 'en' ? 'or' : 'или'}
+                    <hr />
+                </div>
                 <form
                     action="./register.html"
                     method="post"
@@ -61,25 +67,38 @@ export default function Authorization({ isModal, open, target }) {
                 >
                     <button className="active" type="">
                         <img src="/google.png" alt="Google" />
-                        Войти с аккаунтом Google
+                        {language == 'en'
+                            ? 'Login with Google Account'
+                            : 'Войти с аккаунтом Google'}
                     </button>
                     <button className="active" type="">
                         <img src="/yandex.png" alt="Yandex" />
-                        Войти с аккаунтом Яндекс
+                        {language == 'en'
+                            ? 'Login with Yandex Account'
+                            : 'Войти с аккаунтом Яндекс'}
                     </button>
                 </form>
                 <p className="signPolicy">
-                    Создавая учетную запись и/или входя в систему, Вы
-                    соглашаетесь с{' '}
+                    {language == 'en'
+                        ? 'By creating an account and/or signing in, you agree to '
+                        : 'Создавая учетную запись и/или входя в систему, Вы соглашаетесь с '}
                     <a href="" download>
-                        Условиями использования
-                    </a>{' '}
-                    и{' '}
+                        {language == 'en'
+                            ? 'Terms of Use'
+                            : 'Условиями использования'}
+                    </a>
+                    {language == 'en' ? ' and ' : ' и '}
                     <a
-                        href="/src/assets/docs/Политика конфиденциальности.pdf"
+                        href={
+                            language == 'en'
+                                ? '/src/assets/docs/Privacy Policy.pdf'
+                                : '/src/assets/docs/Политика конфиденциальности.pdf'
+                        }
                         target="_blank"
                     >
-                        Политикой конфиденциальности
+                        {language == 'en'
+                            ? 'Privacy Policy'
+                            : 'Политикой конфиденциальности'}
                     </a>{' '}
                     MelodyMind
                 </p>

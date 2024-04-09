@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { footerList } from '../../data';
+import { footerList_en } from '../../data_en';
 import logo from '/logo.png';
 import './Footer.css';
 
-export default function Footer({ isActive, isModal }) {
+export default function Footer({ isActive }) {
+    const language = localStorage.getItem('language');
     function checkWindow() {
         if (window.innerWidth < 1024) {
             return true;
@@ -38,50 +40,57 @@ export default function Footer({ isActive, isModal }) {
                         </Link>
                         <p>Lorem ipsum dolor sit.</p>
                     </div>
-                    {footerList.map((item) => (
-                        <div className="footerColumn" key={item.title}>
-                            <h3
-                                className="footerTitle"
-                                onClick={
-                                    checkWindow()
-                                        ? () => showList(item.id)
-                                        : null
-                                }
-                            >
-                                {item.title}
-                                {checkWindow() && (
-                                    <i
-                                        id={'i_' + item.id}
-                                        className="fa-solid fa-chevron-down"
-                                        style={{
-                                            fontSize: '16px',
-                                        }}
-                                    ></i>
-                                )}
-                            </h3>
-                            <ul id={item.id}>
-                                {item.list.map((item) => (
-                                    <li key={item.id} className="footerItem">
-                                        <Link
-                                            to={'/' + item.id}
-                                            className="footerLink"
-                                            onClick={() => isActive(item.id)}
-                                            download={item.download}
-                                            target={item.target}
+                    {(language == 'en' ? footerList_en : footerList).map(
+                        (item) => (
+                            <div className="footerColumn" key={item.title}>
+                                <h3
+                                    className="footerTitle"
+                                    onClick={
+                                        checkWindow()
+                                            ? () => showList(item.id)
+                                            : null
+                                    }
+                                >
+                                    {item.title}
+                                    {checkWindow() && (
+                                        <i
+                                            id={'i_' + item.id}
+                                            className="fa-solid fa-chevron-down"
+                                            style={{
+                                                fontSize: '16px',
+                                            }}
+                                        ></i>
+                                    )}
+                                </h3>
+                                <ul id={item.id}>
+                                    {item.list.map((item) => (
+                                        <li
+                                            key={item.id}
+                                            className="footerItem"
                                         >
-                                            {item.label}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
+                                            <Link
+                                                to={'/' + item.id}
+                                                className="footerLink"
+                                                onClick={() =>
+                                                    isActive(item.id)
+                                                }
+                                                download={item.download}
+                                                target={item.target}
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )
+                    )}
                 </section>
                 <section className="footerCopyright">
                     <h2 style={{ userSelect: 'none' }}>
-                        Copyright © 2024 MelodyMind Inc. - интернет-магазин по
-                        продаже музыкальных композиций | Made with &hearts; by
-                        MickhOse Zitrop
+                        {language == 'en'
+                            ? 'Copyright © 2024 MelodyMind Inc. - online music store | Made with ♥ by Mickose Zitrop'
+                            : 'Copyright © 2024 MelodyMind Inc. - интернет-магазин по продаже музыкальных композиций | Made with ♥ by MickhOse Zitrop'}
                     </h2>
                 </section>
             </div>

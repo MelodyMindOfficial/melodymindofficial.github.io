@@ -1,42 +1,65 @@
 import { Link } from 'react-router-dom';
 import { team } from '../../data';
+import { team_en } from '../../data_en';
 import './About.css';
 
 export default function About({ isActive }) {
+    const language = localStorage.getItem('language');
     return (
         <>
             <section className="aboutSection">
                 <h1 className="aboutTitle">
-                    Делись своими работами и пусть их услышит весь мир!
+                    {language == 'en'
+                        ? 'Share your work and let the whole world hear it'
+                        : 'Делись своими работами и пусть их услышит весь мир'}
+                    !
                 </h1>
                 <p className="aboutText">
-                    Мы помогаем артистам найти продюсеров для сотрудничества и
-                    продвижения <br /> своей музыки в массы. Стань частью нашей
-                    компании уже сейчас!
+                    {language == 'en'
+                        ? 'We help artists find producers to collaborate and promote their music to the masses.'
+                        : 'Мы помогаем артистам найти продюсеров для сотрудничества и продвижения'}
+                    <br />
+                    {language == 'en'
+                        ? 'Become a part of our company now'
+                        : 'своей музыки в массы. Стань частью нашей компании уже сейчас'}
+                    !
                 </p>
                 <Link to="/" onClick={() => isActive('main')}>
-                    <button>Узнать больше</button>
+                    <button>
+                        {language == 'en' ? 'Learn more' : 'Узнать больше'}
+                    </button>
                 </Link>
             </section>
             <section className="aboutWorld">
                 <h1 className="aboutTitle">
-                    Своей работой мы воплощаем мечты в реальность
+                    {language == 'en'
+                        ? 'With our work, we make dreams come true'
+                        : 'Своей работой мы воплощаем мечты в реальность'}
                 </h1>
                 <p className="aboutText">
-                    Мы - маленькая команда энтузиастов из вуза с разным опытом
-                    работы, но одной целью: <br />
-                    расширение прав и возможностей независимых музыкальных
-                    креаторов
+                    {language == 'en'
+                        ? 'We are a small team of enthusiasts from the university with different experiences work,'
+                        : 'Мы - маленькая команда энтузиастов из вуза с разным опытом работы, но одной целью:'}
+                    <br />
+                    {language == 'en'
+                        ? 'but with one goal: empowering independent music artists creators'
+                        : 'расширение прав и возможностей независимых музыкальных креаторов'}
                 </p>
                 <div className="aboutImage">
                     <img src="/map_world.png" alt="" />
                 </div>
             </section>
             <section className="aboutTeam">
-                <p className="aboutText">КОМАНДА MELODYMIND</p>
-                <h1 className="aboutTitle">Познакомьтесь с командой</h1>
+                <p className="aboutText">
+                    {language == 'en' ? 'TEAM' : 'КОМАНДА'} MELODYMIND
+                </p>
+                <h1 className="aboutTitle">
+                    {language == 'en'
+                        ? 'Welcome our team'
+                        : 'Познакомьтесь с командой'}
+                </h1>
                 <div className="aboutTeamSection _container">
-                    {team.map((member) => (
+                    {(language == 'en' ? team_en : team).map((member) => (
                         <div key={member.name} className="aboutMember">
                             <img
                                 src={member.image}

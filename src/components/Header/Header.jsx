@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { headerList } from '../../data';
+import { headerList_en } from '../../data_en';
 import logo from '/logo.png';
 import './Header.css';
-import { useState } from 'react';
 
 export default function Header({
     active,
@@ -10,9 +10,10 @@ export default function Header({
     isActive,
     isModal,
     setSearch,
+    changeLanguage,
 }) {
-    const [burger, setBurger] = useState('');
     let lastScroll = 0;
+    const language = localStorage.getItem('language');
     const defaultOffset = 200;
     const scrollPosition = () =>
         window.scrollY || document.documentElement.scrollTop;
@@ -59,7 +60,11 @@ export default function Header({
                             <input
                                 className="headerInput"
                                 type="text"
-                                placeholder="Что ты ищешь?"
+                                placeholder={
+                                    language == 'en'
+                                        ? 'What are you looking for?'
+                                        : 'Что ты ищешь?'
+                                }
                                 value={search}
                                 onChange={(e) => handleSearch(e)}
                             />
@@ -75,7 +80,7 @@ export default function Header({
                                 }
                                 onClick={() => isActive('about')}
                             >
-                                О нас
+                                {language == 'en' ? 'About us' : 'О нас'}
                             </Link>
                             <Link
                                 to="/contacts"
@@ -86,7 +91,7 @@ export default function Header({
                                 }
                                 onClick={() => isActive('contacts')}
                             >
-                                Контакты
+                                {language == 'en' ? 'Contacts' : 'Контакты'}
                             </Link>
                         </div>
                     )}
@@ -97,62 +102,45 @@ export default function Header({
                                 onClick={() => isModal(true)}
                                 className="headerLoginButton"
                             >
-                                Вход
+                                {language == 'en' ? 'Sign in' : 'Вход'}
                             </button>
                             <button
                                 onClick={() => isModal(true)}
                                 className="headerLoginButton"
                             >
-                                Регистрация
+                                {language == 'en' ? 'Sign up' : 'Регистрация'}
                             </button>
                         </div>
-                        {burger && (
-                            <section className="burger">
-                                {burger == 'language' ? (
-                                    <ul>
-                                        <li>Русский</li>
-                                        <li>English</li>
-                                    </ul>
-                                ) : null}
-                            </section>
-                        )}
-                        <button
-                            className="headerCart"
-                            onClick={() =>
-                                burger != 'cart'
-                                    ? setBurger('cart')
-                                    : setBurger('')
-                            }
-                        >
+                        <button className="headerCart">
                             <i className="fa-solid fa-cart-shopping"></i>
                             <i className="fa-solid fa-chevron-down"></i>
                         </button>
                         <button
                             className="headerCart"
-                            onClick={() =>
-                                burger != 'language'
-                                    ? setBurger('language')
-                                    : setBurger('')
-                            }
+                            onClick={() => changeLanguage()}
                         >
-                            <img src="/language.svg" alt="" />
+                            {language == 'en' ? <i>Ru</i> : <i>En</i>}
                         </button>
                     </section>
                 </div>
             </section>
             <nav className="headerNav" id="header">
                 <ul className="headerList _container">
-                    {headerList.map((item) => (
-                        <li key={item.id}>
-                            <Link
-                                to={'/' + item.id}
-                                className={active == item.id ? 'active' : null}
-                                onClick={() => isActive(item.id)}
-                            >
-                                {item.title}
-                            </Link>
-                        </li>
-                    ))}
+                    {(language == 'en' ? headerList_en : headerList).map(
+                        (item) => (
+                            <li key={item.id}>
+                                <Link
+                                    to={'/' + item.id}
+                                    className={
+                                        active == item.id ? 'active' : null
+                                    }
+                                    onClick={() => isActive(item.id)}
+                                >
+                                    {item.title}
+                                </Link>
+                            </li>
+                        )
+                    )}
                 </ul>
             </nav>
         </header>

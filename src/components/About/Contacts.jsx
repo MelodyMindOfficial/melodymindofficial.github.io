@@ -1,20 +1,27 @@
 import { Link } from 'react-router-dom';
 import { contacts } from '../../data';
+import { contacts_en } from '../../data_en';
 import './About.css';
 
 export default function Contacts({ isActive }) {
     var i = 0;
+    const language = localStorage.getItem('language');
     return (
         <div className="contacts">
             <div className="_container">
-                <h1>Контакты</h1>
+                <h1>{language == 'en' ? 'Contacts' : 'Контакты'}</h1>
                 <div className="contactsSection">
                     <section id="index">
                         <div className="contactsCardContent">
                             <div>
-                                <h3>Обращение</h3>
+                                <h3>
+                                    {language == 'en' ? 'Appeal' : 'Обращение'}
+                                </h3>
                                 <p>
-                                    Если у Вас возник вопрос –<br />
+                                    {language == 'en'
+                                        ? 'If you have a question'
+                                        : 'Если у Вас возник вопрос – '}
+                                    <br />
                                     <a
                                         href="mailto:mm.business@internet.ru"
                                         style={{
@@ -22,19 +29,25 @@ export default function Contacts({ isActive }) {
                                             textDecoration: 'underline',
                                         }}
                                     >
-                                        напишите нам
+                                        {language == 'en'
+                                            ? 'contact us'
+                                            : 'напишите нам'}
                                     </a>
                                 </p>
                             </div>
                             <Link to="/" onClick={() => isActive('main')}>
-                                <button>Частые вопросы</button>
+                                <button>
+                                    {language == 'en'
+                                        ? 'FAQ'
+                                        : 'Частые вопросы'}
+                                </button>
                             </Link>
                         </div>
                         <div className="">
                             <img src="/contacts.png" alt="" />
                         </div>
                     </section>
-                    {contacts.map((e) => (
+                    {(language == 'en' ? contacts_en : contacts).map((e) => (
                         <section key={i++}>
                             <div className="contactsCardContent">
                                 <div>

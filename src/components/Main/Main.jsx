@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { mainTrends, mainTracks, numTracks } from '../../data';
+import { mainTrends_en, mainTracks_en, numTracks_en } from '../../data_en';
 import MainSection from '../MainSection/MainSection';
 import emailjs from '@emailjs/browser';
 import './Main.css';
@@ -8,7 +9,7 @@ export default function Main({ search, setSearch, isNotify }) {
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
-
+    const language = localStorage.getItem('language');
     const [button, setButton] = useState(true);
 
     const sendEmail = (e) => {
@@ -26,16 +27,19 @@ export default function Main({ search, setSearch, isNotify }) {
                     document.querySelector('.mainEmailForm').reset();
                     document.querySelector('#email').blur();
                     isNotify(
-                        'Мы только что отправили вам электронное письмо с инструкциями по выполнению этого запроса'
+                        language == 'en'
+                            ? 'We have just sent you an email with instructions on how to complete this request'
+                            : 'Мы только что отправили вам электронное письмо с инструкциями по выполнению этого запроса'
                     );
                     setInvalid(true);
                 },
-                (error) => {
+                () => {
                     setButton(true);
                     isNotify(
-                        'Не удалось отправить письмо! Попробуйте обновить старинцу!'
+                        language == 'en'
+                            ? 'The email could not be sent! Try refreshing the page!'
+                            : 'Не удалось отправить письмо! Попробуйте обновить старинцу!'
                     );
-                    console.log('FAILED...', error.text);
                 }
             );
     };
@@ -87,13 +91,17 @@ export default function Main({ search, setSearch, isNotify }) {
                         </button>
                         <input
                             type="text"
-                            placeholder="Исследуйте новые звуки - ищите ритмы и продюсеров"
+                            placeholder={
+                                language == 'en'
+                                    ? 'Explore new sounds - look for rhythms and producers'
+                                    : 'Исследуйте новые звуки - ищите ритмы и продюсеров'
+                            }
                             className="mainInput"
                             value={search}
                             onChange={(e) => handleSearch(e)}
                         />
                         <button className="rigthSubmit" type="submit">
-                            Поиск
+                            {language == 'en' ? 'Search' : 'Поиск'}
                         </button>
                     </form>
                 </div>
@@ -102,9 +110,11 @@ export default function Main({ search, setSearch, isNotify }) {
                     <img src={image} alt="Intro" />
                 </div>
             </div>
-            <MainSection>{mainTrends}</MainSection>
+            <MainSection>
+                {language == 'en' ? mainTrends_en : mainTrends}
+            </MainSection>
             <div className="mainTrust">
-                <h3>Мы доверяем:</h3>
+                <h3> {language == 'en' ? 'We trust' : 'Мы доверяем'}:</h3>
                 <div className="trustSection">
                     {[...Array(2)].map(() => (
                         <div key={i++} className="imageTrust">
@@ -119,11 +129,14 @@ export default function Main({ search, setSearch, isNotify }) {
                     ))}
                 </div>
             </div>
-            <MainSection>{mainTracks}</MainSection>
+            <MainSection>
+                {language == 'en' ? mainTracks_en : mainTracks}
+            </MainSection>
             <div className="mainEmail">
                 <h3 style={{ fontSize: '18px', fontWeight: '700' }}>
-                    Присылайте нам персональные советы по покупкам и продажам на
-                    MelodyMind
+                    {language == 'en'
+                        ? 'Send us your personal buying and selling tips on MelodyMind'
+                        : 'Присылайте нам персональные советы по покупкам и продажам на MelodyMind'}
                 </h3>
                 <form onSubmit={sendEmail} className="mainEmailForm">
                     <i className="fa-solid fa-envelope"></i>
@@ -132,7 +145,11 @@ export default function Main({ search, setSearch, isNotify }) {
                         name="email"
                         onChange={handleEmailChange}
                         type="email"
-                        placeholder="Введите свою почту"
+                        placeholder={
+                            language == 'en'
+                                ? 'Enter your email address'
+                                : 'Введите свою почту'
+                        }
                         required
                     />
                     <button
@@ -141,7 +158,11 @@ export default function Main({ search, setSearch, isNotify }) {
                         type="submit"
                     >
                         {button ? (
-                            'Подписаться'
+                            language == 'en' ? (
+                                'Subscribe'
+                            ) : (
+                                'Подписаться'
+                            )
                         ) : (
                             <div className="spinner"></div>
                         )}

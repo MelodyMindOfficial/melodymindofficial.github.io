@@ -41,6 +41,17 @@ export default function App() {
         }
     }
 
+    function changeLanguage() {
+        const lan = localStorage.getItem('language');
+        if (lan == 'en') {
+            localStorage.setItem('language', 'ru');
+        } else {
+            localStorage.setItem('language', 'en');
+        }
+
+        return location.reload();
+    }
+
     window.onload = () => {
         document.getElementById('preloader').classList.remove('show');
     };
@@ -64,6 +75,7 @@ export default function App() {
                         isModal={(current) => setModal(current)}
                         search={search}
                         setSearch={(current) => setSeacrh(current)}
+                        changeLanguage={() => changeLanguage()}
                     />
                 )}
                 <main style={{ marginTop: '115px' }}>
@@ -113,10 +125,7 @@ export default function App() {
                     </Routes>
                 </main>
                 {pages.includes(window.location.pathname.slice(1)) ? (
-                    <Footer
-                        isActive={(current) => activeSection(current)}
-                        isModal={(current) => setModal(current)}
-                    />
+                    <Footer isActive={(current) => activeSection(current)} />
                 ) : null}
             </BrowserRouter>
         </>

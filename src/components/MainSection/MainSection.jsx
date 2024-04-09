@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { mainTrends } from '../../data';
+import { mainTrends_en } from '../../data_en';
 import noneImage from '/none_image.png';
 import './MainSection.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export default function MainSection({ children }) {
+    const language = localStorage.getItem('language');
     function checkWindow() {
         if (window.innerWidth < 1250 && window.innerWidth >= 1050) {
             return 5;
@@ -40,10 +42,16 @@ export default function MainSection({ children }) {
             <div className="_container">
                 <div className="sectionTitle">
                     <h3>
-                        {children == mainTrends ? 'Тренды' : 'Популярные жанры'}
+                        {language == 'en'
+                            ? children == mainTrends_en
+                                ? 'Trends'
+                                : 'Popular geners'
+                            : children == mainTrends
+                            ? 'Тренды'
+                            : 'Популярные жанры'}
                     </h3>
                     <h4>
-                        Смотреть всё{' '}
+                        {language == 'en' ? 'More' : 'Смотреть всё'}{' '}
                         <i className="fa-solid fa-chevron-right"></i>
                     </h4>
                 </div>
@@ -68,7 +76,10 @@ export default function MainSection({ children }) {
                                     id="price"
                                     className="trackItem"
                                 >
-                                    {item.price && item.price + ' рублей'}
+                                    {item.price &&
+                                        (language == 'en' ? '$' : '') +
+                                            item.price +
+                                            (language == 'en' ? '' : ' рублей')}
                                 </p>
                                 <Link
                                     to={'/' + item.id}
