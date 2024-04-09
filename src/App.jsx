@@ -25,10 +25,14 @@ export default function App() {
     const [search, setSeacrh] = useState('');
     const [notify, setNotify] = useState('');
 
+    addEventListener('popstate', () => {
+        setActive(window.location.pathname.slice(1));
+    });
+
     useEffect(() => {
         localStorage.setItem('active', active);
         <Header active={active} />;
-    }, [props.source]);
+    }, [active]);
 
     function activeSection(current) {
         setActive(current);
