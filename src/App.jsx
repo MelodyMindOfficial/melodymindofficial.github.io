@@ -28,7 +28,7 @@ export default function App() {
     useEffect(() => {
         localStorage.setItem('active', active);
         <Header active={active} />;
-    }, [window.location]);
+    }, [props.source]);
 
     function activeSection(current) {
         setActive(current);
