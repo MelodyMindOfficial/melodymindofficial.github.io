@@ -1,6 +1,6 @@
 <?php
 
-$user = 'cg30388';
+$user = 'cg30388_user';
 $password = 'AdBSlMoFl<3';
 $db = 'cg30388_users';
 $host = 'localhost';
