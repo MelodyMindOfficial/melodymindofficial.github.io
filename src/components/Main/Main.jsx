@@ -118,13 +118,13 @@ export default function Main({ search, setSearch, isNotify }) {
                 <div className="trustSection">
                     {[...Array(2)].map(() => (
                         <div key={i++} className="imageTrust">
-                            <img src="/slider_0.png" alt="" />
-                            <img src="/slider_1.png" alt="" />
-                            <img src="/slider_2.png" alt="" />
-                            <img src="/slider_3.png" alt="" />
-                            <img src="/slider_4.png" alt="" />
-                            <img src="/slider_5.png" alt="" />
-                            <img src="/slider_6.png" alt="" />
+                            <img src="/slider/slider_0.png" alt="" />
+                            <img src="/slider/slider_1.png" alt="" />
+                            <img src="/slider/slider_2.png" alt="" />
+                            <img src="/slider/slider_3.png" alt="" />
+                            <img src="/slider/slider_4.png" alt="" />
+                            <img src="/slider/slider_5.png" alt="" />
+                            <img src="/slider/slider_6.png" alt="" />
                         </div>
                     ))}
                 </div>

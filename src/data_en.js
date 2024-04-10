@@ -181,31 +181,31 @@ export const mainTracks_en = [{
 export const team_en = [{
     name: 'Nikita Nikishin',
     status: 'Backend Developer',
-    image: '/NNikishin.png'
+    image: '/team/NNikishin.png'
 }, {
     name: 'Valery Krasnikhin',
     status: 'Documentarian',
-    image: '/VKrasnihin.png'
+    image: '/team/VKrasnihin.png'
 }, {
     name: 'Stepan Lapukhin',
     status: 'Content Manager',
-    image: '/SLapuhin.png'
+    image: '/team/SLapuhin.png'
 }, {
     name: 'Andrey Dobrynsky',
     status: 'Tester',
-    image: '/ADobrynskiy.png'
+    image: '/team/ADobrynskiy.png'
 }, {
     name: 'Mikhail Zaturzhinsky',
     status: 'Fullstack-developer, Team leader',
-    image: '/MZaturzhinskiy.png'
+    image: '/team/MZaturzhinskiy.png'
 }, {
     name: 'Daniil Stupko',
     status: 'Analyst',
-    image: '/DStupko.png'
+    image: '/team/DStupko.png'
 }, {
     name: 'Egor Filippov',
     status: 'Designer',
-    image: '/EFilippov.png'
+    image: '/team/EFilippov.png'
 }, ]
 
 export const contacts_en = [{
