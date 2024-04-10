@@ -60,7 +60,7 @@ export default function Authorization({ isModal, open, target }) {
                     <hr />
                 </div>
                 <form
-                    action="./db.php"
+                    action="./connect.php"
                     method="post"
                     className="signAuth"
                     target="_blank"
