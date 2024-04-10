@@ -36,13 +36,13 @@ export default function App() {
 
     function activeSection(current) {
         setActive(current);
-        if (active == setActive(current)) {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth',
-            });
-        }
+        // if (active == setActive(current)) {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
+        // }
     }
 
     function changeLanguage() {
