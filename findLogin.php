@@ -4,11 +4,10 @@ require_once('connect.php');
 
 $login = $_POST['login'];
 
-$sql = "SELECT * FROM `users` WHERE email = '$login'";
-$result = $connect->query($sql);
+$sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$login'");
 
-if ($result->num_rows > 0) {
-    header('Location: https://cg30388.tw1.ru/sign-in.php');
+if (!mysqli_fetch_assoc($sql)) {
+    header('Location: https://cg30388.tw1.ru/sign-in/');
 } else {
-    header('Location: https://cg30388.tw1.ru/sign-up.php');
+    header('Location: https://cg30388.tw1.ru/sign-up/');
 }

@@ -1,44 +1,22 @@
-<!DOCTYPE html>
-<html lang="ru">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+require_once('connect.php');
 
-<body>
+$email = $_POST['email'];
+$password = $_POST['password'];
+$id = rand(100000, 999999);
 
+$id_sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
+while (mysqli_fetch_assoc($id_sql)) {
+    $id = rand(100000, 999999);
+}
 
-    <?php
+$password = md5($password);
+$sql = "INSERT INTO users (id, email, password) VALUES ('$id', '$email', '$password')";
 
-    require_once('db.php');
-
-    $login = $_POST['remail'];
-    $pass = md5($_POST['password']);
-
-    if (empty($login) || empty($pass)) {
-        echo "Заполните все поля";
-    } else {
-        $sql = "SELECT * FROM `users` WHERE email = '$login' AND pass = '$pass'";
-        $resul = $connect->query($sql);
-
-
-        if ($resul->num_rows > 0) {
-
-            while ($row = $resul->fetch_assoc()) {
-                echo "Добро пожаловать", '<br>', "Ваш емаил: ", $login, '<br>', "Ваш пароль: ", $_POST['password'];
-            }
-        } else {
-            echo "Нет такого пользователя";
-        }
-    }
-
-    ?>
-
-    <form action="index.php" method="post">
-        <button type="back"> Назад </button>
-    </form>
-</body>
-
-</html>
+if ($connect->query($sql)) {
+    header('Location: https://cg30388.tw1.ru/profile');
+} else {
+    header('Location: https://cg30388.tw1.ru/');
+}
+$link->close();
