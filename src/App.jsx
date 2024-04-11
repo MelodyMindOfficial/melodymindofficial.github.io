@@ -31,7 +31,8 @@ export default function App() {
     const activePage =
         window.location.pathname.slice(1) != 'sign-in/' &&
         window.location.pathname.slice(1) != 'sign-up/' &&
-        window.location.pathname.slice(1) != 'reset-password/';
+        window.location.pathname.slice(1) != 'reset-password/' &&
+        window.location.pathname.slice(1) != 'login';
 
     addEventListener('popstate', () => {
         setActive(window.location.pathname.slice(1));
