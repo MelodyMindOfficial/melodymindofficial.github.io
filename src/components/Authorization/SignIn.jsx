@@ -75,7 +75,7 @@ export default function SignIn({ email }) {
                     >
                         {isEmail ? (
                             <div className="loginSection">
-                                <img src="./user.png" alt="" />
+                                <img src="./../user.png" alt="" />
                                 <div className="">
                                     <h5>
                                         {language == 'en'
