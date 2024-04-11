@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
 
-export default function Authorization({ isModal, open, target }) {
+export default function Authorization({ isModal, open, target, isEmail }) {
     const dialog = useRef();
     const language = localStorage.getItem('language');
     const [disable, setDisable] = useState(true);
@@ -35,6 +35,9 @@ export default function Authorization({ isModal, open, target }) {
                     method="post"
                     className="signSelf"
                     target={target}
+                    onSubmit={() =>
+                        isEmail(document.getElementById('login').value)
+                    }
                 >
                     <label htmlFor="login">
                         {language == 'en' ? 'Email' : 'Эл.почта'}

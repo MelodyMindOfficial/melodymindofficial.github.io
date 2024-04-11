@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { pages } from './data';
 import NotFound from './components/NotFound/NotFound';
+import SignIn from './components/Authorization/SignIn';
+import SignUp from './components/Authorization/SignUp';
+import ResetPassword from './components/Authorization/ResetPassword';
 import Authorization from './components/Authorization/Authorization';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -21,9 +24,14 @@ export default function App() {
     const [active, setActive] = useState(
         localStorage.getItem('active') || 'main'
     );
+    const [email, setEmail] = useState(localStorage.getItem('email') || '');
     const [modal, setModal] = useState(false);
     const [search, setSeacrh] = useState('');
     const [notify, setNotify] = useState('');
+    const activePage =
+        window.location.pathname.slice(1) != 'sign-in' &&
+        window.location.pathname.slice(1) != 'sign-up' &&
+        window.location.pathname.slice(1) != 'reset-password';
 
     addEventListener('popstate', () => {
         setActive(window.location.pathname.slice(1));
@@ -33,6 +41,10 @@ export default function App() {
         localStorage.setItem('active', active);
         <Header active={active} />;
     }, [active]);
+
+    useEffect(() => {
+        localStorage.setItem('email', email);
+    }, [email]);
 
     function activeSection(current) {
         setActive(current);
@@ -67,10 +79,11 @@ export default function App() {
                 open={modal}
                 isModal={(current) => setModal(current)}
                 target={'_blank'}
+                isEmail={(current) => setEmail(current)}
             />
             {notify && <Notify setShow={() => setNotify('')}>{notify}</Notify>}
             <BrowserRouter>
-                {window.location.pathname.slice(1) != 'sign-in' && (
+                {activePage && (
                     <Header
                         active={active}
                         isActive={(current) => activeSection(current)}
@@ -91,6 +104,18 @@ export default function App() {
                                     isNotify={(current) => setNotify(current)}
                                 />
                             }
+                        />
+                        <Route
+                            path="/sign-in"
+                            element={<SignIn email={email} />}
+                        />
+                        <Route
+                            path="/sign-up"
+                            element={<SignUp email={email} />}
+                        />
+                        <Route
+                            path="/reset-password"
+                            element={<ResetPassword email={email} />}
                         />
                         <Route path="/feed" element={<Feed />} />
                         <Route path="/tracks" element={<Tracks />} />
@@ -120,13 +145,19 @@ export default function App() {
                             }
                         />
                         <Route
-                            path="sign-in"
-                            element={<Authorization open={true} />}
+                            path="login"
+                            element={
+                                <Authorization
+                                    open={true}
+                                    isEmail={(current) => setEmail(current)}
+                                />
+                            }
                         />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
-                {pages.includes(window.location.pathname.slice(1)) ? (
+                {pages.includes(window.location.pathname.slice(1)) &&
+                activePage ? (
                     <Footer isActive={(current) => activeSection(current)} />
                 ) : null}
             </BrowserRouter>
