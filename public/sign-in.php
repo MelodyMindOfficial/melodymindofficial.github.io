@@ -11,12 +11,18 @@ while (mysqli_fetch_assoc($id_sql)) {
     $id = rand(100000, 999999);
 }
 
-$password = md5($password);
-$sql = "INSERT INTO users (id, email, password) VALUES ('$id', '$email', '$password')";
+$sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email'");
+if (!mysqli_fetch_assoc($sql)) {
 
-if ($connect->query($sql)) {
-    header('Location: https://cg30388.tw1.ru/profile');
+    $password = md5($password);
+    $sql = "INSERT INTO users (id, email, password) VALUES ('$id', '$email', '$password')";
+
+    if ($connect->query($sql)) {
+        header('Location: https://cg30388.tw1.ru/profile');
+    } else {
+        header('Location: https://cg30388.tw1.ru/');
+    }
+    $link->close();
 } else {
     header('Location: https://cg30388.tw1.ru/');
 }
-$link->close();
