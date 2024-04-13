@@ -14,5 +14,5 @@ if ($result->num_rows > 0) {
     header('Location: https://cg30388.tw1.ru/profile');
 } else {
     $_SESSION['message'] = "Такого пользователя не существует";
-    header('Location: https://cg30388.tw1.ru/');
+    header('Location: https://cg30388.tw1.ru/feed');
 }
