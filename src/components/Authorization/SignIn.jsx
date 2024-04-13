@@ -51,7 +51,10 @@ export default function SignUp({ email, isMsg }) {
             .catch((err) => console.log(err));
     }
 
-    useEffect(() => isMsg(msg), [msg]);
+    useEffect(() => {
+        isMsg(msg);
+        setTimeout(() => setMsg(''), 5000);
+    }, [msg]);
 
     return (
         <dialog ref={dialog} open>

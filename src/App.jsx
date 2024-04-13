@@ -135,7 +135,12 @@ export default function App() {
                         />
                         <Route
                             path="/reset-password"
-                            element={<ResetPassword email={email} />}
+                            element={
+                                <ResetPassword
+                                    email={email}
+                                    isMsg={(current) => setNotify(current)}
+                                />
+                            }
                         />
                         <Route path="/feed" element={<Feed />} />
                         <Route path="/tracks" element={<Tracks />} />
