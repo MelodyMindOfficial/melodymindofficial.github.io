@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
 
 export default function ResetPassword() {
@@ -12,7 +13,16 @@ export default function ResetPassword() {
 
     return (
         <dialog ref={dialog} open>
-            penis
+            <div className="signWrap">
+                <h3 className="signTitle">
+                    <button onClick={() => history.back()}>
+                        <i className="fa-solid fa-arrow-left"></i>
+                    </button>
+                    {language == 'en'
+                        ? 'Reset your password'
+                        : 'Сбросьте свой пароль'}
+                </h3>
+            </div>
         </dialog>
     );
 }

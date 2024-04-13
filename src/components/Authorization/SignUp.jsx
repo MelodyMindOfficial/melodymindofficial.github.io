@@ -1,14 +1,45 @@
+import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
 
-export default function SignUp() {
+export default function SignIn({ email }) {
     const dialog = useRef();
     const language = localStorage.getItem('language');
     const [disable, setDisable] = useState(true);
+    const [isEmail, setIsEmail] = useState(email);
+    const [isAllow, setAllow] = useState(false);
 
-    function handlePasswordChange(event) {
-        if (event.target.value.trim().length != 0) setDisable(false);
-        else setDisable(true);
+    function handlePasswordCorrect() {
+        var password = document.getElementById('password');
+        var passwordCheck = document.getElementById('passwordCheck');
+        var emailNew = document.getElementById('emailNew');
+        if (
+            password.value == passwordCheck.value &&
+            password.value &&
+            passwordCheck.value
+        ) {
+            if (isAllow) {
+                try {
+                    if (emailNew.value) {
+                        setDisable(false);
+                    } else {
+                        setDisable(true);
+                    }
+                } catch (error) {
+                    setDisable(false);
+                }
+            } else {
+                setDisable(true);
+            }
+            passwordCheck.classList.remove('error');
+        } else {
+            passwordCheck.classList.add('error');
+            setDisable(true);
+        }
     }
+
+    useEffect(() => {
+        localStorage.setItem('email', isEmail);
+    }, [isEmail]);
 
     return (
         <dialog ref={dialog} open>

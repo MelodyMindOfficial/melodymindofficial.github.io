@@ -13,9 +13,16 @@
     } else {
       document.documentElement.lang = 'ru'
     }
-    (function (l) {
+
+    try {
+      const message = document.getElementById('message').value
+      localStorage.setItem('message', message)
+    } catch (error) {
+
+    }
+    (function(l) {
       if (l.search[1] === '/') {
-        var decoded = l.search.slice(1).split('&').map(function (s) {
+        var decoded = l.search.slice(1).split('&').map(function(s) {
           return s.replace(/~and~/g, '&')
         }).join('?');
         window.history.replaceState(null, null,
@@ -27,6 +34,15 @@
 </head>
 
 <body>
+  <?php
+  session_start();
+  if ($_SESSION['user'])
+    header('Location: http://cg30388.tw1.ru/profile');
+  if ($_SESSION['message']) {
+    echo '<input type="hidden" value="' . $_SESSION['message'] . '" id="message" >';
+    unset($_SESSION['message']);
+  }
+  ?>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

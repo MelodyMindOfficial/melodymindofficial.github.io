@@ -213,31 +213,11 @@ dialog+.backdrop {
     background-color: #005FF8;
 }
 
-/* 
-.hint {
-    display: none;
-    padding: 5px 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    color: #fff;
-    background-color: #383838;
-    border-radius: 5px;
-    transform: translate(210px, calc(-50% - 10px));
-    z-index: 100;
+.passwordLabelLogin {
+    display: flex;
+    justify-content: space-between;
 }
 
-.hint.show {
-    display: block;
+.passwordLabelLogin a {
+    color: #9F9F9F;
 }
-
-.hint::before {
-    content: '';
-    position: absolute;
-    top: 16px;
-    left: -30px;
-    border: 10px solid transparent;
-    border-right: 20px solid #383838;
-    border-top-left-radius: 5px;
-} */
