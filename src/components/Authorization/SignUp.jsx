@@ -6,7 +6,9 @@ export default function SignIn({ email }) {
     const language = localStorage.getItem('language');
     const [disable, setDisable] = useState(true);
     const [isEmail, setIsEmail] = useState(email);
+    const [isPassword, setIsPassword] = useState('');
     const [isAllow, setAllow] = useState(false);
+    const [msg, setMsg] = useState('');
 
     function handlePasswordCorrect() {
         var password = document.getElementById('password');
@@ -17,9 +19,13 @@ export default function SignIn({ email }) {
             password.value &&
             passwordCheck.value
         ) {
+            setIsPassword(password.value);
             if (isAllow) {
                 try {
                     if (emailNew.value) {
+                        emailNew.addEventListener('blur', () => {
+                            setIsEmail(emailNew.value);
+                        });
                         setDisable(false);
                     } else {
                         setDisable(true);
@@ -41,6 +47,27 @@ export default function SignIn({ email }) {
         localStorage.setItem('email', isEmail);
     }, [isEmail]);
 
+    function signUp() {
+        var url = 'https://cg30388.tw1.ru/sign-up.php';
+        var headers = {
+            Accept: 'application/json',
+            'Conten-Type': 'application/json',
+        };
+        var Data = { email: isEmail, password: isPassword };
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(Data),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                setMsg(response[0].result);
+            })
+            .catch((err) => console.log(err));
+    }
+
+    useEffect(() => console.log(msg), [msg]);
+
     return (
         <dialog ref={dialog} open>
             <div className="signWrap">
@@ -52,7 +79,12 @@ export default function SignIn({ email }) {
                         ? 'Register with'
                         : 'Зарегистрироваться с'}
                 </h3>
-                <form action="./sign-up.php" method="post" className="signSelf">
+                <div
+                    // action="./"
+                    // onSubmit={() => signUp()}
+                    // method="post"
+                    className="signSelf"
+                >
                     {isEmail ? (
                         <div className="loginSection">
                             <img src="./../user.png" alt="" />
@@ -183,11 +215,12 @@ export default function SignIn({ email }) {
                     <button
                         className={!disable ? 'active' : null}
                         disabled={disable}
+                        onClick={signUp}
                         type="submit"
                     >
                         {language == 'en' ? 'Continue' : 'Продолжить'}
                     </button>
-                </form>
+                </div>
             </div>
         </dialog>
     );
