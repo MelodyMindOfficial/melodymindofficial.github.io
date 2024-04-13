@@ -18,7 +18,7 @@ if (!mysqli_fetch_assoc($sql)) {
     }
 } else {
     $password = md5($password);
-    $sql = "UPDATE `users` SET `password` = '$password' WHERE `users`.`email` = '$mail'";
+    $sql = "UPDATE `users` SET `password` = '$password' WHERE `users`.`email` = '$email'";
 
     if ($connect->query($sql)) {
         if ($language == 'en') {
