@@ -33,11 +33,7 @@ export default function SignUp({ email }) {
                     </button>
                     {language == 'en' ? 'Login with' : 'Войти с помощью'}
                 </h3>
-                <form
-                    action="./../sign-in.php"
-                    method="post"
-                    className="signSelf"
-                >
+                <form action="./sign-in.php" method="post" className="signSelf">
                     {isEmail ? (
                         <div className="loginSection">
                             <img src="./../user.png" alt="" />

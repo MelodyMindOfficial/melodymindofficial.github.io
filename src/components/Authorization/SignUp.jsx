@@ -52,11 +52,7 @@ export default function SignIn({ email }) {
                         ? 'Register with'
                         : 'Зарегистрироваться с'}
                 </h3>
-                <form
-                    action="./../sign-up.php"
-                    method="post"
-                    className="signSelf"
-                >
+                <form action="./sign-up.php" method="post" className="signSelf">
                     {isEmail ? (
                         <div className="loginSection">
                             <img src="./../user.png" alt="" />

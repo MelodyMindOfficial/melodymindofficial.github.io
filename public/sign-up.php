@@ -29,5 +29,5 @@ if (!mysqli_fetch_assoc($sql)) {
     $link->close();
 } else {
     $_SESSION['message'] = "Такой пользователь существует";
-    header('Location: https://cg30388.tw1.ru/');
+    header('Location: https://cg30388.tw1.ru/feed');
 }
