@@ -19,9 +19,9 @@ if (mysqli_num_rows($sql) > 0) {
     }
 } else {
     if ($language == 'en') {
-        $result = "User doesn't exist";
+        $result = "Incorrect email or password";
     } else {
-        $result = "Такого пользователя не существует";
+        $result = "Неверный адрес эл. почты или пароль";
     }
 }
 
