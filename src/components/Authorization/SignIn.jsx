@@ -8,6 +8,7 @@ export default function SignUp({ email, isMsg }) {
     const [isEmail, setIsEmail] = useState(email);
     const [isPassword, setIsPassword] = useState('');
     const [disable, setDisable] = useState(true);
+    const [msg, setMsg] = useState('');
 
     function handlePasswordChange(event) {
         const password = document.getElementById('password');
