@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once('connect.php');
 
 $email = $_POST['email'];
@@ -18,16 +18,16 @@ if (!mysqli_fetch_assoc($sql)) {
     $sql = "INSERT INTO users (id, email, password) VALUES ('$id', '$email', '$password')";
 
     if ($connect->query($sql)) {
-        $user = mysqli_fetch_assoc(mysqli_query($link, $sql));
-        $_SESSION['user'] = [$user['id'], $user['name'], $user['surname'], $user['email'], $user['password'], $user['status']];
-        $_SESSION['message'] = "Вы успешно зарегестрировались";
+        // $user = mysqli_fetch_assoc(mysqli_query($link, $sql));
+        // $_SESSION['user'] = [$user['id'], $user['name'], $user['surname'], $user['email'], $user['password'], $user['status']];
+        // $_SESSION['message'] = "Вы успешно зарегестрировались";
         header('Location: https://cg30388.tw1.ru/profile');
     } else {
-        $_SESSION['message'] = "Ошибка регистрации";
+        // $_SESSION['message'] = "Ошибка регистрации";
         header('Location: https://cg30388.tw1.ru/');
     }
     $link->close();
 } else {
-    $_SESSION['message'] = "Такой пользователь существует";
+    // $_SESSION['message'] = "Такой пользователь существует";
     header('Location: https://cg30388.tw1.ru/feed');
 }
