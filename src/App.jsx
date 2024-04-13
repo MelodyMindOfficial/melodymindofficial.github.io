@@ -117,7 +117,12 @@ export default function App() {
                         />
                         <Route
                             path="/sign-in"
-                            element={<SignIn email={email} />}
+                            element={
+                                <SignIn
+                                    email={email}
+                                    isMsg={(current) => setNotify(current)}
+                                />
+                            }
                         />
                         <Route
                             path="/sign-up"

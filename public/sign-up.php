@@ -7,6 +7,7 @@ $dData = json_decode($eData, true);
 
 $email = $dData['email'];
 $password = $dData['password'];
+$language = $dData['language'];
 $id = rand(100000, 999999);
 
 $id_sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
@@ -20,12 +21,24 @@ if (!mysqli_fetch_assoc($sql)) {
     $sql = "INSERT INTO users (id, email, password) VALUES ('$id', '$email', '$password')";
 
     if ($connect->query($sql)) {
-        $result = "Вы успешно зарегестрировались";
+        if ($language == 'en') {
+            $result = "You've successfully registered";
+        } else {
+            $result = "Вы успешно зарегистрировались";
+        }
     } else {
-        $result = "Ошибка регистрации";
+        if ($language == 'en') {
+            $result = "Registration error";
+        } else {
+            $result = "Ошибка регистрации";
+        }
     }
 } else {
-    $result = "Такой пользователь уже существует!";
+    if ($language == 'en') {
+        $result = "User already exists!";
+    } else {
+        $result = "Такой пользователь уже существует!";
+    }
 }
 
 $link->close();

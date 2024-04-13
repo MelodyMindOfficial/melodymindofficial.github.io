@@ -22,14 +22,14 @@ export default function SignIn({ email, isMsg }) {
             setIsPassword(password.value);
             if (isAllow) {
                 try {
-                    if (emailNew.value) {
-                        emailNew.addEventListener('blur', () => {
+                    emailNew.addEventListener('blur', () => {
+                        if (emailNew.value) {
                             setIsEmail(emailNew.value);
-                        });
-                        setDisable(false);
-                    } else {
-                        setDisable(true);
-                    }
+                            setDisable(false);
+                        } else {
+                            setDisable(true);
+                        }
+                    });
                 } catch (error) {
                     setDisable(false);
                 }
@@ -47,13 +47,14 @@ export default function SignIn({ email, isMsg }) {
         localStorage.setItem('email', isEmail);
     }, [isEmail]);
 
-    function signUp() {
+    function signUp(e) {
+        e.preventDefault();
         var url = 'https://cg30388.tw1.ru/sign-up.php';
         var headers = {
             Accept: 'application/json',
             'Conten-Type': 'application/json',
         };
-        var Data = { email: isEmail, password: isPassword };
+        var Data = { email: isEmail, password: isPassword, language: language };
         fetch(url, {
             method: 'POST',
             headers: headers,
@@ -79,12 +80,7 @@ export default function SignIn({ email, isMsg }) {
                         ? 'Register with'
                         : 'Зарегистрироваться с'}
                 </h3>
-                <div
-                    // action="./"
-                    // onSubmit={() => signUp()}
-                    // method="post"
-                    className="signSelf"
-                >
+                <form onSubmit={signUp} method="post" className="signSelf">
                     {isEmail ? (
                         <div className="loginSection">
                             <img src="./../user.png" alt="" />
@@ -102,7 +98,10 @@ export default function SignIn({ email, isMsg }) {
                             </div>
                             <button
                                 type="button"
-                                onClick={() => setIsEmail('')}
+                                onClick={() => {
+                                    setIsEmail('');
+                                    handlePasswordCorrect();
+                                }}
                             >
                                 <i className="fa-solid fa-xmark"></i>
                             </button>
@@ -215,12 +214,12 @@ export default function SignIn({ email, isMsg }) {
                     <button
                         className={!disable ? 'active' : null}
                         disabled={disable}
-                        onClick={signUp}
+                        // onClick={signUp}
                         type="submit"
                     >
                         {language == 'en' ? 'Continue' : 'Продолжить'}
                     </button>
-                </div>
+                </form>
             </div>
         </dialog>
     );
