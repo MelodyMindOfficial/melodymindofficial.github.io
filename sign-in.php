@@ -5,7 +5,7 @@ require_once('connect.php');
 $email = $_POST['email'];
 $password = md5($_POST['password']);
 
-$sql = "SELECT * FROM `users` WHERE email = '$email' AND pass = '$password'";
+$sql = "SELECT * FROM `users` WHERE email = '$email' AND password = '$password'";
 $result = $connect->query($sql);
 if ($result->num_rows > 0) {
     $user = mysqli_fetch_assoc(mysqli_query($link, $sql));
