@@ -13,23 +13,17 @@
     } else {
       document.documentElement.lang = 'ru'
     }
-
-    try {
-      const message = document.getElementById('message').value
-      localStorage.setItem('message', message)
-    } catch (error) {
-
-    }
-    (function (l) {
-      if (l.search[1] === '/') {
-        var decoded = l.search.slice(1).split('&').map(function (s) {
-          return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-          l.pathname.slice(0, -1) + decoded + l.hash
-        );
-      }
-    }(window.location))
+    localStorage.setItem('message', "<?php $_SESSION['message']; ?>")
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
   </script>
 </head>
 
