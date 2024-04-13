@@ -34,7 +34,7 @@ export default function SignUp({ email }) {
                     {language == 'en' ? 'Login with' : 'Войти с помощью'}
                 </h3>
                 <form
-                    action="./../sign-up.php"
+                    action="./../sign-in.php"
                     method="post"
                     className="signSelf"
                 >

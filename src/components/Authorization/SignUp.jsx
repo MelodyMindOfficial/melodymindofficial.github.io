@@ -53,7 +53,7 @@ export default function SignIn({ email }) {
                         : 'Зарегистрироваться с'}
                 </h3>
                 <form
-                    action="./../sign-in.php"
+                    action="./../sign-up.php"
                     method="post"
                     className="signSelf"
                 >
