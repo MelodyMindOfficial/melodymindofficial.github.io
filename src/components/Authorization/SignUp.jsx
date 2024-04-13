@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
 
-export default function SignIn({ email }) {
+export default function SignIn({ email, isMsg }) {
     const dialog = useRef();
     const language = localStorage.getItem('language');
     const [disable, setDisable] = useState(true);
@@ -66,7 +66,7 @@ export default function SignIn({ email }) {
             .catch((err) => console.log(err));
     }
 
-    useEffect(() => console.log(msg), [msg]);
+    useEffect(() => isMsg(msg), [msg]);
 
     return (
         <dialog ref={dialog} open>

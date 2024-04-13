@@ -121,7 +121,12 @@ export default function App() {
                         />
                         <Route
                             path="/sign-up"
-                            element={<SignUp email={email} />}
+                            element={
+                                <SignUp
+                                    email={email}
+                                    isMsg={(current) => setNotify(current)}
+                                />
+                            }
                         />
                         <Route
                             path="/reset-password"
