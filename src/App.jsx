@@ -39,6 +39,16 @@ export default function App() {
         setActive(window.location.pathname.slice(1));
     });
 
+    fetch('https://cg30388.tw1.ru/sign-in.php', {
+        method: 'POST',
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: JSON.stringify({ action: 1 }),
+    })
+        .then((response) => response.text())
+        .then((response) => {
+            console.log(response);
+        });
+
     useEffect(() => {
         localStorage.setItem('active', active);
         <Header active={active} />;
