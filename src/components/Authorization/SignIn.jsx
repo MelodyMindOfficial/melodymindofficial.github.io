@@ -47,14 +47,16 @@ export default function SignUp({ email, isMsg }) {
             .then((response) => response.json())
             .then((response) => {
                 setMsg(response[0].result);
-                localStorage.setItem('login', response[0].login);
             })
             .catch((err) => console.log(err));
     }
 
     useEffect(() => {
         isMsg(msg);
-        setTimeout(() => setMsg(''), 5000);
+        setTimeout(() => {
+            setMsg('');
+            window.location.pathname = '/profile';
+        }, 2000);
     }, [msg]);
 
     return (

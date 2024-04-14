@@ -27,5 +27,5 @@ if (mysqli_num_rows($sql) > 0) {
     }
 }
 
-$response[] = array("result" => $result, "login" => $_SESSION['user']);
+$response[] = array("result" => $result);
 echo json_encode($response);
