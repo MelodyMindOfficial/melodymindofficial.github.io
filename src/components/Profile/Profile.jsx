@@ -3,7 +3,7 @@ import './Profile.css';
 export default function Profile({ authorized }) {
     const language = localStorage.getItem('language');
     window.onload = () => {
-        !authorized[0] && (window.location.pathname = '');
+        authorized[0] && (window.location.pathname = '');
     };
     return (
         <div className="profile">
