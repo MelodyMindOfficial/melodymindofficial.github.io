@@ -55,7 +55,6 @@ export default function SignUp({ email, isMsg }) {
         isMsg(msg);
         setTimeout(() => {
             setMsg('');
-            window.location.pathname = '/profile';
         }, 2000);
     }, [msg]);
 
