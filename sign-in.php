@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('connect.php');
 
 $eData = file_get_contents("php://input");
@@ -15,6 +15,7 @@ if (mysqli_num_rows($sql) > 0) {
     if ($language == 'en') {
         $result = "You've successfully login";
     } else {
+        $_SESSION['user'] = true;
         $result = "Вы успешно вошли";
     }
 } else {
@@ -25,5 +26,5 @@ if (mysqli_num_rows($sql) > 0) {
     }
 }
 
-$response[] = array("result" => $result);
+$response[] = array("result" => $result, "login" => $_SESSION['user']);
 echo json_encode($response);
