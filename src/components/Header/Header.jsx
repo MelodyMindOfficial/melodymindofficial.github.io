@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { headerList } from '../../data';
 import { headerList_en } from '../../data_en';
@@ -13,9 +13,11 @@ export default function Header({
     isModal,
     setSearch,
     changeLanguage,
+    isMsg,
 }) {
     let lastScroll = 0;
     const language = localStorage.getItem('language');
+    const [msg, setMsg] = useState('');
     const defaultOffset = 200;
     const scrollPosition = () =>
         window.scrollY || document.documentElement.scrollTop;

@@ -120,6 +120,7 @@ export default function App() {
                         search={search}
                         setSearch={(current) => setSeacrh(current)}
                         changeLanguage={() => changeLanguage()}
+                        isMsg={(current) => setNotify(current)}
                     />
                 )}
                 <main style={{ marginTop: '115px' }}>
