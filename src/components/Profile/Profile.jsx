@@ -2,7 +2,9 @@ import './Profile.css';
 
 export default function Profile({ authorized }) {
     const language = localStorage.getItem('language');
-    authorized[0] ? null : (window.location.pathname = '');
+    window.onload = () => {
+        !authorized[0] && (window.location.pathname = '');
+    };
     return (
         <div className="profile">
             <div className="profileContainer _container">
