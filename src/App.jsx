@@ -30,6 +30,7 @@ export default function App() {
     const [modal, setModal] = useState(false);
     const [search, setSeacrh] = useState('');
     const [notify, setNotify] = useState('');
+    const [authorized, setAuthorized] = useState([]);
     const activePage =
         window.location.pathname.slice(1) != 'sign-in' &&
         window.location.pathname.slice(1) != 'sign-up' &&
@@ -79,6 +80,22 @@ export default function App() {
 
     window.onload = () => {
         document.getElementById('preloader').classList.remove('show');
+        var url = 'https://cg30388.tw1.ru/config.php';
+        var headers = {
+            Accept: 'application/json',
+            'Conten-Type': 'application/json',
+        };
+        var Data = {};
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(Data),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                setAuthorized(response[0]);
+            })
+            .catch((err) => console.log(err));
     };
 
     return (

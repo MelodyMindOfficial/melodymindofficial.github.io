@@ -12,10 +12,11 @@ $language = $dData['language'];
 $sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email' && password = '$password'");
 
 if (mysqli_num_rows($sql) > 0) {
+    $user = mysqli_fetch_assoc($sql);
+    $_SESSION['user'] = [$user['id'], $user['name'], $user['email'], $user['password']];
     if ($language == 'en') {
         $result = "You've successfully login";
     } else {
-        $_SESSION['user'] = 'true';
         $result = "Вы успешно вошли";
     }
 } else {
