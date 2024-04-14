@@ -13,7 +13,7 @@ $sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email' && passwo
 
 if (mysqli_num_rows($sql) > 0) {
     $user = mysqli_fetch_assoc($sql);
-    $_SESSION['user'] = [$user['id'], $user['name'], $user['email'], $user['password']];
+    $_SESSION['user'] = [true, $user['id'], $user['name'], $user['email'], $user['password']];
     if ($language == 'en') {
         $result = "You've successfully login";
     } else {
