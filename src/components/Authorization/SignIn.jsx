@@ -47,6 +47,7 @@ export default function SignUp({ email, isMsg }) {
             .then((response) => response.json())
             .then((response) => {
                 setMsg(response[0].result);
+                localStorage.setItem('login', response[1].login);
             })
             .catch((err) => console.log(err));
     }

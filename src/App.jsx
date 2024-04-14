@@ -15,6 +15,7 @@ import Sounds from './components/Sounds';
 import About from './components/About/About';
 import Contacts from './components/About/Contacts';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Profile from './components/Profile/Profile';
 import Notify from './components/Notify/Notify';
 import './index.css';
 
@@ -178,6 +179,7 @@ export default function App() {
                                 />
                             }
                         />
+                        <Route path="/profile" element={<Profile />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>

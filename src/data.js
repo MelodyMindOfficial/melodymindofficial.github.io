@@ -1,6 +1,6 @@
 export const numTracks = 13;
 
-export const pages = ['', 'login', 'sign-in', 'sign-up', 'reset-password', 'feed', 'tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy']
+export const pages = ['', 'login', 'sign-in', 'sign-up', 'reset-password', 'feed', 'tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy', 'profile']
 
 export const headerList = [{
     title: 'Лента',

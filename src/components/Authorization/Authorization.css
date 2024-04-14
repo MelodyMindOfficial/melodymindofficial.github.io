@@ -149,6 +149,7 @@ dialog+.backdrop {
 .loginSection img {
     height: 42px;
     width: 42px;
+    border-radius: 50%;
 }
 
 .loginSection h5 {

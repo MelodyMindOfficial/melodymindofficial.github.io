@@ -1,0 +1,91 @@
+.profile {
+    padding: 12px 0px;
+}
+
+.profileContainer {
+    display: flex;
+}
+
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 16px;
+    width: 316px;
+    background-color: #141414;
+    border-radius: 12px;
+}
+
+.profileInfoMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.profileInfoMain img {
+    margin-bottom: 12px;
+    height: 88px;
+    width: 88px;
+    border-radius: 50%;
+}
+
+.profileInfoMain h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.profileInfo button {
+    margin-bottom: 20px;
+    height: 40px;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #262626;
+    border-radius: 5px;
+    transition: 150ms;
+}
+
+.profileInfo button:hover {
+    filter: brightness(120%);
+}
+
+.profileInfoStat {
+    color: #CCCCCC;
+}
+
+.profileInfoStat h4 {
+    margin-bottom: 12px;
+}
+
+.profileInfoStat ul li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileInfoStat ul li:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.profileTracks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 316px);
+}
+
+.profileTracksNon {
+    text-align: center;
+    color: #CCCCCC;
+}
+
+.profileTracksNon h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.profileTracksNon p {
+    font-size: 16px;
+}
