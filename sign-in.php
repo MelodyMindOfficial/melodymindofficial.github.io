@@ -15,7 +15,7 @@ if (mysqli_num_rows($sql) > 0) {
     if ($language == 'en') {
         $result = "You've successfully login";
     } else {
-        $_SESSION['user'] = true;
+        $_SESSION['user'] = 'true';
         $result = "Вы успешно вошли";
     }
 } else {
