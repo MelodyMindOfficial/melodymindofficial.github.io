@@ -198,7 +198,10 @@ export default function App() {
                                 />
                             }
                         />
-                        <Route path="/profile" element={<Profile />} />
+                        <Route
+                            path="/profile"
+                            element={<Profile authorized={authorized} />}
+                        />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>

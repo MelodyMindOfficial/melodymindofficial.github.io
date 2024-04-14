@@ -1,14 +1,15 @@
 import './Profile.css';
 
-export default function Profile() {
+export default function Profile({ authorized }) {
     const language = localStorage.getItem('language');
+    authorized[0] ? null : (window.location.pathname = '');
     return (
         <div className="profile">
             <div className="profileContainer _container">
                 <section className="profileInfo">
                     <div className="profileInfoMain">
                         <img src="./user.png" alt="" />
-                        <h3>Lorem ipsum</h3>
+                        <h3>{authorized[2]}</h3>
                     </div>
                     <button>
                         {language == 'en'
@@ -48,8 +49,8 @@ export default function Profile() {
                         <div className="profileTracksNon">
                             <h2>
                                 {language == 'en'
-                                    ? 'No Content Available'
-                                    : 'Нет доступного контента'}{' '}
+                                    ? authorized[3]
+                                    : authorized[3]}
                             </h2>
                             <p>
                                 {language == 'en'
