@@ -47,6 +47,13 @@ export default function SignUp({ email, isMsg }) {
             .then((response) => response.json())
             .then((response) => {
                 setMsg(response[0].result);
+                setTimeout(
+                    () =>
+                        response[0].login
+                            ? (window.location.pathname = '/profile')
+                            : null,
+                    2000
+                );
             })
             .catch((err) => console.log(err));
     }

@@ -26,6 +26,7 @@ if (!mysqli_fetch_assoc($sql)) {
         } else {
             $result = "Вы успешно зарегистрировались";
         }
+        $login = true;
     } else {
         if ($language == 'en') {
             $result = "Registration error";
@@ -42,5 +43,5 @@ if (!mysqli_fetch_assoc($sql)) {
 }
 
 $link->close();
-$response[] = array("result" => $result);
+$response[] = array("result" => $result, "login" => $login);
 echo json_encode($response);
