@@ -2,16 +2,14 @@ import './Profile.css';
 
 export default function Profile({ authorized }) {
     const language = localStorage.getItem('language');
-    window.onload = () => {
-        authorized[0] && (window.location.pathname = '');
-    };
+    console.log(authorized);
     return (
         <div className="profile">
             <div className="profileContainer _container">
                 <section className="profileInfo">
                     <div className="profileInfoMain">
                         <img src="./user.png" alt="" />
-                        <h3>{authorized[2]}</h3>
+                        <h3>{authorized[1]}</h3>
                     </div>
                     <button>
                         {language == 'en'
