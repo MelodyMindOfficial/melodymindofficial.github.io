@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { headerList } from '../../data';
 import { headerList_en } from '../../data_en';
@@ -40,6 +41,32 @@ export default function Header({
     function handleSearch(e) {
         setSearch(e.target.value);
     }
+
+    function logout() {
+        var url = 'https://cg30388.tw1.ru/logout.php';
+        var headers = {
+            Accept: 'application/json',
+            'Conten-Type': 'application/json',
+        };
+        var Data = {};
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(Data),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                setMsg(response[0].result);
+            })
+            .catch((err) => console.log(err));
+    }
+
+    useEffect(() => {
+        isMsg(msg);
+        setTimeout(() => {
+            setMsg('');
+        }, 2000);
+    }, [msg]);
 
     return (
         <header>
@@ -98,7 +125,7 @@ export default function Header({
                     )}
                     <section className="headerTools">
                         {authorized[0] ? (
-                            <button>Выйти</button>
+                            <button onClick={logout}>Выйти</button>
                         ) : (
                             <div className="HeaderLoginButtons">
                                 <button
