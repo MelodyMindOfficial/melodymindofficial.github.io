@@ -5,6 +5,7 @@ import logo from '/logo.png';
 import './Header.css';
 
 export default function Header({
+    authorized,
     active,
     search,
     isActive,
@@ -96,21 +97,26 @@ export default function Header({
                         </div>
                     )}
                     <section className="headerTools">
-                        {/* Если нет логина */}
-                        <div className="HeaderLoginButtons">
-                            <button
-                                onClick={() => isModal(true)}
-                                className="headerLoginButton"
-                            >
-                                {language == 'en' ? 'Sign in' : 'Вход'}
-                            </button>
-                            <button
-                                onClick={() => isModal(true)}
-                                className="headerLoginButton"
-                            >
-                                {language == 'en' ? 'Sign up' : 'Регистрация'}
-                            </button>
-                        </div>
+                        {authorized[0] ? (
+                            <button>Выйти</button>
+                        ) : (
+                            <div className="HeaderLoginButtons">
+                                <button
+                                    onClick={() => isModal(true)}
+                                    className="headerLoginButton"
+                                >
+                                    {language == 'en' ? 'Sign in' : 'Вход'}
+                                </button>
+                                <button
+                                    onClick={() => isModal(true)}
+                                    className="headerLoginButton"
+                                >
+                                    {language == 'en'
+                                        ? 'Sign up'
+                                        : 'Регистрация'}
+                                </button>
+                            </div>
+                        )}
                         <button className="headerCart">
                             <i className="fa-solid fa-cart-shopping"></i>
                             <i className="fa-solid fa-chevron-down"></i>
