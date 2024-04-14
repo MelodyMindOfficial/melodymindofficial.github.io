@@ -19,6 +19,7 @@ if (mysqli_num_rows($sql) > 0) {
     } else {
         $result = "Вы успешно вошли";
     }
+    $login = true;
 } else {
     if ($language == 'en') {
         $result = "Incorrect email or password";
@@ -27,5 +28,5 @@ if (mysqli_num_rows($sql) > 0) {
     }
 }
 
-$response[] = array("result" => $result);
+$response[] = array("result" => $result, "login" => $login);
 echo json_encode($response);
