@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { footerList } from '../../data';
-import { footerList_en } from '../../data_en';
+import { footerList } from '../../data/data';
+import { footerList_en } from '../../data/data_en';
 import logo from '/logo.png';
 import './Footer.css';
 

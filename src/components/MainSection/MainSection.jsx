@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import { mainTrends } from '../../data';
-import { mainTrends_en } from '../../data_en';
+import { mainTrends } from '../../data/data';
+import { mainTrends_en } from '../../data/data_en';
 import noneImage from '/none_image.png';
 import './MainSection.css';
 import 'slick-carousel/slick/slick.css';

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { headerList } from '../../data';
-import { headerList_en } from '../../data_en';
+import { headerList } from '../../data/data';
+import { headerList_en } from '../../data/data_en';
 import logo from '/logo.png';
 import './Header.css';
 
@@ -45,7 +45,7 @@ export default function Header({
     }
 
     function logout() {
-        var url = 'https://cg30388.tw1.ru/logout.php';
+        var url = 'https://cg30388.tw1.ru/config/logout.php';
         var headers = {
             Accept: 'application/json',
             'Conten-Type': 'application/json',

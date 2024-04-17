@@ -49,7 +49,7 @@ export default function SignIn({ email, isMsg }) {
 
     function signUp(e) {
         e.preventDefault();
-        var url = 'https://cg30388.tw1.ru/sign-up.php';
+        var url = 'https://cg30388.tw1.ru/config/sign-up.php';
         var headers = {
             Accept: 'application/json',
             'Conten-Type': 'application/json',

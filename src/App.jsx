@@ -1,63 +1,75 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { pages } from './data';
-import NotFound from './components/NotFound/NotFound';
-import SignIn from './components/Authorization/SignIn';
-import SignUp from './components/Authorization/SignUp';
-import ResetPassword from './components/Authorization/ResetPassword';
-import Authorization from './components/Authorization/Authorization';
+import { pages } from './data/data';
+
+// Components
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Notify from './components/Notify/Notify';
+
+// Header Pages
 import Main from './components/Main/Main';
 import Feed from './components/Feed';
 import Tracks from './components/Tracks';
 import Sounds from './components/Sounds';
+
+// Footer Pages
 import About from './components/About/About';
 import Contacts from './components/About/Contacts';
+
+// Other Pages
 import PrivacyPolicy from './components/PrivacyPolicy';
+import NotFound from './components/NotFound/NotFound';
+
+// Authorizationn
+import Authorization from './components/Authorization/Authorization';
+import SignIn from './components/Authorization/SignIn';
+import SignUp from './components/Authorization/SignUp';
+import ResetPassword from './components/Authorization/ResetPassword';
 import Profile from './components/Profile/Profile';
-import Notify from './components/Notify/Notify';
+
+// Style
 import './index.css';
 
 export default function App() {
-    localStorage.setItem('active', window.location.pathname.slice(1));
-    const message = localStorage.getItem('message');
+    // --- НАЧАЛЬНЫЕ ЗНАЧЕНИЯ --- //
+    localStorage.setItem('active', window.location.pathname.slice(1)); // Присваиваем значение для активной страницы
+    const message = localStorage.getItem('message'); // Получаем значение для уведомления
 
+    // useState
+    const [email, setEmail] = useState(localStorage.getItem('email') || ''); // Получаем значение email из Входа
+    const [modal, setModal] = useState(false); // Устанавливаем значение для модального окна
+    const [search, setSeacrh] = useState(''); // Устанавливаем значение для поиска
+    const [notify, setNotify] = useState(''); // Устанавливаем значение для уведомленя
+    const [authorized, setAuthorized] = useState([]); // Инициализируем массив для аккаунта
     const [active, setActive] = useState(
         localStorage.getItem('active') || 'main'
-    );
-    const [email, setEmail] = useState(localStorage.getItem('email') || '');
-    const [modal, setModal] = useState(false);
-    const [search, setSeacrh] = useState('');
-    const [notify, setNotify] = useState('');
-    const [authorized, setAuthorized] = useState([]);
+    ); // Устанавливаем значение активной страницы для Router
     const activePage =
         window.location.pathname.slice(1) != 'sign-in' &&
         window.location.pathname.slice(1) != 'sign-up' &&
         window.location.pathname.slice(1) != 'reset-password' &&
-        window.location.pathname.slice(1) != 'login';
+        window.location.pathname.slice(1) != 'login'; // Проверяем значение активной страницы
 
+    // --- ОСНОВНЫЕ ФУНКЦИИ --- //
     addEventListener('popstate', () => {
         setActive(window.location.pathname.slice(1));
-    });
+    }); // Проверка нажатии клавиши "Назад"
 
     useEffect(() => {
         localStorage.setItem('active', active);
         <Header active={active} />;
-    }, [active]);
+    }, [active]); // Запоминаем активную страницу
 
     useEffect(() => {
         setNotify(message);
-    }, [message]);
+    }, [message]); // Устанавливаем уведомление
 
     useEffect(() => {
         localStorage.setItem('email', email);
-    }, [email]);
+    }, [email]); // Запоминаем введенную почту
 
-    useEffect(() => {
-        localStorage.setItem('email', email);
-    }, [email]);
-
+    // Устанавливаем активную страницу
     function activeSection(current) {
         setActive(current);
         window.scrollTo({
@@ -67,6 +79,7 @@ export default function App() {
         });
     }
 
+    // Устанавливаем и запоминаем язык страницы
     function changeLanguage() {
         const lan = localStorage.getItem('language');
         if (lan == 'en') {
@@ -78,9 +91,10 @@ export default function App() {
         return location.reload();
     }
 
+    // Получаем данные, если пользователь авторизован
     window.onload = () => {
-        document.getElementById('preloader').classList.remove('show');
-        var url = 'https://cg30388.tw1.ru/config.php';
+        document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
+        var url = 'https://cg30388.tw1.ru/config/config.php';
         var headers = {
             Accept: 'application/json',
             'Conten-Type': 'application/json',
@@ -100,16 +114,22 @@ export default function App() {
 
     return (
         <>
+            {/* Preloader */}
             <div id="preloader" className="">
                 <div className="spinner"></div>
             </div>
+
+            {/* Авторизация */}
             <Authorization
                 open={modal}
                 isModal={(current) => setModal(current)}
                 target={'_blank'}
                 isEmail={(current) => setEmail(current)}
             />
+
+            {/* Уведомление */}
             {notify && <Notify setShow={() => setNotify('')}>{notify}</Notify>}
+
             <BrowserRouter>
                 {activePage && (
                     <Header
@@ -205,7 +225,7 @@ export default function App() {
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
-                {pages.includes(window.location.pathname.slice(1)) &&
+                {pages.includes(window.location.pathname.slice(1)) && //проверка для отображения Footer'a
                 activePage ? (
                     <Footer isActive={(current) => activeSection(current)} />
                 ) : null}

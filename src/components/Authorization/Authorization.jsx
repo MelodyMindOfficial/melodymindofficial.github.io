@@ -31,7 +31,7 @@ export default function Authorization({ isModal, open, target, isEmail }) {
                     {language == 'en' ? 'Continue with' : 'Продолжить с'}
                 </h3>
                 <form
-                    action="./findLogin.php"
+                    action="./config/findLogin.php"
                     method="post"
                     className="signSelf"
                     target={target}
@@ -63,7 +63,7 @@ export default function Authorization({ isModal, open, target, isEmail }) {
                     <hr />
                 </div>
                 <form
-                    action="./connect.php"
+                    action="./config/connect.php"
                     method="post"
                     className="signAuth"
                     target="_blank"

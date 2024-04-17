@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { contacts } from '../../data';
-import { contacts_en } from '../../data_en';
+import { contacts } from '../../data/data';
+import { contacts_en } from '../../data/data_en';
 import './About.css';
 
 export default function Contacts({ isActive }) {

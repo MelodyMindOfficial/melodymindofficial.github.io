@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { mainTrends, mainTracks, numTracks } from '../../data';
-import { mainTrends_en, mainTracks_en, numTracks_en } from '../../data_en';
-import MainSection from '../MainSection/MainSection';
+import { mainTrends_en, mainTracks_en } from '../../data/data_en';
 import emailjs from '@emailjs/browser';
+import MainSection from '../MainSection/MainSection';
 import './Main.css';
 
 export default function Main({ search, setSearch, isNotify }) {
@@ -118,13 +118,34 @@ export default function Main({ search, setSearch, isNotify }) {
                 <div className="trustSection">
                     {[...Array(2)].map(() => (
                         <div key={i++} className="imageTrust">
-                            <img src="/slider/slider_0.png" alt="" />
-                            <img src="/slider/slider_1.png" alt="" />
-                            <img src="/slider/slider_2.png" alt="" />
-                            <img src="/slider/slider_3.png" alt="" />
-                            <img src="/slider/slider_4.png" alt="" />
-                            <img src="/slider/slider_5.png" alt="" />
-                            <img src="/slider/slider_6.png" alt="" />
+                            <img
+                                src="assets/images/slider/slider_0.png"
+                                alt=""
+                            />
+                            <img
+                                src="assets/images/slider/slider_1.png"
+                                alt=""
+                            />
+                            <img
+                                src="assets/images/slider/slider_2.png"
+                                alt=""
+                            />
+                            <img
+                                src="assets/images/slider/slider_3.png"
+                                alt=""
+                            />
+                            <img
+                                src="assets/images/slider/slider_4.png"
+                                alt=""
+                            />
+                            <img
+                                src="assets/images/slider/slider_5.png"
+                                alt=""
+                            />
+                            <img
+                                src="assets/images/slider/slider_6.png"
+                                alt=""
+                            />
                         </div>
                     ))}
                 </div>

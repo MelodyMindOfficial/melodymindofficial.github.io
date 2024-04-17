@@ -23,7 +23,7 @@ export default function ResetPassword({ email, isMsg }) {
 
     function reset(e) {
         e.preventDefault();
-        var url = 'https://cg30388.tw1.ru/reset.php';
+        var url = 'https://cg30388.tw1.ru/config/reset.php';
         var headers = {
             Accept: 'application/json',
             'Conten-Type': 'application/json',
