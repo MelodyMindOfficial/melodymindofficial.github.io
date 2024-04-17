@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { mainTrends, mainTracks, numTracks } from '../../data';
+import { mainTrends, mainTracks, numTracks } from '../../data/data';
 import { mainTrends_en, mainTracks_en } from '../../data/data_en';
 import emailjs from '@emailjs/browser';
 import MainSection from '../MainSection/MainSection';
