@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
-import logo from './images/user.png';
+import logo from '/images/user.png';
 
 export default function SignUp({ email, isMsg }) {
     const dialog = useRef();

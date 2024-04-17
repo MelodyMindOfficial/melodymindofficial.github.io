@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
-import logo from './images/user.png';
+import logo from '/images/user.png';
 
 export default function SignIn({ email, isMsg }) {
     const dialog = useRef();
