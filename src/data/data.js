@@ -1,4 +1,4 @@
-export const numtracks = 13;
+export const numTracks = 13;
 
 export const pages = ['', 'login', 'sign-in', 'sign-up', 'reset-password', 'feed', 'images/tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy', 'profile']
 
@@ -158,7 +158,7 @@ export const mainTrends = [{
     idAuthor: 615243
 }, ]
 
-export const maintracks = [{
+export const mainTracks = [{
     title: 'Хип-хоп',
     image: '/images/6.png'
 }, {
