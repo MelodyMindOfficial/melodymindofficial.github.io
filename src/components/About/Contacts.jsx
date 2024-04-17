@@ -44,7 +44,7 @@ export default function Contacts({ isActive }) {
                             </Link>
                         </div>
                         <div className="">
-                            <img src="/contacts.png" alt="" />
+                            <img src="/images/contacts.png" alt="" />
                         </div>
                     </section>
                     {(language == 'en' ? contacts_en : contacts).map((e) => (

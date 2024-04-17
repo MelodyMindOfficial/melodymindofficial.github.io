@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { headerList } from '../../data/data';
 import { headerList_en } from '../../data/data_en';
-import logo from '/logo.png';
+import logo from '/images/logo.png';
 import './Header.css';
 
 export default function Header({

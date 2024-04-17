@@ -46,7 +46,7 @@ export default function About({ isActive }) {
                         : 'расширение прав и возможностей независимых музыкальных креаторов'}
                 </p>
                 <div className="aboutImage">
-                    <img src="/map_world.png" alt="" />
+                    <img src="/images/map_world.png" alt="" />
                 </div>
             </section>
             <section className="aboutTeam">

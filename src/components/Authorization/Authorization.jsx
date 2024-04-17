@@ -69,13 +69,13 @@ export default function Authorization({ isModal, open, target, isEmail }) {
                     target="_blank"
                 >
                     <button className="active" type="">
-                        <img src="/google.png" alt="Google" />
+                        <img src="/images/google.png" alt="Google" />
                         {language == 'en'
                             ? 'Login with Google Account'
                             : 'Войти с аккаунтом Google'}
                     </button>
                     <button className="active" type="">
-                        <img src="/yandex.png" alt="Yandex" />
+                        <img src="/images/yandex.png" alt="Yandex" />
                         {language == 'en'
                             ? 'Login with Yandex Account'
                             : 'Войти с аккаунтом Яндекс'}

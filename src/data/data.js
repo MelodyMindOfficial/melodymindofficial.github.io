@@ -1,6 +1,6 @@
-export const numTracks = 13;
+export const numtracks = 13;
 
-export const pages = ['', 'login', 'sign-in', 'sign-up', 'reset-password', 'feed', 'tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy', 'profile']
+export const pages = ['', 'login', 'sign-in', 'sign-up', 'reset-password', 'feed', 'images/tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy', 'profile']
 
 export const headerList = [{
     title: 'Лента',
@@ -76,63 +76,63 @@ export const mainTrends = [{
     title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/0.png',
+    image: '/images/track/0.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/1.png',
+    image: '/images/track/1.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/2.png',
+    image: '/images/track/2.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/3.png',
+    image: '/images/track/3.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/4.png',
+    image: '/images/track/4.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/5.png',
+    image: '/images/track/5.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: 'Название трека и это пиздец я в ахуе какой он ахуенный',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/6.png',
+    image: '/images/track/6.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/7.png',
+    image: '/images/track/7.png',
     id: 234561,
     idAuthor: 543216
 }, {
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/8.png',
+    image: '/images/track/8.png',
     id: 345612,
     idAuthor: 432165
 }, {
@@ -146,66 +146,66 @@ export const mainTrends = [{
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/10.png',
+    image: '/images/track/10.png',
     id: 612345,
     idAuthor: 216543
 }, {
     title: 'Название трека',
     author: 'Исполнитель',
     price: 3000,
-    image: '/track/11.png',
+    image: '/images/track/11.png',
     id: 162534,
     idAuthor: 615243
 }, ]
 
-export const mainTracks = [{
+export const maintracks = [{
     title: 'Хип-хоп',
-    image: '/6.png'
+    image: '/images/6.png'
 }, {
     title: 'Поп',
-    image: '/7.png'
+    image: '/images/7.png'
 }, {
     title: 'R&B',
-    image: '/8.png'
+    image: '/images/8.png'
 }, {
     title: 'Рок',
-    image: '/9.png'
+    image: '/images/9.png'
 }, {
     title: 'Электронная',
-    image: '/10.png'
+    image: '/images/10.png'
 }, {
     title: 'Регги',
-    image: '/11.png'
+    image: '/images/11.png'
 }, ]
 
 export const team = [{
     name: 'Никита Никишин',
     status: 'Backend-разработчик',
-    image: '/team/NNikishin.png'
+    image: '/images/team/NNikishin.png'
 }, {
     name: 'Валерий Краснихин',
     status: 'Документовед',
-    image: '/team/VKrasnihin.png'
+    image: '/images/team/VKrasnihin.png'
 }, {
     name: 'Степан Лапухин',
     status: 'Контент-менеджер',
-    image: '/team/SLapuhin.png'
+    image: '/images/team/SLapuhin.png'
 }, {
     name: 'Андрей Добрынский',
     status: 'Тестировщик',
-    image: '/team/ADobrynskiy.png'
+    image: '/images/team/ADobrynskiy.png'
 }, {
     name: 'Михаил Затуржинский',
     status: 'Fullstack-разработчик, Тимлид',
-    image: '/team/MZaturzhinskiy.png'
+    image: '/images/team/MZaturzhinskiy.png'
 }, {
     name: 'Даниил Ступко',
     status: 'Аналитик',
-    image: '/team/DStupko.png'
+    image: '/images/team/DStupko.png'
 }, {
     name: 'Егор Филиппов',
     status: 'Дизайнер',
-    image: '/team/EFilippov.png'
+    image: '/images/team/EFilippov.png'
 }, ]
 
 export const contacts = [{

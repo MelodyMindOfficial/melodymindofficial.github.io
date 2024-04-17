@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { footerList } from '../../data/data';
 import { footerList_en } from '../../data/data_en';
-import logo from '/logo.png';
+import logo from '/images/logo.png';
 import './Footer.css';
 
 export default function Footer({ isActive }) {

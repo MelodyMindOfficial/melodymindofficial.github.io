@@ -8,7 +8,7 @@ export default function Profile({ authorized }) {
             <div className="profileContainer _container">
                 <section className="profileInfo">
                     <div className="profileInfoMain">
-                        <img src="./user.png" alt="" />
+                        <img src="./images/user.png" alt="" />
                         <h3>{authorized[1]}</h3>
                     </div>
                     <button>

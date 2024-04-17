@@ -1,5 +1,5 @@
 import './NotFound.css';
-import src from '/404.png';
+import src from '/images/404.png';
 export default function NotFound() {
     const language = localStorage.getItem('language');
     return (

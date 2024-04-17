@@ -75,63 +75,63 @@ export const mainTrends_en = [{
     title: "The name of the track and it's fucked up I'm in a fucking what a fucking great one",
     author: 'Musician',
     price: 30,
-    image: '/track/0.png',
+    image: '/images/track/0.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: "The name of the track and it's fucked up I'm in a fucking what a fucking great one",
     author: 'Musician',
     price: 30,
-    image: '/track/1.png',
+    image: '/images/track/1.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: "The name of the track and it's fucked up I'm in a fucking what a fucking great one",
     author: 'Musician',
     price: 30,
-    image: '/track/2.png',
+    image: '/images/track/2.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: "The name of the track and it's fucked up I'm in a fucking what a fucking great one",
     author: 'Musician',
     price: 30,
-    image: '/track/3.png',
+    image: '/images/track/3.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: "The name of the track and it's fucked up I'm in a fucking what a fucking great one",
     author: 'Musician',
     price: 30,
-    image: '/track/4.png',
+    image: '/images/track/4.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: "The name of the track and it's fucked up I'm in a fucking what a fucking great one",
     author: 'Musician',
     price: 30,
-    image: '/track/5.png',
+    image: '/images/track/5.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: "The name of the track and it's fucked up I'm in a fucking what a fucking great one",
     author: 'Musician',
     price: 30,
-    image: '/track/6.png',
+    image: '/images/track/6.png',
     id: 123456,
     idAuthor: 654321
 }, {
     title: 'Track name',
     author: 'Musician',
     price: 30,
-    image: '/track/7.png',
+    image: '/images/track/7.png',
     id: 234561,
     idAuthor: 543216
 }, {
     title: 'Track name',
     author: 'Musician',
     price: 30,
-    image: '/track/8.png',
+    image: '/images/track/8.png',
     id: 345612,
     idAuthor: 432165
 }, {
@@ -152,59 +152,59 @@ export const mainTrends_en = [{
     title: 'Track name',
     author: 'Musician',
     price: 30,
-    image: '/track/11.png',
+    image: '/images/track/11.png',
     id: 162534,
     idAuthor: 615243
 }, ]
 
 export const mainTracks_en = [{
     title: 'Hip hop',
-    image: '/6.png'
+    image: '/images/6.png'
 }, {
     title: 'Pop',
-    image: '/7.png'
+    image: '/images/7.png'
 }, {
     title: 'R&B',
-    image: '/8.png'
+    image: '/images/8.png'
 }, {
     title: 'Rock',
-    image: '/9.png'
+    image: '/images/9.png'
 }, {
     title: 'Electronic',
-    image: '/10.png'
+    image: '/images/10.png'
 }, {
     title: 'Reggae',
-    image: '/11.png'
+    image: '/images/11.png'
 }, ]
 
 export const team_en = [{
     name: 'Nikita Nikishin',
     status: 'Backend Developer',
-    image: '/team/NNikishin.png'
+    image: '/images/team/NNikishin.png'
 }, {
     name: 'Valery Krasnikhin',
     status: 'Documentarian',
-    image: '/team/VKrasnihin.png'
+    image: '/images/team/VKrasnihin.png'
 }, {
     name: 'Stepan Lapukhin',
     status: 'Content Manager',
-    image: '/team/SLapuhin.png'
+    image: '/images/team/SLapuhin.png'
 }, {
     name: 'Andrey Dobrynsky',
     status: 'Tester',
-    image: '/team/ADobrynskiy.png'
+    image: '/images/team/ADobrynskiy.png'
 }, {
     name: 'Mikhail Zaturzhinsky',
     status: 'Fullstack-developer, Team leader',
-    image: '/team/MZaturzhinskiy.png'
+    image: '/images/team/MZaturzhinskiy.png'
 }, {
     name: 'Daniil Stupko',
     status: 'Analyst',
-    image: '/team/DStupko.png'
+    image: '/images/team/DStupko.png'
 }, {
     name: 'Egor Filippov',
     status: 'Designer',
-    image: '/team/EFilippov.png'
+    image: '/images/team/EFilippov.png'
 }, ]
 
 export const contacts_en = [{

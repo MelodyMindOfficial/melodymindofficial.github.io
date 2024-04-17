@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
+import logo from './images/user.png';
 
 export default function SignUp({ email, isMsg }) {
     const dialog = useRef();
@@ -77,7 +78,7 @@ export default function SignUp({ email, isMsg }) {
                 <form onSubmit={signIn} method="post" className="signSelf">
                     {isEmail ? (
                         <div className="loginSection">
-                            <img src="./../user.png" alt="" />
+                            <img src={logo} alt="" />
                             <div className="">
                                 <h5>
                                     {language == 'en' ? 'Email' : 'Эл. почта'}
