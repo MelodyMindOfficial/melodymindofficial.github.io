@@ -9,7 +9,7 @@ export default function Profile({ authorized }) {
                 <section className="profileInfo">
                     <div className="profileInfoMain">
                         <img src="./images/user.png" alt="" />
-                        <h3>{authorized[1]}</h3>
+                        <h3>{authorized[2]}</h3>
                     </div>
                     <button>
                         {language == 'en'
@@ -49,8 +49,8 @@ export default function Profile({ authorized }) {
                         <div className="profileTracksNon">
                             <h2>
                                 {language == 'en'
-                                    ? authorized[3]
-                                    : authorized[3]}
+                                    ? 'There is no content available'
+                                    : 'Нет доступного контента'}
                             </h2>
                             <p>
                                 {language == 'en'

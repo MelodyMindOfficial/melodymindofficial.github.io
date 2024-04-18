@@ -145,7 +145,7 @@ export default function Header({
                                         </Link>
                                         <div className="burgerUserText">
                                             <Link to="/profile">
-                                                <h3>Lorem ipsum</h3>
+                                                <h3>{authorized[2]}</h3>
                                             </Link>
                                             <Link to="/purchase">
                                                 <p>
