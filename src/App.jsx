@@ -109,6 +109,7 @@ export default function App() {
                 setAuthorized(response[0]);
             })
             .catch((err) => console.log(err));
+        alert('Great');
         document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
     };
 
