@@ -17,6 +17,13 @@ export default function Header({
 }) {
     let lastScroll = 0;
     const language = localStorage.getItem('language');
+    const auth = {
+        login: authorized[0],
+        id: authorized[1],
+        name: authorized[2],
+        email: authorized[3],
+        password: authorized[4],
+    };
     const [msg, setMsg] = useState('');
     const [showBurgerUser, setShowBurgerUser] = useState(false);
     const defaultOffset = 200;
@@ -128,7 +135,7 @@ export default function Header({
                         </div>
                     )}
                     <section className="headerTools">
-                        {authorized[0] ? (
+                        {auth.id ? (
                             <>
                                 <section
                                     className={
@@ -145,7 +152,7 @@ export default function Header({
                                         </Link>
                                         <div className="burgerUserText">
                                             <Link to="/profile">
-                                                <h3>{authorized[2]}</h3>
+                                                <h3>{auth.email}</h3>
                                             </Link>
                                             <Link to="/purchase">
                                                 <p>

@@ -2,6 +2,13 @@ import './Profile.css';
 
 export default function Profile({ authorized }) {
     const language = localStorage.getItem('language');
+    const auth = {
+        login: authorized[0],
+        id: authorized[1],
+        name: authorized[2],
+        email: authorized[3],
+        password: authorized[4],
+    };
     console.log(authorized);
     return (
         <div className="profile">
@@ -9,7 +16,7 @@ export default function Profile({ authorized }) {
                 <section className="profileInfo">
                     <div className="profileInfoMain">
                         <img src="./images/user.png" alt="" />
-                        <h3>{authorized[2]}</h3>
+                        <h3>{auth.email}</h3>
                     </div>
                     <button>
                         {language == 'en'
