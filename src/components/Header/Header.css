@@ -156,6 +156,7 @@ header {
 
 .burgerUser {
     display: flex;
+    align-items: center;
     margin-bottom: 6px;
     padding: 5px 8px;
     border-radius: 5px;
