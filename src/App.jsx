@@ -52,8 +52,7 @@ export default function App() {
             setAuthorized(response[0]);
         })
         .catch((err) => console.log(err));
-    alert('Great');
-    document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
+    // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
     //     },
     //     false
     // );
@@ -120,7 +119,7 @@ export default function App() {
     return (
         <>
             {/* Preloader */}
-            <div id="preloader" className="show">
+            <div id="preloader" className="">
                 <div className="spinner"></div>
             </div>
 
