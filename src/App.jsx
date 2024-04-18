@@ -92,7 +92,7 @@ export default function App() {
     }
 
     // Получаем данные, если пользователь авторизован
-    window.onload = () => {
+    addEventListener('load', () => {
         var url = 'https://cg30388.tw1.ru/config/config.php';
         var headers = {
             Accept: 'application/json',
@@ -111,7 +111,7 @@ export default function App() {
             .catch((err) => console.log(err));
         alert('Great');
         document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
-    };
+    });
 
     return (
         <>
