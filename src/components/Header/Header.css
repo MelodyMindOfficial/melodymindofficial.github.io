@@ -67,6 +67,7 @@ header {
 .headerTools {
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .headerLoginButton {
@@ -90,11 +91,15 @@ header {
 }
 
 .headerCart {
-    margin-right: 5px;
-    height: 35px;
-    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 10px;
+    padding: 5px;
+    height: 34px;
+    width: 56px;
     color: inherit;
-    font-size: inherit;
+    font-size: 16px;
     background: none;
     border-radius: 25px;
     transition: 150ms;
@@ -102,7 +107,6 @@ header {
 
 .headerCart:last-child {
     margin-right: 0px;
-    /* font-size: 24px; */
 }
 
 .headerCart:hover {
@@ -110,13 +114,103 @@ header {
 }
 
 .headerCart img {
-    margin-top: 2px;
-    height: 55%;
+    height: 100%;
 }
 
 .fa-chevron-down {
     font-size: 9px;
-    transform: translate(50%, -25%);
+}
+
+.headerBurger {
+    padding: 12px 8px;
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    height: 0;
+    width: 0px;
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 3px;
+    transform: scale(0);
+    transition: 150ms;
+    opacity: 0;
+}
+
+.headerBurger * {
+    transition: 150ms;
+}
+
+.headerBurger.show {
+    left: -194px;
+    height: initial;
+    width: 250px;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.headerBurger h3 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.burgerUser {
+    display: flex;
+    margin-bottom: 6px;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+.burgerUser:hover {
+    background-color: #2b2b2b;
+}
+
+.burgerUser a {
+    color: #ccc;
+
+}
+
+.burgerUser a img {
+    margin-right: 8px;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}
+
+.burgerFinance {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    height: 36px;
+    width: 100%;
+    font-size: 12px;
+    background-color: #262626;
+    border-radius: 5px;
+}
+
+hr {
+    margin: 10px 0px;
+    height: 1px;
+    width: 100%;
+    background-color: #262626;
+}
+
+.burgerList li,
+.burgerList li a {
+    display: flex;
+    align-items: center;
+    padding: 2.5px 5px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.burgerList li:hover {
+    background-color: #2b2b2b;
+}
+
+.burgerList li h3 {
+    margin-left: 12px;
 }
 
 .headerNav {

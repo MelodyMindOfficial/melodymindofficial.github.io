@@ -13,6 +13,24 @@ export const headerList = [{
     id: 'sounds'
 }]
 
+export const headerListUser = [{
+    title: 'Мой плейлист',
+    icon: 'fa-music',
+    link: '/my-playlist'
+}, {
+    title: 'Избранное',
+    icon: 'fa-heart',
+    link: '/favorite'
+}, {
+    title: 'История',
+    icon: 'fa-clock-rotate-left',
+    link: '/history'
+}, {
+    title: 'Покупки',
+    icon: 'fa-bag-shopping',
+    link: '/purchace'
+}, ]
+
 export const footerList = [{
         title: 'Карта сайта',
         id: 'map-site',

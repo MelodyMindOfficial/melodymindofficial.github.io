@@ -1,6 +1,7 @@
 export const numTracks_en = 13;
 
 export const pages = ['', 'login', 'sign-in', 'sign-up', 'reset-password', 'feed', 'tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy', 'profile']
+
 export const headerList_en = [{
     title: 'Feed',
     id: 'feed'
@@ -11,6 +12,24 @@ export const headerList_en = [{
     title: 'Sound kits',
     id: 'sounds'
 }]
+
+export const headerListUser_en = [{
+    title: 'My playlist',
+    icon: 'fa-music',
+    link: '/my-playlist'
+}, {
+    title: 'Favorite',
+    icon: 'fa-heart',
+    link: '/favorite'
+}, {
+    title: 'History',
+    icon: 'fa-clock-rotate-left',
+    link: '/history'
+}, {
+    title: 'Purchaces',
+    icon: 'fa-bag-shopping',
+    link: '/purchace'
+}, ]
 
 export const footerList_en = [{
         title: 'Site map',

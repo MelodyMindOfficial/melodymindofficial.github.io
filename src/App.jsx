@@ -93,7 +93,6 @@ export default function App() {
 
     // Получаем данные, если пользователь авторизован
     window.onload = () => {
-        document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
         var url = 'https://cg30388.tw1.ru/config/config.php';
         var headers = {
             Accept: 'application/json',
@@ -110,12 +109,13 @@ export default function App() {
                 setAuthorized(response[0]);
             })
             .catch((err) => console.log(err));
+        document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
     };
 
     return (
         <>
             {/* Preloader */}
-            <div id="preloader" className="">
+            <div id="preloader" className="show">
                 <div className="spinner"></div>
             </div>
 

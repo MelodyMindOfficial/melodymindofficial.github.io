@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { headerList } from '../../data/data';
-import { headerList_en } from '../../data/data_en';
+import { headerList, headerListUser } from '../../data/data';
+import { headerList_en, headerListUser_en } from '../../data/data_en';
 import logo from '/images/logo.png';
 import './Header.css';
 
@@ -18,6 +18,7 @@ export default function Header({
     let lastScroll = 0;
     const language = localStorage.getItem('language');
     const [msg, setMsg] = useState('');
+    const [showBurgerUser, setShowBurgerUser] = useState(false);
     const defaultOffset = 200;
     const scrollPosition = () =>
         window.scrollY || document.documentElement.scrollTop;
@@ -128,7 +129,112 @@ export default function Header({
                     )}
                     <section className="headerTools">
                         {authorized[0] ? (
-                            <button onClick={logout}>Выйти</button>
+                            <>
+                                <section
+                                    className={
+                                        'headerBurger ' +
+                                        (showBurgerUser ? 'show' : '')
+                                    }
+                                >
+                                    <div className="burgerUser">
+                                        <Link to="/profile">
+                                            <img
+                                                src="/images/user.png"
+                                                alt="User"
+                                            />
+                                        </Link>
+                                        <div className="burgerUserText">
+                                            <Link to="/profile">
+                                                <h3>Lorem ipsum</h3>
+                                            </Link>
+                                            <Link to="/purchase">
+                                                <p>
+                                                    {language == 'en'
+                                                        ? 'FREE'
+                                                        : 'БЕСПЛАТНО'}
+                                                </p>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                    <button className="burgerFinance">
+                                        <h3>
+                                            {language == 'en'
+                                                ? 'Your balance'
+                                                : 'Ваш баланс'}
+                                        </h3>
+                                        <h3>0.00 руб.</h3>
+                                    </button>
+                                    <hr />
+                                    <ul className="burgerList">
+                                        {(language == 'en'
+                                            ? headerListUser_en
+                                            : headerListUser
+                                        ).map((item) => (
+                                            <li key={item.title}>
+                                                <Link to={item.link}>
+                                                    <i
+                                                        className={
+                                                            'fa-solid ' +
+                                                            item.icon
+                                                        }
+                                                    ></i>
+                                                    <h3>{item.title}</h3>
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <hr />
+                                    <ul className="burgerList">
+                                        <li>
+                                            <Link to="/settings">
+                                                <i className="fa-solid fa-sliders"></i>
+                                                <h3>
+                                                    {language == 'en'
+                                                        ? 'Account settings'
+                                                        : 'Настройки аккаунта'}
+                                                </h3>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/help">
+                                                <i className="fa-solid fa-life-ring"></i>
+                                                <h3>
+                                                    {language == 'en'
+                                                        ? 'Help'
+                                                        : 'Помощь'}
+                                                </h3>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                    <hr />
+                                    <ul className="burgerList">
+                                        <li
+                                            onClick={logout}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                                            <h3>
+                                                {language == 'en'
+                                                    ? 'Log out'
+                                                    : 'Выйти из аккаунта'}
+                                            </h3>
+                                        </li>
+                                    </ul>
+                                </section>
+                                <button
+                                    className="headerCart"
+                                    onClick={() =>
+                                        setShowBurgerUser(!showBurgerUser)
+                                    }
+                                >
+                                    <img src="/images/user.png" alt="User" />
+                                    <i className="fa-solid fa-chevron-down"></i>
+                                </button>
+                                <button className="headerCart">
+                                    <i className="fa-solid fa-bell"></i>
+                                    <i className="fa-solid fa-chevron-down"></i>
+                                </button>
+                            </>
                         ) : (
                             <div className="HeaderLoginButtons">
                                 <button

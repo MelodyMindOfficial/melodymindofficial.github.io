@@ -49,7 +49,7 @@ export default function Main({ search, setSearch, isNotify }) {
 
     var i = 0;
     const [invalid, setInvalid] = useState(true);
-    const [image, setImage] = useState('/track/' + previous + '.png');
+    const [image, setImage] = useState('/images/track/' + previous + '.png');
 
     function handleEmailChange(event) {
         if (event.target.value.trim().length != 0) setInvalid(false);
@@ -64,7 +64,7 @@ export default function Main({ search, setSearch, isNotify }) {
                 current = getRandomInt(numTracks);
             }
             previous = current;
-            setImage('/track/' + current + '.png');
+            setImage('/images/track/' + current + '.png');
         }, 3000);
 
         return () => {
