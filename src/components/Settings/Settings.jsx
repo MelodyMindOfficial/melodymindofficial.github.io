@@ -23,11 +23,11 @@ export default function Settings({ authorized, isMsg }) {
     };
 
     const [msg, setMsg] = useState('');
-    const [isname, setName] = useState(auth.name);
-    const [issurname, setSurname] = useState(auth.surname);
-    const [isdisplayName, setDisplayName] = useState(auth.displayName);
-    const [islocation, setLocation] = useState(auth.location);
-    const [isbio, setBio] = useState(auth.bio);
+    const [isname, setName] = useState('');
+    const [issurname, setSurname] = useState('');
+    const [isdisplayName, setDisplayName] = useState('');
+    const [islocation, setLocation] = useState('');
+    const [isbio, setBio] = useState('');
 
     function update(e) {
         e.preventDefault();
