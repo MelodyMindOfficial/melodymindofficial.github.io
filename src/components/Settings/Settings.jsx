@@ -37,7 +37,7 @@ export default function Settings({ authorized, isMsg }) {
             'Conten-Type': 'application/json',
         };
         var Data = {
-            id: auth.id,
+            email: auth.email,
             name: name,
             surname: surname,
             displayName: displayName,
