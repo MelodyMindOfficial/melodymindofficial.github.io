@@ -110,7 +110,9 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="name"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    onChange={() => setName()}
+                                    onChange={(event) =>
+                                        setName(event.target.value)
+                                    }
                                 />
                                 <label htmlFor="surname">
                                     {language == 'en' ? 'Last name' : 'Фамилия'}
@@ -119,7 +121,9 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="surname"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    onChange={() => setSurname()}
+                                    onChange={(event) =>
+                                        setSurname(event.target.value)
+                                    }
                                 />
                                 <label htmlFor="nickname">
                                     {language == 'en' ? '' : 'Отображаемое имя'}
@@ -127,7 +131,9 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="nickname"
-                                    onChange={() => setDisplayName()}
+                                    onChange={(event) =>
+                                        setDisplayName(event.target.value)
+                                    }
                                 />
                                 <label htmlFor="location">
                                     {language == 'en' ? '' : 'Местоположение'}
@@ -135,7 +141,9 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="location"
-                                    onChange={() => setLocation()}
+                                    onChange={(event) =>
+                                        setLocation(event.target.value)
+                                    }
                                 />
                                 <label htmlFor="bio">
                                     {language == 'en' ? '' : 'Биография'}
@@ -145,7 +153,9 @@ export default function Settings({ authorized, isMsg }) {
                                     id=""
                                     cols="30"
                                     rows="10"
-                                    onChange={() => setBio()}
+                                    onChange={(event) =>
+                                        setBio(event.target.value)
+                                    }
                                 ></textarea>
                                 <button type="submit">
                                     {language == 'en'
