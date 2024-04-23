@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import BlueButton from '../BlueButton/BlueButton';
 import './Settings.css';
 
-export default function Settings({ authorized }) {
+export default function Settings({ authorized, isMsg }) {
     const language = localStorage.getItem('language');
     const auth = {
         login: authorized[0],
@@ -22,6 +22,7 @@ export default function Settings({ authorized }) {
         tracks: authorized[14],
     };
 
+    const [msg, setMsg] = useState('');
     const [name, setName] = useState(auth.name);
     const [surname, setSurname] = useState(auth.surname);
     const [displayName, setDisplayName] = useState(auth.displayName);

@@ -229,7 +229,12 @@ export default function App() {
                         />
                         <Route
                             path="/settings"
-                            element={<Settings authorized={authorized} />}
+                            element={
+                                <Settings
+                                    authorized={authorized}
+                                    isMsg={(current) => setNotify(current)}
+                                />
+                            }
                         />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
