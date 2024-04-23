@@ -23,11 +23,11 @@ export default function Settings({ authorized, isMsg }) {
     };
 
     const [msg, setMsg] = useState('');
-    const [name, setName] = useState(auth.name);
-    const [surname, setSurname] = useState(auth.surname);
-    const [displayName, setDisplayName] = useState(auth.displayName);
-    const [location, setLocation] = useState(auth.location);
-    const [bio, setBio] = useState(auth.bio);
+    const [isname, setName] = useState(auth.name);
+    const [issurname, setSurname] = useState(auth.surname);
+    const [isdisplayName, setDisplayName] = useState(auth.displayName);
+    const [islocation, setLocation] = useState(auth.location);
+    const [isbio, setBio] = useState(auth.bio);
 
     function update(e) {
         e.preventDefault();
@@ -38,11 +38,11 @@ export default function Settings({ authorized, isMsg }) {
         };
         var Data = {
             email: auth.email,
-            name: name,
-            surname: surname,
-            displayName: displayName,
-            location: location,
-            bio: bio,
+            name: isname,
+            surname: issurname,
+            displayName: isdisplayName,
+            location: islocation,
+            bio: isbio,
         };
         fetch(url, {
             method: 'POST',
@@ -110,7 +110,7 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="name"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    value={name}
+                                    value={isname}
                                     onChange={() => setName()}
                                 />
                                 <label htmlFor="surname">
@@ -120,7 +120,7 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="surname"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    value={surname}
+                                    value={issurname}
                                     onChange={() => setSurname()}
                                 />
                                 <label htmlFor="nickname">
@@ -129,7 +129,7 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="nickname"
-                                    value={displayName}
+                                    value={isdisplayName}
                                     onChange={() => setDisplayName()}
                                 />
                                 <label htmlFor="location">
@@ -138,7 +138,7 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="location"
-                                    value={location}
+                                    value={islocation}
                                     onChange={() => setLocation()}
                                 />
                                 <label htmlFor="bio">
@@ -149,7 +149,7 @@ export default function Settings({ authorized, isMsg }) {
                                     id=""
                                     cols="30"
                                     rows="10"
-                                    value={bio}
+                                    value={isbio}
                                     onChange={() => setBio()}
                                 ></textarea>
                                 <button type="submit">
