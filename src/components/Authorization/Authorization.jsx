@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
+import BlueButton from '../BlueButton/BlueButton';
 
 export default function Authorization({ isModal, open, target, isEmail }) {
     const dialog = useRef();
@@ -49,13 +50,15 @@ export default function Authorization({ isModal, open, target, isEmail }) {
                         onChange={handleLoginChange}
                         required
                     />
-                    <button
-                        className={!disable ? 'active' : null}
+                    <BlueButton
+                        padding={'8px 10px'}
                         disabled={disable}
+                        fontSize={'14px'}
+                        marginBottom={'12px'}
                         type="submit"
                     >
                         {language == 'en' ? 'Continue' : 'Продолжить'}
-                    </button>
+                    </BlueButton>
                 </form>
                 <div className="hr-line">
                     <hr />

@@ -1,0 +1,21 @@
+.blueButton {
+    text-align: center;
+    color: #fff;
+    background-color: #005FF8;
+    border-radius: 7px;
+    transition: 150ms;
+}
+
+.blueButton:hover {
+    filter: brightness(1.15);
+}
+
+.blueButton:disabled {
+    color: rgba(204, 204, 204, 0.2);
+    background-color: #262626;
+    cursor: default;
+}
+
+.blueButton:disabled:hover {
+    filter: brightness(1);
+}

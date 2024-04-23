@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Profile.css';
 
 export default function Profile({ authorized }) {
@@ -8,6 +9,16 @@ export default function Profile({ authorized }) {
         name: authorized[2],
         email: authorized[3],
         password: authorized[4],
+        surname: authorized[5],
+        displayName: authorized[6],
+        photo: authorized[7],
+        location: authorized[8],
+        bio: authorized[9],
+        status: authorized[10],
+        subscription: authorized[11],
+        followers: authorized[12],
+        plays: authorized[13],
+        tracks: authorized[14],
     };
     console.log(authorized);
     return (
@@ -16,13 +27,17 @@ export default function Profile({ authorized }) {
                 <section className="profileInfo">
                     <div className="profileInfoMain">
                         <img src="./images/user.png" alt="" />
-                        <h3>{auth.email}</h3>
+                        <h3>
+                            {auth.displayName ? auth.displayName : auth.email}
+                        </h3>
                     </div>
-                    <button>
-                        {language == 'en'
-                            ? 'Edit profile'
-                            : 'Редактировать профиль'}
-                    </button>
+                    <Link to="/settings">
+                        <button>
+                            {language == 'en'
+                                ? 'Edit profile'
+                                : 'Редактировать профиль'}
+                        </button>
+                    </Link>
                     <div className="profileInfoStat">
                         <h4>{language == 'en' ? 'STATS' : 'СТАТИСТИКА'}</h4>
                         <ul>
@@ -32,7 +47,7 @@ export default function Profile({ authorized }) {
                                         ? 'Followers'
                                         : 'Подписчики'}
                                 </p>
-                                <p>0</p>
+                                <p>{auth.followers}</p>
                             </li>
                             <li>
                                 <p>
@@ -40,11 +55,11 @@ export default function Profile({ authorized }) {
                                         ? 'Plays'
                                         : 'Прослушивания'}
                                 </p>
-                                <p>0</p>
+                                <p>{auth.plays}</p>
                             </li>
                             <li>
                                 <p>{language == 'en' ? 'Tracks' : 'Треки'}</p>
-                                <p>0</p>
+                                <p>{auth.tracks}</p>
                             </li>
                         </ul>
                     </div>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { team } from '../../data/data';
 import { team_en } from '../../data/data_en';
+import BlueButton from '../BlueButton/BlueButton';
 import './About.css';
 
 export default function About({ isActive }) {
@@ -25,9 +26,9 @@ export default function About({ isActive }) {
                     !
                 </p>
                 <Link to="/" onClick={() => isActive('main')}>
-                    <button>
+                    <BlueButton padding={'12px 24px'} fontSize={'18px'}>
                         {language == 'en' ? 'Learn more' : 'Узнать больше'}
-                    </button>
+                    </BlueButton>
                 </Link>
             </section>
             <section className="aboutWorld">

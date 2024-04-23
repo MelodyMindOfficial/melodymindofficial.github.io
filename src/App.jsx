@@ -27,6 +27,7 @@ import SignIn from './components/Authorization/SignIn';
 import SignUp from './components/Authorization/SignUp';
 import ResetPassword from './components/Authorization/ResetPassword';
 import Profile from './components/Profile/Profile';
+import Settings from './components/Settings/Settings';
 
 // Style
 import './index.css';
@@ -225,6 +226,10 @@ export default function App() {
                         <Route
                             path="/profile"
                             element={<Profile authorized={authorized} />}
+                        />
+                        <Route
+                            path="/settings"
+                            element={<Settings authorized={authorized} />}
                         />
                         <Route path="*" element={<NotFound />} />
                     </Routes>

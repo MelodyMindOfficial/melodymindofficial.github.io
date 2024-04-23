@@ -73,9 +73,8 @@ dialog+.backdrop {
     border-color: red;
 }
 
-.signSelf button,
+/* .signSelf button, */
 .signAuth button {
-    /* display: flex; */
     margin-bottom: 12px;
     padding: 8px 10px;
     height: 37px;
@@ -87,14 +86,14 @@ dialog+.backdrop {
     transition: 150ms;
 }
 
-.signSelf button:disabled {
+/* .signSelf button:disabled {
     cursor: default;
-}
+} */
 
-.signSelf button.active {
+/* .signSelf button.active {
     color: #fff;
     background-color: #005FF8;
-}
+} */
 
 .signAuth button.active {
     color: #fff;

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
 import logo from '/images/user.png';
+import BlueButton from '../BlueButton/BlueButton';
 
 export default function SignUp({ email, isMsg }) {
     const dialog = useRef();
@@ -135,13 +136,15 @@ export default function SignUp({ email, isMsg }) {
                         onChange={handlePasswordChange}
                         required
                     />
-                    <button
-                        className={!disable ? 'active' : null}
+                    <BlueButton
+                        padding={'8px 10px'}
                         disabled={disable}
+                        fontSize={'14px'}
+                        marginBottom={'12px'}
                         type="submit"
                     >
                         {language == 'en' ? 'Continue' : 'Продолжить'}
-                    </button>
+                    </BlueButton>
                 </form>
             </div>
         </dialog>

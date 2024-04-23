@@ -23,6 +23,16 @@ export default function Header({
         name: authorized[2],
         email: authorized[3],
         password: authorized[4],
+        surname: authorized[5],
+        displayName: authorized[6],
+        photo: authorized[7],
+        location: authorized[8],
+        bio: authorized[9],
+        status: authorized[10],
+        subscription: authorized[11],
+        followers: authorized[12],
+        plays: authorized[13],
+        tracks: authorized[14],
     };
     const [msg, setMsg] = useState('');
     const [showBurgerUser, setShowBurgerUser] = useState(false);
@@ -89,10 +99,10 @@ export default function Header({
                         onClick={() => isActive('main')}
                     >
                         <img src={logo} alt="Logo" />
-                        <h1>MelodyMind</h1>
+                        {auth.id ? null : <h1>MelodyMind</h1>}
                     </Link>
                     {active != 'about' && active != 'contacts' ? (
-                        <form action="" className="headerForm">
+                        <form action="" className={'headerForm ' + auth.login}>
                             <button type="submit">
                                 <i className="fa-solid fa-magnifying-glass"></i>
                             </button>

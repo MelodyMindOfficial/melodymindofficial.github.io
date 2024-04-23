@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './Authorization.css';
 import logo from '/images/user.png';
+import BlueButton from '../BlueButton/BlueButton';
 
 export default function SignIn({ email, isMsg }) {
     const dialog = useRef();
@@ -222,14 +223,15 @@ export default function SignIn({ email, isMsg }) {
                             </a>
                         </label>
                     </div>
-                    <button
-                        className={!disable ? 'active' : null}
+                    <BlueButton
+                        padding={'8px 10px'}
                         disabled={disable}
-                        // onClick={signUp}
+                        fontSize={'14px'}
+                        marginBottom={'12px'}
                         type="submit"
                     >
                         {language == 'en' ? 'Continue' : 'Продолжить'}
-                    </button>
+                    </BlueButton>
                 </form>
             </div>
         </dialog>

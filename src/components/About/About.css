@@ -28,7 +28,7 @@
     margin: 17px 0px 43px 0px;
 }
 
-.aboutSection button {
+/* .aboutSection button {
     padding: 12px 24px;
     color: #fff;
     font-size: 18px;
@@ -39,7 +39,7 @@
 .aboutSection button:hover,
 .aboutSection button:focus {
     filter: brightness(1.25);
-}
+} */
 
 .aboutWorld {
     display: flex;
