@@ -110,6 +110,7 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="name"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
+                                    value={auth.name}
                                     onChange={(event) =>
                                         setName(event.target.value)
                                     }
@@ -121,6 +122,7 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="surname"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
+                                    value={auth.surname}
                                     onChange={(event) =>
                                         setSurname(event.target.value)
                                     }
@@ -131,6 +133,7 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="nickname"
+                                    value={auth.displayName}
                                     onChange={(event) =>
                                         setDisplayName(event.target.value)
                                     }
@@ -141,6 +144,7 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="location"
+                                    value={auth.location}
                                     onChange={(event) =>
                                         setLocation(event.target.value)
                                     }
@@ -153,6 +157,7 @@ export default function Settings({ authorized, isMsg }) {
                                     id=""
                                     cols="30"
                                     rows="10"
+                                    value={auth.bio}
                                     onChange={(event) =>
                                         setBio(event.target.value)
                                     }
