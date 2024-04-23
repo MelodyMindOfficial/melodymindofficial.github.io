@@ -13,7 +13,7 @@ $displayName = $dData['displayName'];
 $location = $dData['location'];
 $bio = $dData['bio'];
 
-$sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
+$sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email'");
 if (!mysqli_fetch_assoc($sql)) {
     if ($language == 'en') {
         $result = "User doesn't exists!";
