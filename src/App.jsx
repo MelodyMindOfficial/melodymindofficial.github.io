@@ -225,7 +225,14 @@ export default function App() {
                         />
                         <Route
                             path="/profile"
-                            element={<Profile authorized={authorized} />}
+                            element={
+                                <Profile
+                                    authorized={authorized}
+                                    isActive={(current) =>
+                                        activeSection(current)
+                                    }
+                                />
+                            }
                         />
                         <Route
                             path="/settings"

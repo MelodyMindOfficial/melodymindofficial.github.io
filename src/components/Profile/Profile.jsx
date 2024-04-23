@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Profile.css';
 
-export default function Profile({ authorized }) {
+export default function Profile({ authorized, isActive }) {
     const language = localStorage.getItem('language');
     const auth = {
         login: authorized[0],
@@ -20,7 +20,7 @@ export default function Profile({ authorized }) {
         plays: authorized[13],
         tracks: authorized[14],
     };
-    console.log(authorized);
+    // console.log(authorized);
     return (
         <div className="profile">
             <div className="profileContainer _container">
@@ -31,7 +31,7 @@ export default function Profile({ authorized }) {
                             {auth.displayName ? auth.displayName : auth.email}
                         </h3>
                     </div>
-                    <Link to="/settings">
+                    <Link to="/settings" onClick={() => isActive('main')}>
                         <button>
                             {language == 'en'
                                 ? 'Edit profile'
