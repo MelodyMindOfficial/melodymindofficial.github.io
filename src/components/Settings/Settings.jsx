@@ -110,7 +110,6 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="name"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    value={isname}
                                     onChange={() => setName()}
                                 />
                                 <label htmlFor="surname">
@@ -120,7 +119,6 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="surname"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    value={issurname}
                                     onChange={() => setSurname()}
                                 />
                                 <label htmlFor="nickname">
@@ -129,7 +127,6 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="nickname"
-                                    value={isdisplayName}
                                     onChange={() => setDisplayName()}
                                 />
                                 <label htmlFor="location">
@@ -138,7 +135,6 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="location"
-                                    value={islocation}
                                     onChange={() => setLocation()}
                                 />
                                 <label htmlFor="bio">
@@ -149,7 +145,6 @@ export default function Settings({ authorized, isMsg }) {
                                     id=""
                                     cols="30"
                                     rows="10"
-                                    value={isbio}
                                     onChange={() => setBio()}
                                 ></textarea>
                                 <button type="submit">
