@@ -42,6 +42,16 @@ export default function Header({
     const containHide = () =>
         document.querySelector('.headerNav').classList.contains('hide');
 
+    document.addEventListener('click', (e) => {
+        const click = e
+            .composedPath()
+            .includes(document.querySelector('#userButton'));
+
+        if (!click) {
+            setShowBurgerUser(false);
+        }
+    });
+
     window.addEventListener('scroll', () => {
         if (
             scrollPosition() > lastScroll &&
@@ -145,7 +155,7 @@ export default function Header({
                         </div>
                     )}
                     <section className="headerTools">
-                        {auth.id ? (
+                        {true ? (
                             <>
                                 <section
                                     className={
@@ -239,6 +249,7 @@ export default function Header({
                                     </ul>
                                 </section>
                                 <button
+                                    id="userButton"
                                     className="headerCart"
                                     onClick={() =>
                                         setShowBurgerUser(!showBurgerUser)

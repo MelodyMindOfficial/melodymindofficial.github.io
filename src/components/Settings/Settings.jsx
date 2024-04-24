@@ -23,14 +23,15 @@ export default function Settings({ authorized, isMsg }) {
     };
 
     const [msg, setMsg] = useState('');
-    const [isname, setName] = useState('');
-    const [issurname, setSurname] = useState('');
-    const [isdisplayName, setDisplayName] = useState('');
-    const [islocation, setLocation] = useState('');
-    const [isbio, setBio] = useState('');
+    const [isname, setName] = useState(auth.name || '');
+    const [issurname, setSurname] = useState(auth.surname || '');
+    const [isdisplayName, setDisplayName] = useState(auth.displayName || '');
+    const [islocation, setLocation] = useState(auth.location || '');
+    const [isbio, setBio] = useState(auth.bio || '');
 
     function update(e) {
         e.preventDefault();
+
         var url = 'https://cg30388.tw1.ru/config/update.php';
         var headers = {
             Accept: 'application/json',
@@ -110,6 +111,7 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="name"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
+                                    value={isname}
                                     onChange={(event) =>
                                         setName(event.target.value)
                                     }
@@ -121,6 +123,7 @@ export default function Settings({ authorized, isMsg }) {
                                     type="text"
                                     name="surname"
                                     pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
+                                    value={issurname}
                                     onChange={(event) =>
                                         setSurname(event.target.value)
                                     }
@@ -131,6 +134,7 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="nickname"
+                                    value={isdisplayName}
                                     onChange={(event) =>
                                         setDisplayName(event.target.value)
                                     }
@@ -141,6 +145,7 @@ export default function Settings({ authorized, isMsg }) {
                                 <input
                                     type="text"
                                     name="location"
+                                    value={islocation}
                                     onChange={(event) =>
                                         setLocation(event.target.value)
                                     }
@@ -153,9 +158,10 @@ export default function Settings({ authorized, isMsg }) {
                                     id=""
                                     cols="30"
                                     rows="10"
-                                    onChange={(event) =>
-                                        setBio(event.target.value)
-                                    }
+                                    value={isbio}
+                                    onChange={(event) => {
+                                        setBio(event.target.value);
+                                    }}
                                 ></textarea>
                                 <button type="submit">
                                     {language == 'en'

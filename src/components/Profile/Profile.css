@@ -35,8 +35,9 @@
     color: #fff;
     font-size: 20px;
     font-weight: 600;
-    white-space: nowrap;
+    text-align: center;
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 }
 
