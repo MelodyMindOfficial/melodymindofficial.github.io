@@ -155,7 +155,7 @@ export default function Header({
                         </div>
                     )}
                     <section className="headerTools">
-                        {true ? (
+                        {auth.id ? (
                             <>
                                 <section
                                     className={
