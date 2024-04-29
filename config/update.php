@@ -6,14 +6,16 @@ $eData = file_get_contents("php://input");
 $dData = json_decode($eData, true);
 
 
-$email = $dData['email'];
+$id = $dData['id'];
 $name = $dData['name'];
 $surname = $dData['surname'];
 $displayName = $dData['displayName'];
 $location = $dData['location'];
 $bio = $dData['bio'];
 
-$sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email'");
+$bio = str_replace('"', '\"', $bio);
+
+$sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
 if (!mysqli_fetch_assoc($sql)) {
     if ($language == 'en') {
         $result = "User doesn't exists!";
