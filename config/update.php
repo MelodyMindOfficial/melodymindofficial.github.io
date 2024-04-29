@@ -23,7 +23,7 @@ if (!mysqli_fetch_assoc($sql)) {
         $result = "Такой пользователь не существует!";
     }
 } else {
-    $sql = "UPDATE `users` SET `name` = '$name', `surname` = '$surname', `displayName` = '$displayName', `location` = '$location', `bio` = \"$bio\" WHERE `users`.`email` = '$email'";
+    $sql = "UPDATE `users` SET `name` = '$name', `surname` = '$surname', `displayName` = '$displayName', `location` = '$location', `bio` = \"$bio\" WHERE `users`.`id` = '$id'";
 
     if ($connect->query($sql)) {
         if ($language == 'en') {
