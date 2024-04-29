@@ -65,7 +65,15 @@
     margin-left: 24px;
     padding: 5px 16px;
     height: 30px;
+    color: #fff;
     font-size: 14px;
+    background-color: #005FF8;
+    border-radius: 7px;
+    transition: 150ms;
+}
+
+.settingsImage button:hover {
+    filter: brightness(1.15);
 }
 
 .settingsImage button i {

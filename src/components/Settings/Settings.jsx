@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import BlueButton from '../BlueButton/BlueButton';
+import SettingsProfile from '../SettingsProfile';
 import './Settings.css';
+import SettingsCredit from '../SettingsCredit';
+import SettingsSocial from '../SettingsSocial';
+import SettingsSubscription from '../SettingsSubscription';
 
 export default function Settings({ authorized, isMsg }) {
     const language = localStorage.getItem('language');
@@ -29,7 +33,9 @@ export default function Settings({ authorized, isMsg }) {
     const [islocation, setLocation] = useState(auth.location || '');
     const [isbio, setBio] = useState(auth.bio || '');
 
-    function update(e) {
+    const [sectionProfile, setSectionProfile] = useState('profile');
+
+    function updateProfile(e) {
         e.preventDefault();
 
         var url = 'https://cg30388.tw1.ru/config/update.php';
@@ -38,7 +44,7 @@ export default function Settings({ authorized, isMsg }) {
             'Conten-Type': 'application/json',
         };
         var Data = {
-            email: auth.email,
+            id: auth.id,
             name: isname,
             surname: issurname,
             displayName: isdisplayName,
@@ -56,6 +62,7 @@ export default function Settings({ authorized, isMsg }) {
                 console.log(Data);
             })
             .catch((err) => console.log(err));
+        console.log(Data);
     }
 
     useEffect(() => {
@@ -74,102 +81,58 @@ export default function Settings({ authorized, isMsg }) {
                 <div className="settingsSection">
                     <aside className="settingsSideSection">
                         <ul>
-                            <li className="active">
+                            <li
+                                className={
+                                    sectionProfile == 'profile' ? 'active' : ''
+                                }
+                                onClick={() => setSectionProfile('profile')}
+                            >
                                 {language == 'en' ? 'Profile' : 'Профиль'}
                             </li>
-                            <li>
+                            <li
+                                className={
+                                    sectionProfile == 'credit' ? 'active' : ''
+                                }
+                                onClick={() => setSectionProfile('credit')}
+                            >
                                 {language == 'en'
                                     ? 'Credentials'
                                     : 'Учетные данные'}
                             </li>
-                            <li>
+                            <li
+                                className={
+                                    sectionProfile == 'social' ? 'active' : ''
+                                }
+                                onClick={() => setSectionProfile('social')}
+                            >
                                 {language == 'en'
                                     ? 'Social network'
                                     : 'Социальные сети'}
                             </li>
-                            <li>
+                            <li
+                                className={
+                                    sectionProfile == 'subscription'
+                                        ? 'active'
+                                        : ''
+                                }
+                                onClick={() =>
+                                    setSectionProfile('subscription')
+                                }
+                            >
                                 {language == 'en' ? 'Subscription' : 'Подписка'}
                             </li>
                         </ul>
                     </aside>
                     <div className="settingsSectionMain">
-                        <form method="" onSubmit={update}>
-                            <section className="settingsImage">
-                                <img src="./images/user.png" alt="" />
-                                <BlueButton>
-                                    {language == 'en'
-                                        ? 'Upload image'
-                                        : 'Загрузить изображение'}
-                                    <i className="fa-solid fa-chevron-down"></i>
-                                </BlueButton>
-                            </section>
-                            <section className="settingsText">
-                                <label htmlFor="name">
-                                    {language == 'en' ? 'Name' : 'Имя'}
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    value={isname}
-                                    onChange={(event) =>
-                                        setName(event.target.value)
-                                    }
-                                />
-                                <label htmlFor="surname">
-                                    {language == 'en' ? 'Last name' : 'Фамилия'}
-                                </label>
-                                <input
-                                    type="text"
-                                    name="surname"
-                                    pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    value={issurname}
-                                    onChange={(event) =>
-                                        setSurname(event.target.value)
-                                    }
-                                />
-                                <label htmlFor="nickname">
-                                    {language == 'en' ? '' : 'Отображаемое имя'}
-                                </label>
-                                <input
-                                    type="text"
-                                    name="nickname"
-                                    value={isdisplayName}
-                                    onChange={(event) =>
-                                        setDisplayName(event.target.value)
-                                    }
-                                />
-                                <label htmlFor="location">
-                                    {language == 'en' ? '' : 'Местоположение'}
-                                </label>
-                                <input
-                                    type="text"
-                                    name="location"
-                                    value={islocation}
-                                    onChange={(event) =>
-                                        setLocation(event.target.value)
-                                    }
-                                />
-                                <label htmlFor="bio">
-                                    {language == 'en' ? '' : 'Биография'}
-                                </label>
-                                <textarea
-                                    name="bio"
-                                    id=""
-                                    cols="30"
-                                    rows="10"
-                                    value={isbio}
-                                    onChange={(event) => {
-                                        setBio(event.target.value);
-                                    }}
-                                ></textarea>
-                                <button type="submit">
-                                    {language == 'en'
-                                        ? 'Save changes'
-                                        : 'Сохранить изменения'}
-                                </button>
-                            </section>
-                        </form>
+                        {sectionProfile == 'profile' && (
+                            <SettingsProfile
+                                updateProfile={updateProfile}
+                                auth={auth}
+                            />
+                        )}
+                        {sectionProfile == 'credit' && <SettingsCredit />}
+                        {sectionProfile == 'credit' && <SettingsSocial />}
+                        {sectionProfile == 'credit' && <SettingsSubscription />}
                     </div>
                 </div>
             </div>
