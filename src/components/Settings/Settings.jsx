@@ -4,7 +4,7 @@ import SettingsSocial from '../SettingsSocial';
 import SettingsSubscription from '../SettingsSubscription';
 import './Settings.css';
 
-export default function Settings({ isMsg, setAuthorized }) {
+export default function Settings({ isMsg }) {
     const language = localStorage.getItem('language');
     const authorized = JSON.parse(localStorage.getItem('authData'));
     const auth = {
@@ -65,6 +65,7 @@ export default function Settings({ isMsg, setAuthorized }) {
     useEffect(() => {
         isMsg(msg);
         setTimeout(() => setMsg(''), 5000);
+        location.reload();
     }, [msg]);
 
     return (
