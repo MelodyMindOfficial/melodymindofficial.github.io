@@ -37,7 +37,8 @@ export default function App() {
     // window.addEventListener(
     //     'load',
     //     function () {
-    document.addEventListener('DOMContentLoaded', function () {
+    // document.addEventListener('DOMContentLoaded', function () {
+    window.onload = function () {
         var url = 'https://cg30388.tw1.ru/config/config.php';
         var headers = {
             Accept: 'application/json',
@@ -55,7 +56,8 @@ export default function App() {
             })
             .catch((err) => console.log(err));
         alert('damn');
-    });
+    };
+    // });
     // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
     //     },
     //     false
