@@ -65,7 +65,6 @@ export default function Settings({ isMsg }) {
     useEffect(() => {
         isMsg(msg);
         setTimeout(() => setMsg(''), 5000);
-        location.reload();
     }, [msg]);
 
     return (
