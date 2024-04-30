@@ -51,10 +51,9 @@ export default function App() {
                 setAuthorized(response[0]);
             })
             .catch((err) => console.log(err));
-        setTimeout(
-            document.getElementById('preloader').classList.remove('show'),
-            10000
-        ); // Убираем Preloader
+        setTimeout(() => {
+            document.getElementById('preloader').classList.remove('show');
+        }, 10000); // Убираем Preloader
     }, [window]);
 
     // --- НАЧАЛЬНЫЕ ЗНАЧЕНИЯ --- //
