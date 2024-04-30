@@ -4,6 +4,13 @@ import './Profile.css';
 
 export default function Profile({ authorized, isActive }) {
     const language = localStorage.getItem('language');
+
+    try {
+        var authorized = JSON.parse(localStorage.getItem('authData'));
+    } catch (error) {
+        window.location.pathname = '/login';
+    }
+
     const auth = {
         login: authorized[0],
         id: authorized[1],
