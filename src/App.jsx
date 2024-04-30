@@ -37,22 +37,22 @@ export default function App() {
     // window.addEventListener(
     //     'load',
     //     function () {
-    // var url = 'https://cg30388.tw1.ru/config/config.php';
-    // var headers = {
-    //     Accept: 'application/json',
-    //     'Conten-Type': 'application/json',
-    // };
-    // var Data = {};
-    // fetch(url, {
-    //     method: 'POST',
-    //     headers: headers,
-    //     body: JSON.stringify(Data),
-    // })
-    //     .then((response) => response.json())
-    //     .then((response) => {
-    //         setAuthorized(response[0]);
-    //     })
-    //     .catch((err) => console.log(err));
+    var url = 'https://cg30388.tw1.ru/config/config.php';
+    var headers = {
+        Accept: 'application/json',
+        'Conten-Type': 'application/json',
+    };
+    var Data = {};
+    fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(Data),
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            setAuthorized(response[1]);
+        })
+        .catch((err) => console.log(err));
     // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
     //     },
     //     false
@@ -67,7 +67,7 @@ export default function App() {
     const [modal, setModal] = useState(false); // Устанавливаем значение для модального окна
     const [search, setSeacrh] = useState(''); // Устанавливаем значение для поиска
     const [notify, setNotify] = useState(''); // Устанавливаем значение для уведомленя
-    const [authorized, setAuthorized] = useState([]); // Инициализируем массив для аккаунта
+    const [authorized, setAuthorized] = useState(false); // Инициализируем массив для аккаунта
     const [active, setActive] = useState(
         localStorage.getItem('active') || 'main'
     ); // Устанавливаем значение активной страницы для Router
