@@ -23,7 +23,7 @@ export default function Profile({ authorized, isActive }) {
     };
 
     useEffect(() => {
-        if (auth.id != '') {
+        if (auth.id == '') {
             window.location.pathname = '/login';
         }
     }, []);
