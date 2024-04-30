@@ -68,14 +68,6 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
         setTimeout(() => setMsg(''), 5000);
     }, [msg]);
 
-    useEffect(() => {
-        auth.name = isname;
-        auth.surname = issurname;
-        auth.displayName = isdisplayName;
-        auth.location = islocation;
-        auth.bio = isbio;
-    }, []);
-
     return (
         <div className="settingsContainer">
             <div className="_container">
@@ -149,7 +141,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                         type="text"
                                         name="name"
                                         pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                        value={auth.name}
+                                        value={isname}
                                         onChange={(event) =>
                                             setName(event.target.value)
                                         }
@@ -163,7 +155,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                         type="text"
                                         name="surname"
                                         pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                        value={auth.surname}
+                                        value={issurname}
                                         onChange={(event) =>
                                             setSurname(event.target.value)
                                         }
@@ -176,7 +168,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                     <input
                                         type="text"
                                         name="nickname"
-                                        value={auth.displayName}
+                                        value={isdisplayName}
                                         onChange={(event) =>
                                             setDisplayName(event.target.value)
                                         }
@@ -189,7 +181,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                     <input
                                         type="text"
                                         name="location"
-                                        value={auth.location}
+                                        value={islocation}
                                         onChange={(event) =>
                                             setLocation(event.target.value)
                                         }
@@ -202,7 +194,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                         id=""
                                         cols="30"
                                         rows="10"
-                                        value={auth.bio}
+                                        value={isbio}
                                         onChange={(event) => {
                                             setBio(event.target.value);
                                         }}
