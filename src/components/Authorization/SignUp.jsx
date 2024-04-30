@@ -12,13 +12,6 @@ export default function SignIn({ email, isMsg }) {
     const [isAllow, setAllow] = useState(false);
     const [msg, setMsg] = useState('');
 
-    try {
-        var authorized = JSON.parse(localStorage.getItem('authData'));
-        if (authorized) {
-            window.location.pathname = '/profile';
-        }
-    } catch (error) {}
-
     function handlePasswordCorrect() {
         var password = document.getElementById('password');
         var passwordCheck = document.getElementById('passwordCheck');

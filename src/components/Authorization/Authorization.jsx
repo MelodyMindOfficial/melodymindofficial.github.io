@@ -12,13 +12,6 @@ export default function Authorization({ isModal, open, target, isEmail }) {
         else setDisable(true);
     }
 
-    try {
-        var authorized = JSON.parse(localStorage.getItem('authData'));
-        if (authorized) {
-            window.location.pathname = '/profile';
-        }
-    } catch (error) {}
-
     useEffect(() => {
         if (open) {
             dialog.current.showModal();
