@@ -68,6 +68,14 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
         setTimeout(() => setMsg(''), 5000);
     }, [msg]);
 
+    useEffect(() => {
+        auth.name = isname;
+        auth.surname = issurname;
+        auth.displayName = isdisplayName;
+        auth.location = islocation;
+        auth.bio = isbio;
+    }, []);
+
     return (
         <div className="settingsContainer">
             <div className="_container">
