@@ -51,6 +51,7 @@ export default function App() {
         .then((response) => response.json())
         .then((response) => {
             setAuthorized(response[0]);
+            console.log('okay thats true');
         })
         .catch((err) => console.log(err));
     // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
