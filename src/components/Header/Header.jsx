@@ -87,6 +87,7 @@ export default function Header({
             .then((response) => response.json())
             .then((response) => {
                 setMsg(response[0].result);
+                localStorage.setItem('authData', '');
                 setTimeout(() => window.location.reload(), 2000);
             })
             .catch((err) => console.log(err));
