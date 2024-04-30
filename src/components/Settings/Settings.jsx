@@ -27,11 +27,11 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
     console.log(auth);
 
     const [msg, setMsg] = useState('');
-    const [isname, setName] = useState(auth.name || '');
-    const [issurname, setSurname] = useState(auth.surname || '');
-    const [isdisplayName, setDisplayName] = useState(auth.displayName || '');
-    const [islocation, setLocation] = useState(auth.location || '');
-    const [isbio, setBio] = useState(auth.bio || '');
+    const [isname, setName] = useState(auth.name);
+    const [issurname, setSurname] = useState(auth.surname);
+    const [isdisplayName, setDisplayName] = useState(auth.displayName);
+    const [islocation, setLocation] = useState(auth.location);
+    const [isbio, setBio] = useState(auth.bio);
 
     const [sectionProfile, setSectionProfile] = useState('profile');
 
