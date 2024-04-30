@@ -33,9 +33,9 @@ if (!mysqli_fetch_assoc($sql)) {
         $_SESSION['user'] = [true, $user['id'], $user['name'], $user['email'], $user['password'], $user['surname'], $user['displayName'], $user['photo'], $user['location'], $user['bio'], $user['status'], $user['subscription'], $user['followers'], $user['plays'], $user['tracks'],];
 
         if ($language == 'en') {
-            $result = "You've successfully changed password";
+            $result = "We're updating your data";
         } else {
-            $result = "Вы успешно обновили данные";
+            $result = "Мы обновляем ваши данные";
         }
     } else {
         if ($language == 'en') {
