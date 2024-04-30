@@ -24,14 +24,15 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
         tracks: authorized[14],
     };
 
-    console.log(auth);
+    localStorage.setItem('authData', auth);
+    const authData = localStorage.getItem('authData');
 
     const [msg, setMsg] = useState('');
-    const [isname, setName] = useState(auth.name);
-    const [issurname, setSurname] = useState(auth.surname);
-    const [isdisplayName, setDisplayName] = useState(auth.displayName);
-    const [islocation, setLocation] = useState(auth.location);
-    const [isbio, setBio] = useState(auth.bio);
+    const [isname, setName] = useState(authData.name);
+    const [issurname, setSurname] = useState(authData.surname);
+    const [isdisplayName, setDisplayName] = useState(authData.displayName);
+    const [islocation, setLocation] = useState(authData.location);
+    const [isbio, setBio] = useState(authData.bio);
 
     const [sectionProfile, setSectionProfile] = useState('profile');
 

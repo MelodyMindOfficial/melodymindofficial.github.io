@@ -26,6 +26,12 @@ if (!mysqli_fetch_assoc($sql)) {
     $sql = "UPDATE `users` SET `name` = '$name', `surname` = '$surname', `displayName` = '$displayName', `location` = '$location', `bio` = \"$bio\" WHERE `users`.`id` = $id";
 
     if ($connect->query($sql)) {
+        $sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
+
+        unset($_SESSION['user']);
+        $user = mysqli_fetch_assoc($sql);
+        $_SESSION['user'] = [true, $user['id'], $user['name'], $user['email'], $user['password'], $user['surname'], $user['displayName'], $user['photo'], $user['location'], $user['bio'], $user['status'], $user['subscription'], $user['followers'], $user['plays'], $user['tracks'],];
+
         if ($language == 'en') {
             $result = "You've successfully changed password";
         } else {
