@@ -6,7 +6,7 @@ $eData = file_get_contents("php://input");
 $dData = json_decode($eData, true);
 
 
-$id = $dData['id'];
+$id = (int)$dData['id'];
 $name = $dData['name'];
 $surname = $dData['surname'];
 $displayName = $dData['displayName'];
@@ -23,7 +23,7 @@ if (!mysqli_fetch_assoc($sql)) {
         $result = "Такой пользователь не существует!";
     }
 } else {
-    $sql = "UPDATE `users` SET `name` = '$name', `surname` = '$surname', `displayName` = '$displayName', `location` = '$location', `bio` = \"$bio\" WHERE `users`.`id` = settype($id, 'integer')";
+    $sql = "UPDATE `users` SET `name` = '$name', `surname` = '$surname', `displayName` = '$displayName', `location` = '$location', `bio` = \"$bio\" WHERE `users`.`id` = $id";
 
     if ($connect->query($sql)) {
         if ($language == 'en') {
@@ -41,5 +41,5 @@ if (!mysqli_fetch_assoc($sql)) {
 }
 
 $link->close();
-$response[] = array("result" => $result);
+$response[] = array("result" => $result, "user" => $_SESSION['user']);
 echo json_encode($response);

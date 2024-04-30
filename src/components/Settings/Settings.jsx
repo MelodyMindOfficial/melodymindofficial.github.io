@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
-import BlueButton from '../BlueButton/BlueButton';
-import SettingsProfile from '../SettingsProfile';
-import './Settings.css';
 import SettingsCredit from '../SettingsCredit';
 import SettingsSocial from '../SettingsSocial';
 import SettingsSubscription from '../SettingsSubscription';
+import './Settings.css';
 
-export default function Settings({ authorized, isMsg }) {
+export default function Settings({ authorized, isMsg, setAuthorized }) {
     const language = localStorage.getItem('language');
     const auth = {
         login: authorized[0],
@@ -59,10 +57,9 @@ export default function Settings({ authorized, isMsg }) {
             .then((response) => response.json())
             .then((response) => {
                 setMsg(response[0].result);
-                console.log(Data);
+                setAuthorized(response[0].user);
             })
             .catch((err) => console.log(err));
-        console.log(Data);
     }
 
     useEffect(() => {
@@ -209,7 +206,9 @@ export default function Settings({ authorized, isMsg }) {
                                 </section>
                             </form>
                         )}
-                        {sectionProfile == 'credit' && <SettingsCredit />}
+                        {sectionProfile == 'credit' && (
+                            <SettingsCredit auth={auth} />
+                        )}
                         {sectionProfile == 'credit' && <SettingsSocial />}
                         {sectionProfile == 'credit' && <SettingsSubscription />}
                     </div>
