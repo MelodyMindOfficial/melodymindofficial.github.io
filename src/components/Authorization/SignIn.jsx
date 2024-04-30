@@ -50,7 +50,10 @@ export default function SignUp({ email, isMsg }) {
             .then((response) => {
                 setMsg(response[0].result);
                 setTimeout(
-                    () => (response[0].login ? window.location.reload() : null),
+                    () =>
+                        response[0].login
+                            ? (window.location.pathname = '/profile')
+                            : null,
                     2000
                 );
             })
