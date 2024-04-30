@@ -4,8 +4,9 @@ import SettingsSocial from '../SettingsSocial';
 import SettingsSubscription from '../SettingsSubscription';
 import './Settings.css';
 
-export default function Settings({ authorized, isMsg, setAuthorized }) {
+export default function Settings({ isMsg, setAuthorized }) {
     const language = localStorage.getItem('language');
+    const authorized = JSON.parse(localStorage.getItem('authData'));
     const auth = {
         login: authorized[0],
         id: authorized[1],
@@ -24,15 +25,12 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
         tracks: authorized[14],
     };
 
-    localStorage.setItem('authData', JSON.stringify(auth));
-    const authData = JSON.parse(localStorage.getItem('authData'));
-
     const [msg, setMsg] = useState('');
-    const [isname, setName] = useState(authData.name);
-    const [issurname, setSurname] = useState(authData.surname);
-    const [isdisplayName, setDisplayName] = useState(authData.displayName);
-    const [islocation, setLocation] = useState(authData.location);
-    const [isbio, setBio] = useState(authData.bio);
+    const [isname, setName] = useState(auth.name);
+    const [issurname, setSurname] = useState(auth.surname);
+    const [isdisplayName, setDisplayName] = useState(auth.displayName);
+    const [islocation, setLocation] = useState(auth.location);
+    const [isbio, setBio] = useState(auth.bio);
 
     const [sectionProfile, setSectionProfile] = useState('profile');
 

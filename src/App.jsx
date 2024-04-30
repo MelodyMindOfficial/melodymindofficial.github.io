@@ -49,6 +49,7 @@ export default function App() {
             .then((response) => response.json())
             .then((response) => {
                 setAuthorized(response[0]);
+                localStorage.setItem('authData', JSON.stringify(response[0]));
             })
             .catch((err) => console.log(err));
         setTimeout(() => {
