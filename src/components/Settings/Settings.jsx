@@ -24,8 +24,6 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
         tracks: authorized[14],
     };
 
-    console.log(authorized);
-
     const [msg, setMsg] = useState('');
     const [isname, setName] = useState(authorized[2]);
     const [issurname, setSurname] = useState(authorized[5]);
