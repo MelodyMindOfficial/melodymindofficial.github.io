@@ -6,9 +6,9 @@ import './Settings.css';
 
 export default function Settings({ isMsg }) {
     const language = localStorage.getItem('language');
-    const authorized = JSON.parse(localStorage.getItem('authData'));
-
-    if (!authorized) {
+    try {
+        var authorized = JSON.parse(localStorage.getItem('authData'));
+    } catch (error) {
         window.location.pathname = '/login';
     }
 
