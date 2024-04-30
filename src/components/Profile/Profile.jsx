@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 
@@ -20,6 +21,12 @@ export default function Profile({ authorized, isActive }) {
         plays: authorized[13],
         tracks: authorized[14],
     };
+
+    useEffect(() => {
+        if (!auth.login) {
+            window.location.pathname = '/login';
+        }
+    }, []);
     return (
         <div className="profile">
             <div className="profileContainer _container">

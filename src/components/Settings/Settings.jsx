@@ -25,6 +25,12 @@ export default function Settings({ isMsg }) {
         tracks: authorized[14],
     };
 
+    useEffect(() => {
+        if (!auth.login) {
+            window.location.pathname = '/login';
+        }
+    }, []);
+
     const [msg, setMsg] = useState('');
     const [isname, setName] = useState(auth.name);
     const [issurname, setSurname] = useState(auth.surname);
