@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('connect.php');
 
 $eData = file_get_contents("php://input");
