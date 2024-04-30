@@ -240,6 +240,9 @@ export default function App() {
                                 <Settings
                                     authorized={authorized}
                                     isMsg={(current) => setNotify(current)}
+                                    setAuthorized={(current) =>
+                                        setAuthorized(current)
+                                    }
                                 />
                             }
                         />

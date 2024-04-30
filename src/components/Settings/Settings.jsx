@@ -57,6 +57,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
             .then((response) => response.json())
             .then((response) => {
                 setMsg(response[0].result);
+                setAuthorized(response[0].user);
             })
             .catch((err) => console.log(err));
     }
