@@ -4,8 +4,28 @@ import SettingsSocial from '../SettingsSocial';
 import SettingsSubscription from '../SettingsSubscription';
 import './Settings.css';
 
-export default function Settings({ authorized, isMsg, setAuthorized }) {
+export default function Settings({ isMsg }) {
     const language = localStorage.getItem('language');
+
+    var url = 'https://cg30388.tw1.ru/config/config.php';
+    var headers = {
+        Accept: 'application/json',
+        'Conten-Type': 'application/json',
+    };
+    var Data = {};
+    fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(Data),
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            setAuthorized(response[0]);
+        })
+        .catch((err) => console.log(err));
+
+    const [authorized, setAuthorized] = useState([]);
+
     const auth = {
         login: authorized[0],
         id: authorized[1],
