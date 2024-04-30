@@ -183,7 +183,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                         type="text"
                                         name="location"
                                         value={authData.location}
-                                        readOnly="false"
+                                        readOnly={false}
                                         onChange={(event) =>
                                             setLocation(event.target.value)
                                         }
