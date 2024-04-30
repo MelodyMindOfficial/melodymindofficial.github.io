@@ -34,30 +34,30 @@ import './index.css';
 
 export default function App() {
     // Получаем данные, если пользователь авторизован
-    window.addEventListener(
-        'load',
-        function () {
-            var url = 'https://cg30388.tw1.ru/config/config.php';
-            var headers = {
-                Accept: 'application/json',
-                'Conten-Type': 'application/json',
-            };
-            var Data = {};
-            fetch(url, {
-                method: 'POST',
-                headers: headers,
-                body: JSON.stringify(Data),
-            })
-                .then((response) => response.json())
-                .then((response) => {
-                    setAuthorized(response[0]);
-                    console.log('okay thats true');
-                })
-                .catch((err) => console.log(err));
-            // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
-        },
-        false
-    );
+    // window.addEventListener(
+    //     'load',
+    //     function () {
+    var url = 'https://cg30388.tw1.ru/config/config.php';
+    var headers = {
+        Accept: 'application/json',
+        'Conten-Type': 'application/json',
+    };
+    var Data = {};
+    fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(Data),
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            setAuthorized(response[0]);
+            console.log('okay thats true');
+        })
+        .catch((err) => console.log(err));
+    // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
+    //     },
+    //     false
+    // );
 
     // --- НАЧАЛЬНЫЕ ЗНАЧЕНИЯ --- //
     localStorage.setItem('active', window.location.pathname.slice(1)); // Присваиваем значение для активной страницы
