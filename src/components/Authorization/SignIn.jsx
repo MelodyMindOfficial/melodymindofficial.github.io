@@ -12,6 +12,13 @@ export default function SignUp({ email, isMsg }) {
     const [disable, setDisable] = useState(true);
     const [msg, setMsg] = useState('');
 
+    try {
+        var authorized = JSON.parse(localStorage.getItem('authData'));
+        if (authorized) {
+            window.location.pathname = '/profile';
+        }
+    } catch (error) {}
+
     function handlePasswordChange(event) {
         const password = document.getElementById('password');
         try {
@@ -50,10 +57,7 @@ export default function SignUp({ email, isMsg }) {
             .then((response) => {
                 setMsg(response[0].result);
                 setTimeout(
-                    () =>
-                        response[0].login
-                            ? (window.location.pathname = '/profile')
-                            : null,
+                    () => (response[0].login ? window.location.reload() : null),
                     2000
                 );
             })
