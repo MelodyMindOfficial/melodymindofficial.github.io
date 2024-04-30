@@ -4,27 +4,8 @@ import SettingsSocial from '../SettingsSocial';
 import SettingsSubscription from '../SettingsSubscription';
 import './Settings.css';
 
-export default function Settings({ isMsg }) {
+export default function Settings({ authorized, isMsg, setAuthorized }) {
     const language = localStorage.getItem('language');
-    const [authorized, setAuthorized] = useState([]);
-
-    var url = 'https://cg30388.tw1.ru/config/config.php';
-    var headers = {
-        Accept: 'application/json',
-        'Conten-Type': 'application/json',
-    };
-    var Data = {};
-    fetch(url, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(Data),
-    })
-        .then((response) => response.json())
-        .then((response) => {
-            setAuthorized(response[0]);
-        })
-        .catch((err) => console.log(err));
-
     const auth = {
         login: authorized[0],
         id: authorized[1],
@@ -42,7 +23,9 @@ export default function Settings({ isMsg }) {
         plays: authorized[13],
         tracks: authorized[14],
     };
-    console.log(authorized);
+
+    console.log(auth);
+
     const [msg, setMsg] = useState('');
     const [isname, setName] = useState(auth.name);
     const [issurname, setSurname] = useState(auth.surname);
@@ -61,7 +44,7 @@ export default function Settings({ isMsg }) {
             'Conten-Type': 'application/json',
         };
         var Data = {
-            id: authorized[1],
+            id: auth.id,
             name: isname,
             surname: issurname,
             displayName: isdisplayName,
@@ -76,7 +59,6 @@ export default function Settings({ isMsg }) {
             .then((response) => response.json())
             .then((response) => {
                 setMsg(response[0].result);
-                setAuthorized(response[0].user);
             })
             .catch((err) => console.log(err));
     }
