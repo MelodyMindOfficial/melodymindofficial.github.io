@@ -34,32 +34,34 @@ import './index.css';
 
 export default function App() {
     // Получаем данные, если пользователь авторизован
-    window.addEventListener(
-        'load',
-        function () {
-            // document.addEventListener('DOMContentLoaded', function () {
-            var url = 'https://cg30388.tw1.ru/config/config.php';
-            var headers = {
-                Accept: 'application/json',
-                'Conten-Type': 'application/json',
-            };
-            var Data = {};
-            fetch(url, {
-                method: 'POST',
-                headers: headers,
-                body: JSON.stringify(Data),
+    // window.addEventListener(
+    //     'load',
+    //     function () {
+    // document.addEventListener('DOMContentLoaded', function () {
+    useEffect(() => {
+        var url = 'https://cg30388.tw1.ru/config/config.php';
+        var headers = {
+            Accept: 'application/json',
+            'Conten-Type': 'application/json',
+        };
+        var Data = {};
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(Data),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                setAuthorized(response[0]);
             })
-                .then((response) => response.json())
-                .then((response) => {
-                    setAuthorized(response[0]);
-                })
-                .catch((err) => console.log(err));
-            alert('damn');
-            // });
-            // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
-        },
-        false
-    );
+            .catch((err) => console.log(err));
+        alert('damn');
+    }, [window]);
+    // });
+    // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
+    //     },
+    //     false
+    // );
 
     // --- НАЧАЛЬНЫЕ ЗНАЧЕНИЯ --- //
     localStorage.setItem('active', window.location.pathname.slice(1)); // Присваиваем значение для активной страницы
