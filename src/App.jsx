@@ -237,11 +237,8 @@ export default function App() {
                             path="/settings"
                             element={
                                 <Settings
-                                    authorized={authorized}
+                                    // authorized={authorized}
                                     isMsg={(current) => setNotify(current)}
-                                    setAuthorized={(current) =>
-                                        setAuthorized(current)
-                                    }
                                 />
                             }
                         />

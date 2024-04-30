@@ -123,3 +123,37 @@
     border-radius: 5px;
     transition: 150ms;
 }
+
+.settingsTextList {
+    margin-top: 15px;
+}
+
+.settingsTextList li {
+    padding: 15px 5px;
+    border-top: 1px solid #383838;
+}
+
+.settingsTextList li:last-child {
+    border-bottom: 1px solid #383838;
+}
+
+.settingsTextList h3 {
+    color: #B8B8B8;
+    font-weight: 500;
+}
+
+.settingsTextList section {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.settingsTextList label {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.settingsTextList a {
+    color: #0B8AFF;
+    cursor: pointer;
+}

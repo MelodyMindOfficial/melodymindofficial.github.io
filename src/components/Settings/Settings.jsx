@@ -207,9 +207,14 @@ export default function Settings({ isMsg }) {
                             </form>
                         )}
                         {sectionProfile == 'credit' && (
-                            <SettingsCredit auth={auth} />
+                            <SettingsCredit
+                                auth={auth}
+                                isMsg={(current) => setMsg(current)}
+                            />
                         )}
-                        {sectionProfile == 'credit' && <SettingsSocial />}
+                        {sectionProfile == 'social' && (
+                            <SettingsSocial auth={auth} />
+                        )}
                         {sectionProfile == 'credit' && <SettingsSubscription />}
                     </div>
                 </div>
