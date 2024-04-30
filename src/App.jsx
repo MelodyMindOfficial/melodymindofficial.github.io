@@ -37,22 +37,25 @@ export default function App() {
     // window.addEventListener(
     //     'load',
     //     function () {
-    var url = 'https://cg30388.tw1.ru/config/config.php';
-    var headers = {
-        Accept: 'application/json',
-        'Conten-Type': 'application/json',
-    };
-    var Data = {};
-    fetch(url, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(Data),
-    })
-        .then((response) => response.json())
-        .then((response) => {
-            setAuthorized(response[0]);
+    document.addEventListener('DOMContentLoaded', function () {
+        var url = 'https://cg30388.tw1.ru/config/config.php';
+        var headers = {
+            Accept: 'application/json',
+            'Conten-Type': 'application/json',
+        };
+        var Data = {};
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(Data),
         })
-        .catch((err) => console.log(err));
+            .then((response) => response.json())
+            .then((response) => {
+                setAuthorized(response[0]);
+            })
+            .catch((err) => console.log(err));
+        alert('damn');
+    });
     // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
     //     },
     //     false
