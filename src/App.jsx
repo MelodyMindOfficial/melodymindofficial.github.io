@@ -53,7 +53,7 @@ export default function App() {
             .catch((err) => console.log(err));
         setTimeout(() => {
             document.getElementById('preloader').classList.remove('show');
-        }, 10000); // Убираем Preloader
+        }, 1000); // Убираем Preloader
     }, [window]);
 
     // --- НАЧАЛЬНЫЕ ЗНАЧЕНИЯ --- //
