@@ -42,13 +42,13 @@ export default function Settings({ isMsg }) {
         plays: authorized[13],
         tracks: authorized[14],
     };
-    console.log(auth);
+    console.log(authorized);
     const [msg, setMsg] = useState('');
-    const [isname, setName] = useState(authorized[2]);
-    const [issurname, setSurname] = useState(authorized[5]);
-    const [isdisplayName, setDisplayName] = useState(authorized[6]);
-    const [islocation, setLocation] = useState(authorized[8]);
-    const [isbio, setBio] = useState(authorized[9]);
+    const [isname, setName] = useState(auth.name);
+    const [issurname, setSurname] = useState(auth.surname);
+    const [isdisplayName, setDisplayName] = useState(auth.displayName);
+    const [islocation, setLocation] = useState(auth.location);
+    const [isbio, setBio] = useState(auth.bio);
 
     const [sectionProfile, setSectionProfile] = useState('profile');
 
