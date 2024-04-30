@@ -142,7 +142,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                         type="text"
                                         name="name"
                                         pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                        value={authData.name}
+                                        value={isname}
                                         onChange={(event) =>
                                             setName(event.target.value)
                                         }
@@ -156,7 +156,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                         type="text"
                                         name="surname"
                                         pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                        value={authData.surname}
+                                        value={issurname}
                                         onChange={(event) =>
                                             setSurname(event.target.value)
                                         }
@@ -169,7 +169,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                     <input
                                         type="text"
                                         name="nickname"
-                                        value={authData.displayName}
+                                        value={isdisplayName}
                                         onChange={(event) =>
                                             setDisplayName(event.target.value)
                                         }
@@ -182,8 +182,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                     <input
                                         type="text"
                                         name="location"
-                                        value={authData.location}
-                                        readOnly={false}
+                                        value={islocation}
                                         onChange={(event) =>
                                             setLocation(event.target.value)
                                         }
@@ -196,7 +195,7 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
                                         id=""
                                         cols="30"
                                         rows="10"
-                                        value={authData.bio}
+                                        value={isbio}
                                         onChange={(event) => {
                                             setBio(event.target.value);
                                         }}
