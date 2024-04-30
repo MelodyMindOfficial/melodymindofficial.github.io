@@ -21,12 +21,7 @@ export default function Profile({ authorized, isActive }) {
         plays: authorized[13],
         tracks: authorized[14],
     };
-    console.log(auth.login);
-    useEffect(() => {
-        if (!auth.login) {
-            window.location.pathname = '/login';
-        }
-    }, []);
+
     return (
         <div className="profile">
             <div className="profileContainer _container">
