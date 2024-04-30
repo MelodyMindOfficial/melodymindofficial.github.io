@@ -51,7 +51,6 @@ export default function App() {
         .then((response) => response.json())
         .then((response) => {
             setAuthorized(response[0]);
-            console.log(authorized);
         })
         .catch((err) => console.log(err));
     // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
@@ -241,9 +240,6 @@ export default function App() {
                                 <Settings
                                     authorized={authorized}
                                     isMsg={(current) => setNotify(current)}
-                                    setAuthorized={(current) =>
-                                        setAuthorized(current)
-                                    }
                                 />
                             }
                         />
