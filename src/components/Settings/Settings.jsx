@@ -24,8 +24,8 @@ export default function Settings({ authorized, isMsg, setAuthorized }) {
         tracks: authorized[14],
     };
 
-    localStorage.setItem('authData', auth);
-    const authData = localStorage.getItem('authData');
+    localStorage.setItem('authData', JSON.stringify(auth));
+    const authData = JSON.parse(localStorage.getItem('authData'));
 
     const [msg, setMsg] = useState('');
     const [isname, setName] = useState(authData.name);
