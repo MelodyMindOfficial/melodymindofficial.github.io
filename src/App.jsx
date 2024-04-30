@@ -50,7 +50,7 @@ export default function App() {
     })
         .then((response) => response.json())
         .then((response) => {
-            setAuthorized(response[1]);
+            setAuthorized(response[0]);
         })
         .catch((err) => console.log(err));
     // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
@@ -67,7 +67,7 @@ export default function App() {
     const [modal, setModal] = useState(false); // Устанавливаем значение для модального окна
     const [search, setSeacrh] = useState(''); // Устанавливаем значение для поиска
     const [notify, setNotify] = useState(''); // Устанавливаем значение для уведомленя
-    const [authorized, setAuthorized] = useState(false); // Инициализируем массив для аккаунта
+    const [authorized, setAuthorized] = useState([]); // Инициализируем массив для аккаунта
     const [active, setActive] = useState(
         localStorage.getItem('active') || 'main'
     ); // Устанавливаем значение активной страницы для Router
