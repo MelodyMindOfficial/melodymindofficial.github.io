@@ -6,6 +6,7 @@ import './Settings.css';
 
 export default function Settings({ isMsg }) {
     const language = localStorage.getItem('language');
+    const [authorized, setAuthorized] = useState([]);
 
     var url = 'https://cg30388.tw1.ru/config/config.php';
     var headers = {
@@ -24,8 +25,6 @@ export default function Settings({ isMsg }) {
         })
         .catch((err) => console.log(err));
 
-    const [authorized, setAuthorized] = useState([]);
-
     const auth = {
         login: authorized[0],
         id: authorized[1],
@@ -43,7 +42,7 @@ export default function Settings({ isMsg }) {
         plays: authorized[13],
         tracks: authorized[14],
     };
-
+    console.log(auth);
     const [msg, setMsg] = useState('');
     const [isname, setName] = useState(authorized[2]);
     const [issurname, setSurname] = useState(authorized[5]);
