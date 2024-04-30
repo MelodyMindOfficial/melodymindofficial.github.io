@@ -34,10 +34,6 @@ import './index.css';
 
 export default function App() {
     // Получаем данные, если пользователь авторизован
-    // window.addEventListener(
-    //     'load',
-    //     function () {
-    // document.addEventListener('DOMContentLoaded', function () {
     useEffect(() => {
         var url = 'https://cg30388.tw1.ru/config/config.php';
         var headers = {
@@ -55,13 +51,8 @@ export default function App() {
                 setAuthorized(response[0]);
             })
             .catch((err) => console.log(err));
-        alert('damn');
+        document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
     }, [window]);
-    // });
-    // document.getElementById('preloader').classList.remove('show'); // Убираем Preloader
-    //     },
-    //     false
-    // );
 
     // --- НАЧАЛЬНЫЕ ЗНАЧЕНИЯ --- //
     localStorage.setItem('active', window.location.pathname.slice(1)); // Присваиваем значение для активной страницы
@@ -125,7 +116,7 @@ export default function App() {
     return (
         <>
             {/* Preloader */}
-            <div id="preloader" className="">
+            <div id="preloader" className="show">
                 <div className="spinner"></div>
             </div>
 
