@@ -4,7 +4,7 @@ import SettingsSocial from '../SettingsSocial';
 import SettingsSubscription from '../SettingsSubscription';
 import './Settings.css';
 
-export default function Settings({ isMsg, setAuthorized }) {
+export default function Settings({ isMsg }) {
     const language = localStorage.getItem('language');
     const [authorized, setAuthorized] = useState([]);
 
