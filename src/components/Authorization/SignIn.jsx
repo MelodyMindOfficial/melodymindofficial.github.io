@@ -8,9 +8,7 @@ export default function SignUp({ email, isMsg }) {
     try {
         var authorized = JSON.parse(localStorage.getItem('authData'));
         if (authorized) {
-            setTimeout(() => {
-                window.location.pathname = '/profile';
-            }, 500);
+            window.location.pathname = '/profile';
         }
     } catch (error) {}
 

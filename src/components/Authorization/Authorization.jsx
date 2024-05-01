@@ -6,9 +6,7 @@ export default function Authorization({ isModal, open, target, isEmail }) {
     try {
         var authorized = JSON.parse(localStorage.getItem('authData'));
         if (authorized) {
-            setTimeout(() => {
-                window.location.pathname = '/profile';
-            }, 500);
+            window.location.pathname = '/profile';
         }
     } catch (error) {}
 
