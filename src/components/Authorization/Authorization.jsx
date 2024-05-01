@@ -3,6 +3,15 @@ import './Authorization.css';
 import BlueButton from '../BlueButton/BlueButton';
 
 export default function Authorization({ isModal, open, target, isEmail }) {
+    try {
+        var authorized = JSON.parse(localStorage.getItem('authData'));
+        if (authorized) {
+            setTimeout(() => {
+                window.location.pathname = '/profile';
+            }, 500);
+        }
+    } catch (error) {}
+
     const dialog = useRef();
     const language = localStorage.getItem('language');
     const [disable, setDisable] = useState(true);

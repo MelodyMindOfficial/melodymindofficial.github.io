@@ -5,6 +5,15 @@ import logo from '/images/user.png';
 import BlueButton from '../BlueButton/BlueButton';
 
 export default function SignUp({ email, isMsg }) {
+    try {
+        var authorized = JSON.parse(localStorage.getItem('authData'));
+        if (authorized) {
+            setTimeout(() => {
+                window.location.pathname = '/profile';
+            }, 500);
+        }
+    } catch (error) {}
+
     const dialog = useRef();
     const language = localStorage.getItem('language');
     const [isEmail, setIsEmail] = useState(email);

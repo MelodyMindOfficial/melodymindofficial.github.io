@@ -8,7 +8,9 @@ export default function Profile({ authorized, isActive }) {
     try {
         var authorized = JSON.parse(localStorage.getItem('authData'));
     } catch (error) {
-        window.location.pathname = '/login';
+        setTimeout(() => {
+            window.location.pathname = '/login';
+        }, 500);
     }
 
     const auth = {
