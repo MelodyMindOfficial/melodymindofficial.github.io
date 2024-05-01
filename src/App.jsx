@@ -124,12 +124,14 @@ export default function App() {
             </div>
 
             {/* Авторизация */}
-            <Authorization
-                open={modal}
-                isModal={(current) => setModal(current)}
-                target={'_blank'}
-                isEmail={(current) => setEmail(current)}
-            />
+            {authorized ? null : (
+                <Authorization
+                    open={modal}
+                    isModal={(current) => setModal(current)}
+                    target={'_blank'}
+                    isEmail={(current) => setEmail(current)}
+                />
+            )}
 
             {/* Уведомление */}
             {notify && <Notify setShow={() => setNotify('')}>{notify}</Notify>}
