@@ -5,7 +5,7 @@ import BlueButton from '../BlueButton/BlueButton';
 export default function Authorization({ isModal, open, target, isEmail }) {
     try {
         var authorized = JSON.parse(localStorage.getItem('authData'));
-        if (authorized) {
+        if (authorized && target) {
             setTimeout(() => {
                 window.location.pathname = '/profile';
             }, 500);
