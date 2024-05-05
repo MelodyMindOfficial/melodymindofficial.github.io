@@ -18,7 +18,7 @@ export default function SettingsCredit({ auth, isMsg }) {
                         <h3>{language == 'en' ? 'Email' : 'Эл. почта'}</h3>
                         <section>
                             <label htmlFor="">{dataAuth.email}</label>
-                            <Link>
+                            <Link target="_blank" to="/reset-email">
                                 {language == 'en'
                                     ? 'Change email'
                                     : 'Изменить электронную почту'}
@@ -40,7 +40,7 @@ export default function SettingsCredit({ auth, isMsg }) {
                         <h3>{language == 'en' ? 'Password' : 'Пароль'}</h3>
                         <section>
                             <label htmlFor="">********</label>
-                            <Link>
+                            <Link target="_blank" to="/reset-password">
                                 {language == 'en'
                                     ? 'Change password'
                                     : 'Изменить пароль'}

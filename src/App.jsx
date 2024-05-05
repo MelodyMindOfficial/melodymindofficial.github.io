@@ -26,6 +26,7 @@ import Authorization from './components/Authorization/Authorization';
 import SignIn from './components/Authorization/SignIn';
 import SignUp from './components/Authorization/SignUp';
 import ResetPassword from './components/Authorization/ResetPassword';
+import ResetEmail from './components/Authorization/ResetEmail';
 import Profile from './components/Profile/Profile';
 import Settings from './components/Settings/Settings';
 
@@ -74,6 +75,7 @@ export default function App() {
         window.location.pathname.slice(1) != 'sign-in' &&
         window.location.pathname.slice(1) != 'sign-up' &&
         window.location.pathname.slice(1) != 'reset-password' &&
+        window.location.pathname.slice(1) != 'reset-email' &&
         window.location.pathname.slice(1) != 'login'; // Проверяем значение активной страницы
 
     // --- ОСНОВНЫЕ ФУНКЦИИ --- //
@@ -181,6 +183,15 @@ export default function App() {
                             path="/reset-password"
                             element={
                                 <ResetPassword
+                                    email={email}
+                                    isMsg={(current) => setNotify(current)}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/reset-email"
+                            element={
+                                <ResetEmail
                                     email={email}
                                     isMsg={(current) => setNotify(current)}
                                 />
