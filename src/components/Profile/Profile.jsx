@@ -13,30 +13,30 @@ export default function Profile({ authorized, isActive }) {
         }, 500);
     }
 
-    // var authorized = [
-    //     true,
-    //     999999,
-    //     'John',
-    //     'john1989@gmail.com',
-    //     '123John!!!',
-    //     'Smith',
-    //     'John_Smith',
-    //     null,
-    //     'the UK',
-    //     'I was born in London and I wanna tell you that I can speak only russian language, so Ima switching it. Всем привет, меня зовут Джон и я родился в Англии. Однако я хорошо знаю русский за счет того, что моя бабушка русская, и была против того, чтобы я говорил по англиски',
-    //     0,
-    //     false,
-    //     0,
-    //     0,
-    //     0,
-    //     79782156190,
-    //     false,
-    //     'johanSoundCloud',
-    //     'johanYoutube',
-    //     'johanRutube',
-    //     '@johanTik-Tok',
-    //     'johanTwitch',
-    // ];
+    var authorized = [
+        true,
+        999999,
+        'John',
+        'john1989@gmail.com',
+        '123John!!!',
+        'Smith',
+        'John_Smith',
+        null,
+        'the UK',
+        'I was born in London and I wanna tell you that I can speak only russian language, so Ima switching it. Всем привет, меня зовут Джон и я родился в Англии. Однако я хорошо знаю русский за счет того, что моя бабушка русская, и была против того, чтобы я говорил по англиски',
+        0,
+        false,
+        0,
+        0,
+        0,
+        79782156190,
+        false,
+        'johanSoundCloud',
+        'johanYoutube',
+        'johanRutube',
+        '@johanTik-Tok',
+        'johanTwitch',
+    ];
 
     const auth = {
         login: authorized[0],
@@ -157,10 +157,8 @@ export default function Profile({ authorized, isActive }) {
                                                 }
                                                 target="_blank"
                                             >
-                                                <p>
-                                                    <i className="fa-brands fa-soundcloud"></i>{' '}
-                                                    Sound Cloud
-                                                </p>
+                                                <i className="fa-brands fa-soundcloud"></i>
+                                                <p>Sound Cloud</p>
                                             </a>
                                         </li>
                                     )}
@@ -173,10 +171,8 @@ export default function Profile({ authorized, isActive }) {
                                                 }
                                                 target="_blank"
                                             >
-                                                <p>
-                                                    <i className="fa-brands fa-youtube"></i>{' '}
-                                                    Youtube
-                                                </p>
+                                                <i className="fa-brands fa-youtube"></i>
+                                                <p>Youtube</p>
                                             </a>
                                         </li>
                                     )}
@@ -189,10 +185,8 @@ export default function Profile({ authorized, isActive }) {
                                                 }
                                                 target="_blank"
                                             >
-                                                <p>
-                                                    <i className="fa-brands fa-rust"></i>{' '}
-                                                    Rutube
-                                                </p>
+                                                <i className="fa-brands fa-rust"></i>
+                                                <p>Rutube</p>
                                             </a>
                                         </li>
                                     )}
@@ -205,10 +199,8 @@ export default function Profile({ authorized, isActive }) {
                                                 }
                                                 target="_blank"
                                             >
-                                                <p>
-                                                    <i className="fa-brands fa-tiktok"></i>{' '}
-                                                    Tik-Tok
-                                                </p>
+                                                <i className="fa-brands fa-tiktok"></i>
+                                                <p>Tik-Tok</p>
                                             </a>
                                         </li>
                                     )}
@@ -221,10 +213,8 @@ export default function Profile({ authorized, isActive }) {
                                                 }
                                                 target="_blank"
                                             >
-                                                <p>
-                                                    <i className="fa-brands fa-twitch"></i>{' '}
-                                                    Twitch
-                                                </p>
+                                                <i className="fa-brands fa-twitch"></i>
+                                                <p>Twitch</p>
                                             </a>
                                         </li>
                                     )}
