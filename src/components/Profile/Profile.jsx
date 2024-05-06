@@ -106,7 +106,7 @@ export default function Profile({ authorized, isActive }) {
                             </li>
                         </ul>
                     </div>
-                    {auth.tracks == 0 ? (
+                    {auth.tracks != 0 ? (
                         <>
                             <hr style={{ height: '2px' }} />
                             <div className="profileInfoStat">
