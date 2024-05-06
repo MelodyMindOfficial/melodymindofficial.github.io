@@ -41,6 +41,10 @@
     overflow: hidden;
 }
 
+.profileInfoMain p {
+    color: #CCCCCC;
+}
+
 .profileInfo button {
     margin-bottom: 20px;
     height: 40px;
@@ -61,6 +65,14 @@
     color: #CCCCCC;
 }
 
+#social li {
+    font-size: 18px;
+}
+
+#social li img {
+    height: 20px;
+}
+
 .profileInfoStat h4 {
     margin-bottom: 12px;
 }
@@ -72,6 +84,15 @@
 
 .profileInfoStat ul li:not(:last-child) {
     margin-bottom: 12px;
+}
+
+.profileInfoStat ul li a {
+    color: inherit;
+    transition: 150ms;
+}
+
+.profileInfoStat ul li a:hover {
+    color: #fff;
 }
 
 .profileTracks {
