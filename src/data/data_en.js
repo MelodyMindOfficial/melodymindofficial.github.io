@@ -32,7 +32,7 @@ export const headerListUser_en = [{
 }, ]
 
 export const footerList_en = [{
-        title: 'Site map',
+        title: 'MelodyMind',
         id: 'map-site',
         list: [{
             label: 'Login/Registration',
