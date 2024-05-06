@@ -13,6 +13,30 @@ export default function Settings({ isMsg }) {
             window.location.pathname = '/login';
         }, 500);
     }
+    // var authorized = [
+    //     true,
+    //     999999,
+    //     'John',
+    //     'john1989@gmail.com',
+    //     '123John!!!',
+    //     'Smith',
+    //     'John_Smith',
+    //     null,
+    //     'the UK',
+    //     'I was born in London',
+    //     0,
+    //     false,
+    //     0,
+    //     0,
+    //     0,
+    //     79782156190,
+    //     false,
+    //     'johanSoundCloud',
+    //     'johanYoutube',
+    //     'johanRutube',
+    //     '@johanTik-Tok',
+    //     'johanTwitch',
+    // ];
 
     const auth = {
         login: authorized[0],
@@ -30,6 +54,13 @@ export default function Settings({ isMsg }) {
         followers: authorized[12],
         plays: authorized[13],
         tracks: authorized[14],
+        phoneNumber: authorized[15],
+        Auth2: authorized[16],
+        soundCloud: authorized[17],
+        youtube: authorized[18],
+        rutube: authorized[19],
+        tiktok: authorized[20],
+        twitch: authorized[21],
     };
 
     const [msg, setMsg] = useState('');
@@ -220,7 +251,10 @@ export default function Settings({ isMsg }) {
                             />
                         )}
                         {sectionProfile == 'social' && (
-                            <SettingsSocial auth={auth} />
+                            <SettingsSocial
+                                auth={auth}
+                                isMsg={(current) => setMsg(current)}
+                            />
                         )}
                         {sectionProfile == 'credit' && <SettingsSubscription />}
                     </div>

@@ -54,7 +54,10 @@ export default function SettingsCredit({ auth, isMsg }) {
                                 : 'Номер телефона'}
                         </h3>
                         <section>
-                            <label htmlFor=""></label>
+                            <label htmlFor="">
+                                {dataAuth.phoneNumber &&
+                                    '+' + dataAuth.phoneNumber}
+                            </label>
                             <Link>
                                 {language == 'en'
                                     ? 'Change phone number'
@@ -69,7 +72,15 @@ export default function SettingsCredit({ auth, isMsg }) {
                                 : 'Двухфакторная аутентификация'}
                         </h3>
                         <section>
-                            <label htmlFor=""></label>
+                            <label htmlFor="">
+                                {dataAuth.Auth2
+                                    ? language == 'en'
+                                        ? 'Connected'
+                                        : 'Подключена'
+                                    : language == 'en'
+                                    ? 'Not connected'
+                                    : 'Не подключена'}
+                            </label>
                             <Link>
                                 {language == 'en'
                                     ? 'Change the security method'
