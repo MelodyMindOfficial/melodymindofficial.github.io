@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 
 $user = 'cg30388_users';
 $password = 'AdBSlMoFl<3';
