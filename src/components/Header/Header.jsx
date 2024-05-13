@@ -17,6 +17,7 @@ export default function Header({
 }) {
     let lastScroll = 0;
     const language = localStorage.getItem('language');
+    const authData = localStorage.getItem('authData');
     const auth = {
         login: authorized[0],
         id: authorized[1],
@@ -156,7 +157,7 @@ export default function Header({
                         </div>
                     )}
                     <section className="headerTools">
-                        {auth.id ? (
+                        {authData ? (
                             <>
                                 <section
                                     className={
