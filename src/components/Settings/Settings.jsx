@@ -209,6 +209,7 @@ export default function Settings({ isMsg }) {
                                         onChange={(event) =>
                                             setDisplayName(event.target.value)
                                         }
+                                        required
                                     />
                                     <label htmlFor="location">
                                         {language == 'en'

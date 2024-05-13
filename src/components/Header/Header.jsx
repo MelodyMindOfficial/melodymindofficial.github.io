@@ -17,6 +17,30 @@ export default function Header({
     let lastScroll = 0;
     const language = localStorage.getItem('language');
     const authData = JSON.parse(localStorage.getItem('authData'));
+    // var authData = [
+    //     true,
+    //     999999,
+    //     'John',
+    //     'john1989@gmail.com',
+    //     '123John!!!',
+    //     'Smith',
+    //     'John_Smith',
+    //     null,
+    //     'the UK',
+    //     'I was born in London',
+    //     0,
+    //     false,
+    //     0,
+    //     0,
+    //     0,
+    //     79782156190,
+    //     false,
+    //     'johanSoundCloud',
+    //     'johanYoutube',
+    //     'johanRutube',
+    //     '@johanTik-Tok',
+    //     'johanTwitch',
+    // ];
     const auth = {
         login: authData[0],
         id: authData[1],
@@ -175,7 +199,7 @@ export default function Header({
                                             <Link to="/profile">
                                                 <h3>{auth.email}</h3>
                                             </Link>
-                                            <Link to="/purchase">
+                                            <Link id="purchase" to="/purchase">
                                                 <p>
                                                     {language == 'en'
                                                         ? 'FREE'
