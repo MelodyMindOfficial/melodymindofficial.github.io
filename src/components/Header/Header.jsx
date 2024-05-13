@@ -6,7 +6,6 @@ import logo from '/images/logo.png';
 import './Header.css';
 
 export default function Header({
-    authorized,
     active,
     search,
     isActive,
@@ -17,23 +16,23 @@ export default function Header({
 }) {
     let lastScroll = 0;
     const language = localStorage.getItem('language');
-    const authData = localStorage.getItem('authData');
+    const authData = JSON.parse(localStorage.getItem('authData'));
     const auth = {
-        login: authorized[0],
-        id: authorized[1],
-        name: authorized[2],
-        email: authorized[3],
-        password: authorized[4],
-        surname: authorized[5],
-        displayName: authorized[6],
-        photo: authorized[7],
-        location: authorized[8],
-        bio: authorized[9],
-        status: authorized[10],
-        subscription: authorized[11],
-        followers: authorized[12],
-        plays: authorized[13],
-        tracks: authorized[14],
+        login: authData[0],
+        id: authData[1],
+        name: authData[2],
+        email: authData[3],
+        password: authData[4],
+        surname: authData[5],
+        displayName: authData[6],
+        photo: authData[7],
+        location: authData[8],
+        bio: authData[9],
+        status: authData[10],
+        subscription: authData[11],
+        followers: authData[12],
+        plays: authData[13],
+        tracks: authData[14],
     };
     const [msg, setMsg] = useState('');
     const [showBurgerUser, setShowBurgerUser] = useState(false);

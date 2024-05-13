@@ -139,7 +139,6 @@ export default function App() {
             <BrowserRouter>
                 {activePage && (
                     <Header
-                        authorized={authorized}
                         active={active}
                         isActive={(current) => activeSection(current)}
                         isModal={(current) => setModal(current)}
