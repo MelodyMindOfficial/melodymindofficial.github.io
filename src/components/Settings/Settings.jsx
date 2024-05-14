@@ -69,8 +69,35 @@ export default function Settings({ isMsg }) {
     const [isdisplayName, setDisplayName] = useState(auth.displayName);
     const [islocation, setLocation] = useState(auth.location);
     const [isbio, setBio] = useState(auth.bio);
+    const [isImg, setImg] = useState(auth.photo);
 
+    const [newImg, setNewImg] = useState('');
+    const [showImg, setShowImg] = useState(false);
     const [sectionProfile, setSectionProfile] = useState('profile');
+
+    function updatePhoto() {
+        setNewImg('');
+
+        var url = 'https://cg30388.tw1.ru/config/updatePhoto.php';
+        var headers = {
+            Accept: 'application/json',
+            'Conten-Type': 'application/json',
+        };
+        var Data = {
+            id: auth.id,
+            img: newImg,
+        };
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(Data),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                setMsg(response[0].result);
+            })
+            .catch((err) => console.log(err));
+    }
 
     function updateProfile(e) {
         e.preventDefault();
@@ -100,14 +127,51 @@ export default function Settings({ isMsg }) {
             .catch((err) => console.log(err));
     }
 
+    function newPhoto(e) {
+        var target = e.target;
+        var fileReader = new FileReader();
+
+        fileReader.onload = function () {
+            document.querySelector('#photoNew').src = fileReader.result;
+        };
+
+        fileReader.readAsDataURL(target.files[0]);
+    }
+
     useEffect(() => {
         isMsg(msg);
         setTimeout(() => setMsg(''), 5000);
     }, [msg]);
 
+    useEffect(() => {
+        if (newImg) setShowImg(true);
+        else setShowImg(false);
+    }, [newImg]);
+
     return (
         <div className="settingsContainer">
             <div className="_container">
+                {showImg && (
+                    <section className="settingsPhotoConfirm">
+                        <div className="settingsPhotoConfirmContainer">
+                            <div className="settingsPhotoConfirmImage">
+                                <div className="settingsPhotoConfirmImageContainer">
+                                    <img src="" id="photoNew" alt="" />
+                                </div>
+                            </div>
+                            <div className="settingsPhotoConfirmButtons">
+                                <button onClick={() => setNewImg('')}>
+                                    {language == 'en' ? 'Cancel' : 'Отмена'}
+                                </button>
+                                <button onClick={updatePhoto}>
+                                    {language == 'en'
+                                        ? 'Confirm'
+                                        : 'Подтвердить'}
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                )}
                 <h1 className="settingsTitle">
                     {language == 'en'
                         ? 'Account settings'
@@ -162,13 +226,35 @@ export default function Settings({ isMsg }) {
                         {sectionProfile == 'profile' && (
                             <form method="" onSubmit={updateProfile}>
                                 <section className="settingsImage">
-                                    <img src="./images/user.png" alt="" />
-                                    <button>
-                                        {language == 'en'
-                                            ? 'Upload image'
-                                            : 'Загрузить изображение'}
-                                        <i className="fa-solid fa-chevron-down"></i>
-                                    </button>
+                                    <img
+                                        src={
+                                            isImg
+                                                ? 'data:image/jpeg;base64, ' +
+                                                  isImg
+                                                : './images/user.png'
+                                        }
+                                        alt=""
+                                    />
+                                    <div>
+                                        {/* <button type=""> */}
+                                        <input
+                                            type="file"
+                                            name="imageAva"
+                                            id="imageAva"
+                                            accept="image/png, image/jpeg"
+                                            onChange={(e) => {
+                                                setNewImg(e);
+                                                newPhoto(e);
+                                            }}
+                                        />
+                                        <label htmlFor="imageAva">
+                                            {language == 'en'
+                                                ? 'Upload image'
+                                                : 'Загрузить изображение'}
+                                            <i className="fa-solid fa-chevron-down"></i>
+                                        </label>
+                                        {/* </button> */}
+                                    </div>
                                 </section>
                                 <section className="settingsText">
                                     <label htmlFor="name">

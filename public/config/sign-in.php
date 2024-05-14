@@ -13,7 +13,7 @@ $sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email' && passwo
 
 if (mysqli_num_rows($sql) > 0) {
     $user = mysqli_fetch_assoc($sql);
-    $_SESSION['user'] = [true, $user['id'], $user['name'], $user['email'], $user['password'], $user['surname'], $user['displayName'], $user['photo'], $user['location'], $user['bio'], $user['status'], $user['subscription'], $user['followers'], $user['plays'], $user['tracks'], $user['phoneNumber'], $user['2Auth'], $user['soundCloud'], $user['youtube'], $user['rutube'], $user['tiktok'], $user['twitch']];
+    $_SESSION['user'] = [true, $user['id'], $user['name'], $user['email'], $user['password'], $user['surname'], $user['displayName'], base64_encode($user['photo']), $user['location'], $user['bio'], $user['status'], $user['subscription'], $user['followers'], $user['plays'], $user['tracks'], $user['phoneNumber'], $user['2Auth'], $user['soundCloud'], $user['youtube'], $user['rutube'], $user['tiktok'], $user['twitch']];
     if ($language == 'en') {
         $result = "You've successfully login";
     } else {
