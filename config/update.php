@@ -30,7 +30,7 @@ if (!mysqli_fetch_assoc($sql)) {
 
         unset($_SESSION['user']);
         $user = mysqli_fetch_assoc($sql);
-        $_SESSION['user'] = [true, $user['id'], $user['name'], $user['email'], $user['password'], $user['surname'], $user['displayName'], $user['photo'], $user['location'], $user['bio'], $user['status'], $user['subscription'], $user['followers'], $user['plays'], $user['tracks'],];
+        $_SESSION['user'] = [true, $user['id'], $user['name'], $user['email'], $user['password'], $user['surname'], $user['displayName'], base64_encode($user['photo']), $user['location'], $user['bio'], $user['status'], $user['subscription'], $user['followers'], $user['plays'], $user['tracks'],];
 
         if ($language == 'en') {
             $result = "We're updating your data";
