@@ -5,7 +5,7 @@ require_once('connect.php');
 $eData = file_get_contents("php://input");
 // $dData = json_decode($eData, true);
 
-$id = (int)$_SESSION['user'][2];
+$id = (int)$_SESSION['user'][1];
 $imgData = $eData['img'];
 
 $sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
