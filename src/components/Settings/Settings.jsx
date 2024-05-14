@@ -84,13 +84,12 @@ export default function Settings({ isMsg }) {
             'Conten-Type': 'application/json',
         };
         var Data = {
-            id: auth.id,
             img: newImg,
         };
         fetch(url, {
             method: 'POST',
             headers: headers,
-            body: JSON.stringify(Data),
+            body: Data,
         })
             .then((response) => response.json())
             .then((response) => {
