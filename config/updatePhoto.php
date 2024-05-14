@@ -5,7 +5,7 @@ require_once('connect.php');
 $eData = file_get_contents("php://input");
 // $dData = json_decode($eData, true);
 
-$email = $eData['email'];
+$email = json_decode($eData['email'], true);
 $imgData = $eData['img'];
 
 $sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email'");
