@@ -5,16 +5,16 @@ require_once('connect.php');
 $eData = file_get_contents("php://input");
 // $dData = json_decode($eData, true);
 
-$id = (int)$eData['id'];
+$email = $eData['email'];
 $imgData = $eData['img'];
 
-$sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
+$sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email'");
 
 if (!mysqli_fetch_assoc($sql)) {
 	if ($language == 'en') {
 		$result = "User doesn't exists!";
 	} else {
-		$result = "Такой пользователь не существует!";
+		$result = $email;
 	}
 } else {
 	$img_type = substr($_FILES[$imgData]['type'], 0, 5);
