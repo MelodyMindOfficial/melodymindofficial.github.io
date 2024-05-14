@@ -84,7 +84,7 @@ export default function Settings({ isMsg }) {
             'Conten-Type': 'application/json',
         };
         var Data = {
-            email: auth.email,
+            email: JSON.stringify(auth.email),
             img: newImg,
         };
         fetch(url, {
