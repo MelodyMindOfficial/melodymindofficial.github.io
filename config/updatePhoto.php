@@ -21,7 +21,8 @@ if (!mysqli_fetch_assoc($sql)) {
 	$img_size = 2 * 1024 * 1024;
 	if (!empty($_FILES[$imgData]['tmp_name']) and $img_type === 'image' and $_FILES[$imgData]['size'] <= $img_size) {
 		$img = addslashes(file_get_contents($_FILES[$imgData]['tmp_name']));
-		$link->query("UPDATE users SET photo = '$img' where id = '$id'");
+		$sql = "UPDATE users SET photo = '$img' where id = '$id'";
+		$link->query($sql);
 	} else {
 		$result = 'ara';
 	}
