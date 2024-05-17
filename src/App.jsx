@@ -129,7 +129,7 @@ export default function App() {
             <Authorization
                 open={modal}
                 isModal={(current) => setModal(current)}
-                target={'_blank'}
+                // target={'_blank'}
                 isEmail={(current) => setEmail(current)}
             />
 
