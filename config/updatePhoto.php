@@ -14,7 +14,7 @@ if (!mysqli_fetch_assoc($sql)) {
 	if ($language == 'en') {
 		$result = "User doesn't exists!";
 	} else {
-		$result = $email;
+		$result = "Такой пользователь не существует";
 	}
 } else {
 	$img_type = substr($_FILES[$imgData]['type'], 0, 5);
