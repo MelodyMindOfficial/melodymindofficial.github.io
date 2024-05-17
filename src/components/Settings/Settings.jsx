@@ -126,7 +126,7 @@ export default function Settings({ isMsg }) {
         fetch(url, {
             method: 'POST',
             headers: headers,
-            body: JSON.stringify(Data),
+            body: Data,
         })
             .then((response) => response.json())
             .then((response) => {
