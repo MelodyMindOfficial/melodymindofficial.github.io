@@ -5,10 +5,10 @@ require_once('connect.php');
 $eData = file_get_contents("php://input");
 $dData = json_decode($eData, true);
 
-$email = $dData['email'];
+$id = (int)$dData['id'];
 $imgData = $dData['img'];
 
-$sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email'");
+$sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
 
 if (!mysqli_fetch_assoc($sql)) {
 	if ($language == 'en') {
