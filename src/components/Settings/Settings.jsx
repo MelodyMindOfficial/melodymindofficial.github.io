@@ -100,6 +100,7 @@ export default function Settings({ isMsg }) {
 
     function updateProfile(e) {
         e.preventDefault();
+        console.log(newImg);
 
         if (newImg != '') {
             var url = 'https://cg30388.tw1.ru/config/updatePhoto.php';
@@ -126,10 +127,11 @@ export default function Settings({ isMsg }) {
         fetch(url, {
             method: 'POST',
             headers: headers,
-            body: Data,
+            body: JSON.stringify(Data),
         })
             .then((response) => response.json())
             .then((response) => {
+                setNewImg('');
                 setMsg(response[0].result);
             })
             .catch((err) => console.log(err));
