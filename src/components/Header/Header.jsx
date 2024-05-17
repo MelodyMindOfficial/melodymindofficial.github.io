@@ -205,7 +205,11 @@ export default function Header({
                                         </Link>
                                         <div className="burgerUserText">
                                             <Link to="/profile">
-                                                <h3>{auth.email}</h3>
+                                                <h3>
+                                                    {auth.displayName
+                                                        ? auth.displayName
+                                                        : auth.email}
+                                                </h3>
                                             </Link>
                                             <Link id="purchase" to="/purchase">
                                                 <p>
