@@ -195,7 +195,11 @@ export default function Header({
                                     <div className="burgerUser">
                                         <Link to="/profile">
                                             <img
-                                                src="/images/user.png"
+                                                src={
+                                                    auth.photo
+                                                        ? auth.photo
+                                                        : '/images/user.png'
+                                                }
                                                 alt="User"
                                             />
                                         </Link>

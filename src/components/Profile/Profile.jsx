@@ -68,7 +68,10 @@ export default function Profile({ authorized, isActive }) {
             <div className="profileContainer _container">
                 <section className="profileInfo">
                     <div className="profileInfoMain">
-                        <img src="./images/user.png" alt="" />
+                        <img
+                            src={auth.photo ? auth.photo : './images/user.png'}
+                            alt=""
+                        />
                         <h3>
                             {auth.displayName ? auth.displayName : auth.email}
                         </h3>
