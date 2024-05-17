@@ -288,7 +288,14 @@ export default function Header({
                                         setShowBurgerUser(!showBurgerUser)
                                     }
                                 >
-                                    <img src="/images/user.png" alt="User" />
+                                    <img
+                                        src={
+                                            auth.photo
+                                                ? auth.photo
+                                                : '/images/user.png'
+                                        }
+                                        alt="User"
+                                    />
                                     <i className="fa-solid fa-chevron-down"></i>
                                 </button>
                                 <button className="headerCart">
