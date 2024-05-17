@@ -101,18 +101,27 @@ export default function Settings({ isMsg }) {
     function updateProfile(e) {
         e.preventDefault();
 
-        var url = 'https://cg30388.tw1.ru/config/update.php';
+        if (newImg != '') {
+            var url = 'https://cg30388.tw1.ru/config/updatePhoto.php';
+            var Data = {
+                id: auth.id,
+                img: newImg,
+            };
+        } else {
+            var url = 'https://cg30388.tw1.ru/config/update.php';
+
+            var Data = {
+                id: auth.id,
+                name: isname,
+                surname: issurname,
+                displayName: isdisplayName,
+                location: islocation,
+                bio: isbio,
+            };
+        }
         var headers = {
             Accept: 'application/json',
             'Conten-Type': 'application/json',
-        };
-        var Data = {
-            id: auth.id,
-            name: isname,
-            surname: issurname,
-            displayName: isdisplayName,
-            location: islocation,
-            bio: isbio,
         };
         fetch(url, {
             method: 'POST',
@@ -162,7 +171,7 @@ export default function Settings({ isMsg }) {
                                 <button onClick={() => setNewImg('')}>
                                     {language == 'en' ? 'Cancel' : 'Отмена'}
                                 </button>
-                                <button onClick={updatePhoto}>
+                                <button onClick={updateProfile}>
                                     {language == 'en'
                                         ? 'Confirm'
                                         : 'Подтвердить'}
