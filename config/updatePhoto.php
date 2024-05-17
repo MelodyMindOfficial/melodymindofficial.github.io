@@ -5,8 +5,8 @@ require_once('connect.php');
 $eData = file_get_contents("php://input");
 $dData = json_decode($eData, true);
 
-$id = (int)$eData['id'];
-$imgData = $eData['img'];
+$id = (int)$dData['id'];
+$imgData = $dData['img'];
 
 $sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
 
