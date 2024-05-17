@@ -106,7 +106,7 @@ export default function Settings({ isMsg }) {
             var url = 'https://cg30388.tw1.ru/config/updatePhoto.php';
             var Data = {
                 id: auth.id,
-                img: newImg,
+                img: newImg.toString('base64'),
             };
         } else {
             var url = 'https://cg30388.tw1.ru/config/update.php';
