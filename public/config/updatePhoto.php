@@ -6,7 +6,7 @@ $eData = file_get_contents("php://input");
 $dData = json_decode($eData, true);
 
 $id = (int)$dData['id'];
-$imgData = $dData['img'];
+$imgData = base64_decode($dData['img']);
 
 $sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
 
@@ -17,17 +17,10 @@ if (!mysqli_fetch_assoc($sql)) {
 		$result = "Такой пользователь не существует";
 	}
 } else {
-	$img_type = substr($_FILES[$imgData]['type'], 0, 5);
-	$img_size = 2 * 1024 * 1024;
-	if (!empty($_FILES[$imgData]['tmp_name']) and $img_type === 'image' and $_FILES[$imgData]['size'] <= $img_size) {
-		$img = addslashes(file_get_contents($_FILES[$imgData]['tmp_name']));
-		$sql = "UPDATE users SET photo = '$img' where id = '$id'";
-		$link->query($sql);
-	} else {
-		$result = 'ara';
-	}
-
-	if ($connect->query($sql)) {
+	$img = addslashes(file_get_contents($_FILES[$imgData]['tmp_name']));
+	$sql = "UPDATE users SET photo = '$img' where id = '$id'";
+	$link->query($sql);
+	if ($link->query($sql)) {
 		$sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
 
 		unset($_SESSION['user']);

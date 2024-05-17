@@ -133,6 +133,7 @@ export default function Settings({ isMsg }) {
             .then((response) => {
                 setNewImg('');
                 setMsg(response[0].result);
+                console.log(Data.img);
             })
             .catch((err) => console.log(err));
     }
