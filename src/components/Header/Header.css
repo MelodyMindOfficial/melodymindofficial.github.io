@@ -121,6 +121,7 @@ header {
 
 .headerCart img {
     height: 100%;
+    border-radius: 50%;
 }
 
 .fa-chevron-down {
