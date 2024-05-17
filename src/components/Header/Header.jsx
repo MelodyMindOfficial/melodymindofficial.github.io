@@ -19,7 +19,30 @@ export default function Header({
     try {
         var authData = JSON.parse(localStorage.getItem('authData'));
     } catch (e) {
-        var authData = [];
+        var authData = [
+            false,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            false,
+            null,
+            null,
+            null,
+            null,
+            false,
+            null,
+            null,
+            null,
+            null,
+            null,
+        ];
     }
     // var authData = [
     //     true,
@@ -46,21 +69,28 @@ export default function Header({
     //     'johanTwitch',
     // ];
     const auth = {
-        login: authData[0],
-        id: authData[1],
-        name: authData[2],
-        email: authData[3],
-        password: authData[4],
-        surname: authData[5],
-        displayName: authData[6],
-        photo: authData[7],
-        location: authData[8],
-        bio: authData[9],
-        status: authData[10],
-        subscription: authData[11],
-        followers: authData[12],
-        plays: authData[13],
-        tracks: authData[14],
+        login: authorized[0],
+        id: authorized[1],
+        name: authorized[2],
+        email: authorized[3],
+        password: authorized[4],
+        surname: authorized[5],
+        displayName: authorized[6],
+        photo: authorized[7],
+        location: authorized[8],
+        bio: authorized[9],
+        status: authorized[10],
+        subscription: authorized[11],
+        followers: authorized[12],
+        plays: authorized[13],
+        tracks: authorized[14],
+        phoneNumber: authorized[15],
+        Auth2: authorized[16],
+        soundCloud: authorized[17],
+        youtube: authorized[18],
+        rutube: authorized[19],
+        tiktok: authorized[20],
+        twitch: authorized[21],
     };
     const [msg, setMsg] = useState('');
     const [showBurgerUser, setShowBurgerUser] = useState(false);
