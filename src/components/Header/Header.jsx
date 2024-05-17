@@ -16,7 +16,11 @@ export default function Header({
 }) {
     let lastScroll = 0;
     const language = localStorage.getItem('language');
-    const authData = JSON.parse(localStorage.getItem('authData'));
+    try {
+        var authData = JSON.parse(localStorage.getItem('authData'));
+    } catch (e) {
+        var authData = [];
+    }
     // var authData = [
     //     true,
     //     999999,
