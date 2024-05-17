@@ -3,10 +3,10 @@ session_start();
 require_once('connect.php');
 
 $eData = file_get_contents("php://input");
-// $dData = json_decode($eData, true);
+$dData = json_decode($eData, true);
 
-$email = json_decode($eData['email'], true);
-$imgData = $eData['img'];
+$email = $dData['email'];
+$imgData = $dData['img'];
 
 $sql = mysqli_query($link, "SELECT * FROM users WHERE email = '$email'");
 
