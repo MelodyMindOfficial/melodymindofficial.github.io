@@ -92,6 +92,7 @@ export default function Settings({ isMsg }) {
         })
             .then((response) => response.json())
             .then((response) => {
+                setNewImg('');
                 setMsg(response[0].result);
             })
             .catch((err) => console.log(err));
