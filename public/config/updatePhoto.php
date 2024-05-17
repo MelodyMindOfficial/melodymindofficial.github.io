@@ -6,7 +6,7 @@ $eData = file_get_contents("php://input");
 $dData = json_decode($eData, true);
 
 $id = (int)$dData['id'];
-$imgData = base64_decode($dData['img']);
+$imgData = ($dData['img']);
 
 $sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
 
@@ -18,14 +18,14 @@ if (!mysqli_fetch_assoc($sql)) {
 	}
 } else {
 	$img = addslashes(file_get_contents($_FILES[$imgData]['tmp_name']));
-	$sql = "UPDATE users SET photo = '$img' where id = '$id'";
+	$sql = "UPDATE users SET photo = '$imgData' where id = '$id'";
 	$link->query($sql);
 	if ($link->query($sql)) {
 		$sql = mysqli_query($link, "SELECT * FROM users WHERE id = '$id'");
 
 		unset($_SESSION['user']);
 		$user = mysqli_fetch_assoc($sql);
-		$_SESSION['user'] = [true, $user['id'], $user['name'], $user['email'], $user['password'], $user['surname'], $user['displayName'], base64_encode($user['photo']), $user['location'], $user['bio'], $user['status'], $user['subscription'], $user['followers'], $user['plays'], $user['tracks'],];
+		$_SESSION['user'] = [true, $user['id'], $user['name'], $user['email'], $user['password'], $user['surname'], $user['displayName'], ($user['photo']), $user['location'], $user['bio'], $user['status'], $user['subscription'], $user['followers'], $user['plays'], $user['tracks'],];
 
 		if ($language == 'en') {
 			$result = "We're updating your data";
