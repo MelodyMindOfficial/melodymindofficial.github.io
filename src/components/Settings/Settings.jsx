@@ -71,32 +71,9 @@ export default function Settings({ isMsg }) {
     const [isbio, setBio] = useState(auth.bio);
     const [isImg, setImg] = useState(auth.photo);
 
-    const [newImg, setNewImg] = useState('');
+    const [newImg, setNewImg] = useState();
     const [showImg, setShowImg] = useState(false);
     const [sectionProfile, setSectionProfile] = useState('profile');
-
-    function updatePhoto() {
-        var url = 'https://cg30388.tw1.ru/config/updatePhoto.php';
-        var headers = {
-            Accept: 'application/json',
-            'Conten-Type': 'application/json',
-        };
-        var PhotoData = {
-            email: auth.email,
-            img: newImg,
-        };
-        fetch(url, {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify(PhotoData),
-        })
-            .then((response) => response.json())
-            .then((response) => {
-                setNewImg('');
-                setMsg(response[0].result);
-            })
-            .catch((err) => console.log(err));
-    }
 
     function updateProfile(e) {
         e.preventDefault();
@@ -106,7 +83,7 @@ export default function Settings({ isMsg }) {
             var url = 'https://cg30388.tw1.ru/config/updatePhoto.php';
             var Data = {
                 id: auth.id,
-                img: newImg.toString('base64'),
+                img: newImg,
             };
         } else {
             var url = 'https://cg30388.tw1.ru/config/update.php';
@@ -142,8 +119,8 @@ export default function Settings({ isMsg }) {
         var target = e.target;
         var fileReader = new FileReader();
 
-        fileReader.onload = function () {
-            document.querySelector('#photoNew').src = fileReader.result;
+        fileReader.onload = () => {
+            setNewImg(fileReader.result);
         };
 
         fileReader.readAsDataURL(target.files[0]);
@@ -167,7 +144,7 @@ export default function Settings({ isMsg }) {
                         <div className="settingsPhotoConfirmContainer">
                             <div className="settingsPhotoConfirmImage">
                                 <div className="settingsPhotoConfirmImageContainer">
-                                    <img src="" id="photoNew" alt="" />
+                                    <img src={newImg} id="photoNew" alt="" />
                                 </div>
                             </div>
                             <div className="settingsPhotoConfirmButtons">
@@ -239,10 +216,7 @@ export default function Settings({ isMsg }) {
                                 <section className="settingsImage">
                                     <img
                                         src={
-                                            isImg
-                                                ? 'data:image/jpeg;base64, ' +
-                                                  isImg
-                                                : './images/user.png'
+                                            isImg ? isImg : './images/user.png'
                                         }
                                         alt=""
                                     />
@@ -253,10 +227,7 @@ export default function Settings({ isMsg }) {
                                             name="imageAva"
                                             id="imageAva"
                                             accept="image/png, image/jpeg"
-                                            onChange={(e) => {
-                                                setNewImg(e);
-                                                newPhoto(e);
-                                            }}
+                                            onChange={(e) => newPhoto(e)}
                                         />
                                         <label htmlFor="imageAva">
                                             {language == 'en'
