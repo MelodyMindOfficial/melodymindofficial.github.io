@@ -3,7 +3,7 @@ session_start();
 require_once('connect.php');
 
 $eData = file_get_contents("php://input");
-// $dData = json_decode($eData, true);
+$dData = json_decode($eData, true);
 
 $id = (int)$eData['id'];
 $imgData = $eData['img'];
