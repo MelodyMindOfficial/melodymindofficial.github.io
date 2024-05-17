@@ -75,28 +75,13 @@ export default function Settings({ isMsg }) {
     const [showImg, setShowImg] = useState(false);
     const [sectionProfile, setSectionProfile] = useState('profile');
 
-    function updateProfile(e) {
-        e.preventDefault();
-        console.log(newImg);
+    function updatePhoto() {
+        var url = 'https://cg30388.tw1.ru/config/updatePhoto.php';
+        var Data = {
+            id: auth.id,
+            img: newImg,
+        };
 
-        if (newImg != '') {
-            var url = 'https://cg30388.tw1.ru/config/updatePhoto.php';
-            var Data = {
-                id: auth.id,
-                img: newImg,
-            };
-        } else {
-            var url = 'https://cg30388.tw1.ru/config/update.php';
-
-            var Data = {
-                id: auth.id,
-                name: isname,
-                surname: issurname,
-                displayName: isdisplayName,
-                location: islocation,
-                bio: isbio,
-            };
-        }
         var headers = {
             Accept: 'application/json',
             'Conten-Type': 'application/json',
@@ -110,7 +95,37 @@ export default function Settings({ isMsg }) {
             .then((response) => {
                 setNewImg('');
                 setMsg(response[0].result);
-                console.log(Data.img);
+            })
+            .catch((err) => console.log(err));
+    }
+
+    function updateProfile(e) {
+        e.preventDefault();
+
+        var url = 'https://cg30388.tw1.ru/config/update.php';
+
+        var Data = {
+            id: auth.id,
+            name: isname,
+            surname: issurname,
+            displayName: isdisplayName,
+            location: islocation,
+            bio: isbio,
+        };
+
+        var headers = {
+            Accept: 'application/json',
+            'Conten-Type': 'application/json',
+        };
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(Data),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                setNewImg('');
+                setMsg(response[0].result);
             })
             .catch((err) => console.log(err));
     }
@@ -151,7 +166,7 @@ export default function Settings({ isMsg }) {
                                 <button onClick={() => setNewImg('')}>
                                     {language == 'en' ? 'Cancel' : 'Отмена'}
                                 </button>
-                                <button onClick={updateProfile}>
+                                <button onClick={updatePhoto}>
                                     {language == 'en'
                                         ? 'Confirm'
                                         : 'Подтвердить'}
