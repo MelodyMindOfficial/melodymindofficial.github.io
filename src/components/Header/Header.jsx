@@ -18,31 +18,32 @@ export default function Header({
     const language = localStorage.getItem('language');
     try {
         var authData = JSON.parse(localStorage.getItem('authData'));
+        var auth = {
+            login: authData[0],
+            id: authData[1],
+            name: authData[2],
+            email: authData[3],
+            password: authData[4],
+            surname: authData[5],
+            displayName: authData[6],
+            photo: authData[7],
+            location: authData[8],
+            bio: authData[9],
+            status: authData[10],
+            subscription: authData[11],
+            followers: authData[12],
+            plays: authData[13],
+            tracks: authData[14],
+            phoneNumber: authData[15],
+            Auth2: authData[16],
+            soundCloud: authData[17],
+            youtube: authData[18],
+            rutube: authData[19],
+            tiktok: authData[20],
+            twitch: authData[21],
+        };
     } catch (e) {
-        var authData = [
-            false,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            false,
-            null,
-            null,
-            null,
-            null,
-            false,
-            null,
-            null,
-            null,
-            null,
-            null,
-        ];
+        var auth = { id: false };
     }
     // var authData = [
     //     true,
@@ -68,30 +69,7 @@ export default function Header({
     //     '@johanTik-Tok',
     //     'johanTwitch',
     // ];
-    const auth = {
-        login: authData[0],
-        id: authData[1],
-        name: authData[2],
-        email: authData[3],
-        password: authData[4],
-        surname: authData[5],
-        displayName: authData[6],
-        photo: authData[7],
-        location: authData[8],
-        bio: authData[9],
-        status: authData[10],
-        subscription: authData[11],
-        followers: authData[12],
-        plays: authData[13],
-        tracks: authData[14],
-        phoneNumber: authData[15],
-        Auth2: authData[16],
-        soundCloud: authData[17],
-        youtube: authData[18],
-        rutube: authData[19],
-        tiktok: authData[20],
-        twitch: authData[21],
-    };
+
     const [msg, setMsg] = useState('');
     const [showBurgerUser, setShowBurgerUser] = useState(false);
     const defaultOffset = 200;
