@@ -216,10 +216,7 @@ export default function Settings({ isMsg }) {
                                 <section className="settingsImage">
                                     <img
                                         src={
-                                            isImg
-                                                ? 'data:image/jpeg;base64, ' +
-                                                  isImg
-                                                : './images/user.png'
+                                            isImg ? isImg : './images/user.png'
                                         }
                                         alt=""
                                     />
