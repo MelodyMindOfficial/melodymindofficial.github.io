@@ -76,8 +76,6 @@ export default function Settings({ isMsg }) {
     const [sectionProfile, setSectionProfile] = useState('profile');
 
     function updatePhoto() {
-        setNewImg('');
-
         var url = 'https://cg30388.tw1.ru/config/updatePhoto.php';
         var headers = {
             Accept: 'application/json',
