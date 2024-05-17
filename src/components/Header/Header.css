@@ -175,6 +175,10 @@ header {
     background-color: #2b2b2b;
 }
 
+.burgerUser img {
+    object-fit: cover;
+}
+
 .burgerUserText {
     overflow: hidden;
 }
