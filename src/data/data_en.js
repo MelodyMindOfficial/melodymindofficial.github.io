@@ -2,6 +2,8 @@ export const numTracks_en = 13;
 
 export const pages = ['', 'login', 'sign-in', 'sign-up', 'reset-password', 'feed', 'tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy', 'profile', 'settings']
 
+export const th_en = ['ID', 'Email', 'Password', 'Name', 'Surname', 'Nickname', 'Location', 'Bio', 'Photo', 'Status', 'Subscription', 'Followers', 'Plays', 'Tracks', 'Phone number', '2Auth', 'Sound Cloud', 'Youtube', 'Rutube', 'Tik-Tok', 'Twitch']
+
 export const headerList_en = [{
     title: 'Feed',
     id: 'feed'

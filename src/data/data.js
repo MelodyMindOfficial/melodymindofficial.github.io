@@ -2,6 +2,8 @@ export const numTracks = 13;
 
 export const pages = ['', 'login', 'sign-in', 'sign-up', 'reset-password', 'feed', 'images/tracks', 'sounds', 'about', 'contacts', 'how-to-buy', 'payment', 'rules-of-sale', 'privacy-policy', 'buy', 'profile', 'settings']
 
+export const th = ['ID', 'Эл. почта', 'Пароль', 'Имя', 'Фамилия', 'Никнейм', 'Местоположение', 'Биография', 'Фото', 'Статус', 'Подписка', 'Подписчики', 'Прослушивания', 'Треки', 'Номер телефона', 'Двухфакторная аутентификация', 'Sound Cloud', 'Youtube', 'Rutube', 'Tik-Tok', 'Twitch']
+
 export const headerList = [{
     title: 'Лента',
     id: 'feed'

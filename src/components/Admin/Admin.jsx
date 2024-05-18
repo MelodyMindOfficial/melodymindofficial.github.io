@@ -1,17 +1,37 @@
 import { useState } from 'react';
+import { th } from '../../data/data';
+import { th_en } from '../../data/data_en';
 import './Admin.css';
 
 export default function Admin() {
     const language = localStorage.getItem('language');
     const [sectionProfile, setSectionProfile] = useState('profile');
+
+    function updateAccounts() {
+        var url = 'https://cg30388.tw1.ru/config/adminUsers.php';
+        var headers = {
+            Accept: 'application/json',
+            'Conten-Type': 'application/json',
+        };
+        fetch(url, {
+            method: 'POST',
+            headers: headers,
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response[0].result);
+            })
+            .catch((err) => console.log(err));
+    }
+
     return (
-        <div className="settingsContainer">
+        <div className="adminContainer">
             <div className="_container">
-                <h1 className="settingsTitle">
+                <h1 className="adminTitle">
                     {language == 'en' ? 'Admin panel' : 'Панель администратора'}
                 </h1>
-                <div className="settingsSection">
-                    <aside className="settingsSideSection">
+                <div className="adminSection">
+                    <aside className="adminSideSection">
                         <ul>
                             <li
                                 className={
@@ -25,73 +45,39 @@ export default function Admin() {
                             </li>
                         </ul>
                     </aside>
-                    <div className="settingsSectionMain">
+                    <div className="adminSectionMain">
                         {sectionProfile == 'profile' && (
                             <form method="">
-                                <section className="settingsImage">
-                                    <div>
-                                        <input
-                                            type="file"
-                                            name="imageAva"
-                                            id="imageAva"
-                                            accept="image/png, image/jpeg"
-                                        />
-                                        <label htmlFor="imageAva">
-                                            {language == 'en'
-                                                ? 'Upload image'
-                                                : 'Загрузить изображение'}
-                                            <i className="fa-solid fa-chevron-down"></i>
-                                        </label>
-                                    </div>
-                                </section>
-                                <section className="settingsText">
-                                    <label htmlFor="name">
-                                        {language == 'en' ? 'Name' : 'Имя'}
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    />
-                                    <label htmlFor="surname">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            {(language == 'en'
+                                                ? th_en
+                                                : th
+                                            ).map((e) => (
+                                                <th key={e}>{e}</th>
+                                            ))}
+                                        </tr>
+                                        <tr>
+                                            {(language == 'en'
+                                                ? th_en
+                                                : th
+                                            ).map((e) => (
+                                                <td key={e}>
+                                                    <input type="text" />
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <section className="adminText">
+                                    <button
+                                        type="submit"
+                                        onClick={updateAccounts}
+                                    >
                                         {language == 'en'
-                                            ? 'Last name'
-                                            : 'Фамилия'}
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="surname"
-                                        pattern="([A-Za-zА-Яа-яЁё]+[\-\s]?){3,}"
-                                    />
-                                    <label htmlFor="nickname">
-                                        {language == 'en'
-                                            ? ''
-                                            : 'Отображаемое имя'}
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="nickname"
-                                        required
-                                    />
-                                    <label htmlFor="location">
-                                        {language == 'en'
-                                            ? ''
-                                            : 'Местоположение'}
-                                    </label>
-                                    <input type="text" name="location" />
-                                    <label htmlFor="bio">
-                                        {language == 'en' ? '' : 'Биография'}
-                                    </label>
-                                    <textarea
-                                        name="bio"
-                                        id=""
-                                        cols="30"
-                                        rows="10"
-                                    ></textarea>
-                                    <button type="submit">
-                                        {language == 'en'
-                                            ? 'Save changes'
-                                            : 'Сохранить изменения'}
+                                            ? 'Reload table'
+                                            : 'Обновить таблицу'}
                                     </button>
                                 </section>
                             </form>

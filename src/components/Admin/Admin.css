@@ -1,0 +1,80 @@
+.adminContainer {
+    padding: 40px 0px 150px 0px;
+}
+
+.adminTitle {
+    font-size: 36px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.adminSection {
+    display: flex;
+    padding: 20px 0px;
+}
+
+.adminSideSection {
+    align-self: flex-start;
+    padding: 24px 0px;
+    width: 230px;
+    background-color: #141414;
+    border: 1px solid rgba(255, 255, 255, 12.6%);
+    border-radius: 5px;
+}
+
+.adminSideSection li {
+    padding: 2.5px 20px;
+    color: #B8B8B8;
+    font-weight: 600;
+    transition: 150ms;
+    cursor: pointer;
+}
+
+.adminSideSection li:hover {
+    color: #fff;
+}
+
+.adminSideSection li.active {
+    color: #fff;
+    border-left: 2px solid #fff;
+}
+
+.adminSectionMain {
+    display: flex;
+    justify-content: center;
+    flex-basis: calc(100%);
+}
+
+.adminSectionMain form {
+    display: flex;
+    flex-direction: column;
+    width: 1050px;
+    overflow-x: auto;
+}
+
+.adminSectionMain form table {
+    padding: 5px 10px;
+    background-color: #141414;
+    border: 1px solid #fff;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.adminSectionMain form table th {
+    padding: 5px 10px;
+    min-width: 100px;
+    font-size: 16px;
+    border: 1px solid #fff;
+}
+
+.adminSectionMain form table td {
+    padding: 5px;
+    border: 1px solid #949494;
+}
+
+.adminSectionMain form table td input {
+    padding: 5px;
+    color: #fff;
+    background: none;
+    border: 1px solid #949494;
+}

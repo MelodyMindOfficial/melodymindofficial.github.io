@@ -267,6 +267,18 @@ export default function Header({
                                                 </h3>
                                             </Link>
                                         </li>
+                                        {auth.status == 1 && (
+                                            <li>
+                                                <Link to="/admin">
+                                                    <i className="fa-solid fa-user-tie"></i>
+                                                    <h3>
+                                                        {language == 'en'
+                                                            ? 'Admin panel'
+                                                            : 'Панель администратора'}
+                                                    </h3>
+                                                </Link>
+                                            </li>
+                                        )}
                                         <li>
                                             <Link to="/help">
                                                 <i className="fa-solid fa-life-ring"></i>
