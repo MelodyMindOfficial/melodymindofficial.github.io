@@ -64,10 +64,10 @@ export default function Admin() {
             .catch((err) => console.log(err));
     }
 
-    function editAccount(e) {
+    function editAccount(e, account) {
         e.preventDefault();
 
-        window.location.pathname = '/admin?' + e;
+        window.location.pathname = '/admin?' + account;
     }
 
     return (
