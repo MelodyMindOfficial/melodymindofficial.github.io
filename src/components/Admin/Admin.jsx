@@ -104,7 +104,7 @@ export default function Admin() {
                                         </tr>
                                         {userData.map((e) => {
                                             <tr>
-                                                <td key={e}>{e}</td>
+                                                <td>{e.email}</td>
                                             </tr>;
                                         })}
                                         {/* <tr>
