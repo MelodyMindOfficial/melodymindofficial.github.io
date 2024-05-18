@@ -20,7 +20,7 @@ export default function Admin() {
         console.log('blyad');
     }
 
-    const authCount = userData;
+    const authCount = [userData[0]];
 
     // const auth = {
     //     login: userData[0],
@@ -104,9 +104,7 @@ export default function Admin() {
                                         </tr>
                                         {authCount.map((e) => {
                                             <tr>
-                                                {e.map((i) => (
-                                                    <td key={i}>{i}</td>
-                                                ))}
+                                                <td key={e}>{e}</td>
                                             </tr>;
                                         })}
                                         {/* <tr>
