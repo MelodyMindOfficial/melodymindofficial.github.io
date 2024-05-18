@@ -160,7 +160,7 @@ export default function App() {
                 )}
                 <main style={{ marginTop: '115px' }}>
                     <Routes>
-                        {authStatus && (
+                        {authStatus == 1 && (
                             <Route path="/admin" element={<Admin />} />
                         )}
                         <Route
