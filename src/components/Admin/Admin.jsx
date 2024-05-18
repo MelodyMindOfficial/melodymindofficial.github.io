@@ -102,7 +102,7 @@ export default function Admin() {
                                                 <th key={e}>{e}</th>
                                             ))}
                                         </tr>
-                                        {userData.map((e) => {
+                                        {authCount.map((e) => {
                                             <tr>
                                                 <td>{e.email}</td>
                                             </tr>;
