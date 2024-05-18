@@ -16,7 +16,7 @@ export default function Admin() {
         var userData = localStorage.getItem('userData');
         console.log('xuy');
     } else {
-        var userData = { a: 'a', b: 'b' };
+        var userData = [''];
         console.log('blyad');
     }
     function updateAccounts(e) {
