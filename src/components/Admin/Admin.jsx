@@ -20,30 +20,32 @@ export default function Admin() {
         console.log('blyad');
     }
 
-    const auth = {
-        login: userData[0],
-        id: userData[1],
-        name: userData[2],
-        email: userData[3],
-        password: userData[4],
-        surname: userData[5],
-        displayName: userData[6],
-        photo: userData[7],
-        location: userData[8],
-        bio: userData[9],
-        status: userData[10],
-        subscription: userData[11],
-        followers: userData[12],
-        plays: userData[13],
-        tracks: userData[14],
-        phoneNumber: userData[15],
-        Auth2: userData[16],
-        soundCloud: userData[17],
-        youtube: userData[18],
-        rutube: userData[19],
-        tiktok: userData[20],
-        twitch: userData[21],
-    };
+    const authCount = userData;
+
+    // const auth = {
+    //     login: userData[0],
+    //     id: userData[1],
+    //     name: userData[2],
+    //     email: userData[3],
+    //     password: userData[4],
+    //     surname: userData[5],
+    //     displayName: userData[6],
+    //     photo: userData[7],
+    //     location: userData[8],
+    //     bio: userData[9],
+    //     status: userData[10],
+    //     subscription: userData[11],
+    //     followers: userData[12],
+    //     plays: userData[13],
+    //     tracks: userData[14],
+    //     phoneNumber: userData[15],
+    //     Auth2: userData[16],
+    //     soundCloud: userData[17],
+    //     youtube: userData[18],
+    //     rutube: userData[19],
+    //     tiktok: userData[20],
+    //     twitch: userData[21],
+    // };
 
     function updateAccounts(e) {
         e.preventDefault();
@@ -100,7 +102,7 @@ export default function Admin() {
                                                 <th key={e}>{e}</th>
                                             ))}
                                         </tr>
-                                        {auth.map((e) => {
+                                        {authCount.map((e) => {
                                             <tr>
                                                 {e.map((i) => (
                                                     <td key={i}>{i}</td>
