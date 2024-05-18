@@ -125,7 +125,7 @@ export default function App() {
         var authData = JSON.parse(localStorage.getItem('authData'));
         var authStatus = authData[10];
     } catch (e) {
-        var authStatus = 1;
+        var authStatus = 0;
     }
 
     return (
