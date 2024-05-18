@@ -102,11 +102,30 @@ export default function Admin() {
                                                 <th key={e}>{e}</th>
                                             ))}
                                         </tr>
-                                        {[...Array(authCount)].map((e) => {
+                                        {userData.map((e) => (
                                             <tr>
-                                                <td>{e}</td>
-                                            </tr>;
-                                        })}
+                                                <td>{e.id}</td>
+                                                <td>{e.email}</td>
+                                                <td>{e.password}</td>
+                                                <td>{e.name}</td>
+                                                <td>{e.surname}</td>
+                                                <td>{e.displayName}</td>
+                                                <td>{e.location}</td>
+                                                <td>{e.bio}</td>
+                                                <td>{e.photo}</td>
+                                                <td>{e.status}</td>
+                                                <td>{e.subscription}</td>
+                                                <td>{e.followers}</td>
+                                                <td>{e.plays}</td>
+                                                <td>{e.tracks}</td>
+                                                <td>{e.phoneNumber}</td>
+                                                <td>{e.soundCloud}</td>
+                                                <td>{e.youtube}</td>
+                                                <td>{e.rutube}</td>
+                                                <td>{e.tiktok}</td>
+                                                <td>{e.twitch}</td>
+                                            </tr>
+                                        ))}
                                         {/* <tr>
                                             {(language == 'en'
                                                 ? th_en
