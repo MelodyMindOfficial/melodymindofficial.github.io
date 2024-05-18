@@ -104,7 +104,7 @@ export default function Admin() {
                                         </tr>
                                         {[...Array(authCount)].map((e) => {
                                             <tr>
-                                                <td>{e.email}</td>
+                                                <td>{e}</td>
                                             </tr>;
                                         })}
                                         {/* <tr>
