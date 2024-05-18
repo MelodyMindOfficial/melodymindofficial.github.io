@@ -7,7 +7,9 @@ export default function Admin() {
     const language = localStorage.getItem('language');
     const [sectionProfile, setSectionProfile] = useState('profile');
 
-    function updateAccounts() {
+    function updateAccounts(e) {
+        e.preventDefault();
+
         var url = 'https://cg30388.tw1.ru/config/adminUsers.php';
         var headers = {
             Accept: 'application/json',
