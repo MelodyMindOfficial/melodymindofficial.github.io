@@ -112,8 +112,17 @@ export default function Admin() {
                                                 <td>{e.displayName}</td>
                                                 <td>{e.location}</td>
                                                 <td>{e.bio}</td>
-                                                <td>{e.photo}</td>
-                                                <td>{e.status}</td>
+                                                <td>
+                                                    <img src={e.photo} alt="" />
+                                                </td>
+                                                <td>
+                                                    <input
+                                                        type="number"
+                                                        min={0}
+                                                        max={1}
+                                                        value={e.status}
+                                                    />
+                                                </td>
                                                 <td>{e.subscription}</td>
                                                 <td>{e.followers}</td>
                                                 <td>{e.plays}</td>
