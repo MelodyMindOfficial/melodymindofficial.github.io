@@ -27,6 +27,7 @@ import SignIn from './components/Authorization/SignIn';
 import SignUp from './components/Authorization/SignUp';
 import ResetPassword from './components/Authorization/ResetPassword';
 import ResetEmail from './components/Authorization/ResetEmail';
+import Confirm from './components/Authorization/Confirm';
 import Profile from './components/Profile/Profile';
 import Settings from './components/Settings/Settings';
 
@@ -76,6 +77,7 @@ export default function App() {
         window.location.pathname.slice(1) != 'sign-up' &&
         window.location.pathname.slice(1) != 'reset-password' &&
         window.location.pathname.slice(1) != 'reset-email' &&
+        window.location.pathname.slice(1) != 'confirm' &&
         window.location.pathname.slice(1) != 'login'; // Проверяем значение активной страницы
 
     // --- ОСНОВНЫЕ ФУНКЦИИ --- //
@@ -252,6 +254,7 @@ export default function App() {
                                 />
                             }
                         />
+                        <Route path="/confirm" element={<Confirm />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>

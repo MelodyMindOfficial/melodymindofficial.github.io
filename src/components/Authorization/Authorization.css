@@ -43,6 +43,15 @@ dialog+.backdrop {
     background: none;
 }
 
+.signText {
+    margin-top: -15px;
+    margin-bottom: 15px;
+    color: #fff;
+    /* font-size: 16px; */
+    text-align: center;
+    font-weight: light;
+}
+
 .signSelf,
 .signAuth {
     display: flex;
@@ -94,6 +103,24 @@ dialog+.backdrop {
     color: #fff;
     background-color: #005FF8;
 } */
+
+.signPin {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.signPin input {
+    height: 64px;
+    width: 64px;
+    font-size: 32px;
+    text-align: center;
+    transition: 150ms;
+}
+
+.signPin input:focus {
+    box-shadow: 0px 0px 10px 5px rgba(0, 95, 248, 0.5);
+}
 
 .signAuth button.active {
     color: #fff;
