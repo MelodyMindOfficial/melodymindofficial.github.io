@@ -6,12 +6,17 @@ import './Admin.css';
 export default function Admin() {
     const language = localStorage.getItem('language');
     const [sectionProfile, setSectionProfile] = useState('profile');
-    try {
+    // try {
+    //     var userData = localStorage.getItem('userData');
+    // } catch (error) {
+    //     var userData = { a: 'a', b: 'b' };
+    // }
+
+    if (localStorage.getItem('userData')) {
         var userData = localStorage.getItem('userData');
-    } catch (error) {
+    } else {
         var userData = { a: 'a', b: 'b' };
     }
-
     function updateAccounts(e) {
         e.preventDefault();
 
