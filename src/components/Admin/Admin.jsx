@@ -64,6 +64,12 @@ export default function Admin() {
             .catch((err) => console.log(err));
     }
 
+    function editAccount(e) {
+        e.preventDefault();
+
+        window.location.pathname = '/admin?' + e;
+    }
+
     return (
         <div className="adminContainer">
             <div className="_container">
@@ -91,6 +97,11 @@ export default function Admin() {
                                 <table>
                                     <tbody>
                                         <tr>
+                                            <th>
+                                                {language == 'en'
+                                                    ? 'Edit'
+                                                    : 'Редактировать'}
+                                            </th>
                                             {(language == 'en'
                                                 ? th_en
                                                 : th
@@ -100,6 +111,15 @@ export default function Admin() {
                                         </tr>
                                         {userData.map((e) => (
                                             <tr>
+                                                <td>
+                                                    <button
+                                                        onClick={() =>
+                                                            editAccount(e)
+                                                        }
+                                                    >
+                                                        <i className="fa-solid fa-pen"></i>
+                                                    </button>
+                                                </td>
                                                 <td>{e.id}</td>
                                                 <td>{e.email}</td>
                                                 <td>{e.password}</td>
