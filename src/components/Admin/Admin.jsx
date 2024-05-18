@@ -6,7 +6,7 @@ import './Admin.css';
 export default function Admin() {
     const language = localStorage.getItem('language');
     const [sectionProfile, setSectionProfile] = useState('profile');
-    const [userDataArray, setUserDataArray] = useState();
+    const [userDataArray, setUserDataArray] = useState([]);
     var userData = [];
 
     function updateAccounts(e) {
