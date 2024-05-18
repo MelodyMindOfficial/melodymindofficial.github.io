@@ -8,6 +8,8 @@ export default function Admin() {
     const [sectionProfile, setSectionProfile] = useState('profile');
     const [usersData, setUsersData] = useState({});
 
+    var userss;
+
     function updateAccounts(e) {
         e.preventDefault();
 
@@ -24,6 +26,8 @@ export default function Admin() {
             .then((response) => {
                 setUsersData(response[0].result);
                 console.log(usersData);
+                userss = response[0].result;
+                console.log(userss);
             })
             .catch((err) => console.log(err));
     }
