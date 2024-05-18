@@ -6,6 +6,7 @@ import './Admin.css';
 export default function Admin() {
     const language = localStorage.getItem('language');
     const [sectionProfile, setSectionProfile] = useState('profile');
+    const [usersData, setUsersData] = useState([]);
 
     function updateAccounts(e) {
         e.preventDefault();
@@ -21,7 +22,7 @@ export default function Admin() {
         })
             .then((response) => response.json())
             .then((response) => {
-                console.log(response[0].result);
+                setUsersData(response[0].result);
             })
             .catch((err) => console.log(err));
     }
@@ -60,7 +61,17 @@ export default function Admin() {
                                                 <th key={e}>{e}</th>
                                             ))}
                                         </tr>
-                                        <tr>
+                                        {usersData.map((e) => {
+                                            <tr>
+                                                {e.map((i) => (
+                                                    <td key={i}>
+                                                        {i}
+                                                        {/* <input type="text" /> */}
+                                                    </td>
+                                                ))}
+                                            </tr>;
+                                        })}
+                                        {/* <tr>
                                             {(language == 'en'
                                                 ? th_en
                                                 : th
@@ -69,7 +80,7 @@ export default function Admin() {
                                                     <input type="text" />
                                                 </td>
                                             ))}
-                                        </tr>
+                                        </tr> */}
                                     </tbody>
                                 </table>
                                 <section className="adminText">

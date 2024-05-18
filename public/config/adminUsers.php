@@ -8,7 +8,12 @@ if ($_SESSION['user'][10] == 1) {
 
     if (mysqli_num_rows($sql) > 0) {
         $row = mysqli_fetch_array($sql);
-        $response[] = array('result' => $row);
+        $result = array();
+        do {
+            array_push($result, $row);
+        } while ($row = mysqli_fetch_array($sql));
+
+        $response[] = array('result' => $result);
     } else {
         $response[] = 'Error';
     }
