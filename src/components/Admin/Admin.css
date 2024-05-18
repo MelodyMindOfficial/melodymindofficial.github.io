@@ -78,3 +78,7 @@
     background: none;
     border: 1px solid #949494;
 }
+
+.adminSectionMain form table td img {
+    height: 50px;
+}
