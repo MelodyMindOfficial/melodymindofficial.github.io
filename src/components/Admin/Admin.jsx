@@ -14,7 +14,7 @@ export default function Admin() {
 
     if (localStorage.getItem('userData')) {
         var userData = JSON.parse(localStorage.getItem('userData'));
-        console.log('xuy');
+        console.log(userData);
     } else {
         var userData = [[['']]];
         console.log('blyad');
