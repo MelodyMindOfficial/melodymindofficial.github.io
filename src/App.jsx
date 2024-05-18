@@ -18,6 +18,7 @@ import About from './components/About/About';
 import Contacts from './components/About/Contacts';
 
 // Other Pages
+import Admin from './components/Admin/Admin';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import NotFound from './components/NotFound/NotFound';
 
@@ -68,7 +69,7 @@ export default function App() {
     const [modal, setModal] = useState(false); // Устанавливаем значение для модального окна
     const [search, setSeacrh] = useState(''); // Устанавливаем значение для поиска
     const [notify, setNotify] = useState(''); // Устанавливаем значение для уведомленя
-    const [authorized, setAuthorized] = useState([]); // Инициализируем массив для аккаунта
+    const [authorized, setAuthorized] = useState({ status: 1 }); // Инициализируем массив для аккаунта
     const [active, setActive] = useState(
         localStorage.getItem('active') || 'main'
     ); // Устанавливаем значение активной страницы для Router
@@ -152,6 +153,9 @@ export default function App() {
                 )}
                 <main style={{ marginTop: '115px' }}>
                     <Routes>
+                        {authorized.status && (
+                            <Route path="/admin" element={<Admin />} />
+                        )}
                         <Route
                             path="/"
                             element={
