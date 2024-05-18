@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { th } from '../../data/data';
 import { th_en } from '../../data/data_en';
 import './Admin.css';
@@ -24,11 +24,12 @@ export default function Admin() {
             .then((response) => response.json())
             .then((response) => {
                 userData = response[0].result;
-                setUserDataArray(userData);
                 console.log(userDataArray);
             })
             .catch((err) => console.log(err));
     }
+
+    useEffect(() => setUserDataArray(userData), [userData]);
 
     return (
         <div className="adminContainer">
