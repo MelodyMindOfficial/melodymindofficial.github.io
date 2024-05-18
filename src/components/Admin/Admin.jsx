@@ -14,13 +14,9 @@ export default function Admin() {
 
     if (localStorage.getItem('userData')) {
         var userData = JSON.parse(localStorage.getItem('userData'));
-        console.log(userData);
     } else {
         var userData = [[['']]];
-        console.log('blyad');
     }
-
-    const authCount = userData.length;
 
     // const auth = {
     //     login: userData[0],
@@ -63,7 +59,7 @@ export default function Admin() {
             .then((response) => {
                 userData = response[0].result;
                 localStorage.setItem('userData', JSON.stringify(userData));
-                console.log(localStorage.getItem('userData'));
+                window.location.reload();
             })
             .catch((err) => console.log(err));
     }
