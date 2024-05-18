@@ -23,6 +23,7 @@ export default function Admin() {
             .then((response) => response.json())
             .then((response) => {
                 setUsersData(response[0].result);
+                console.log(usersData);
             })
             .catch((err) => console.log(err));
     }
@@ -61,16 +62,15 @@ export default function Admin() {
                                                 <th key={e}>{e}</th>
                                             ))}
                                         </tr>
-                                        {usersData.map((e) => {
+                                        {/* {usersData.map((e) => {
                                             <tr>
                                                 {e.map((i) => (
                                                     <td key={i}>
                                                         {i}
-                                                        {/* <input type="text" /> */}
                                                     </td>
                                                 ))}
                                             </tr>;
-                                        })}
+                                        })} */}
                                         {/* <tr>
                                             {(language == 'en'
                                                 ? th_en
