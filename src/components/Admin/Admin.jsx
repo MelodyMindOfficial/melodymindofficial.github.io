@@ -13,7 +13,7 @@ export default function Admin() {
     // }
 
     if (localStorage.getItem('userData')) {
-        var userData = localStorage.getItem('userData');
+        var userData = JSON.parse(localStorage.getItem('userData'));
         console.log('xuy');
     } else {
         var userData = [[['']]];
@@ -34,7 +34,7 @@ export default function Admin() {
             .then((response) => response.json())
             .then((response) => {
                 userData = response[0].result;
-                localStorage.setItem('userData', userData);
+                localStorage.setItem('userData', JSON.stringify(userData));
                 console.log(localStorage.getItem('userData'));
             })
             .catch((err) => console.log(err));
