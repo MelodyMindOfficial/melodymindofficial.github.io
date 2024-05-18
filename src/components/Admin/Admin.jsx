@@ -6,9 +6,7 @@ import './Admin.css';
 export default function Admin() {
     const language = localStorage.getItem('language');
     const [sectionProfile, setSectionProfile] = useState('profile');
-    const [usersData, setUsersData] = useState({});
-
-    var userss;
+    var userData;
 
     function updateAccounts(e) {
         e.preventDefault();
@@ -24,10 +22,8 @@ export default function Admin() {
         })
             .then((response) => response.json())
             .then((response) => {
-                setUsersData(response[0].result);
-                console.log(usersData);
-                userss = response[0].result;
-                console.log(userss);
+                userData = response[0].result;
+                console.log(userData);
             })
             .catch((err) => console.log(err));
     }
@@ -66,15 +62,13 @@ export default function Admin() {
                                                 <th key={e}>{e}</th>
                                             ))}
                                         </tr>
-                                        {/* {usersData.map((e) => {
+                                        {userData.map((e) => {
                                             <tr>
                                                 {e.map((i) => (
-                                                    <td key={i}>
-                                                        {i}
-                                                    </td>
+                                                    <td key={i}>{i}</td>
                                                 ))}
                                             </tr>;
-                                        })} */}
+                                        })}
                                         {/* <tr>
                                             {(language == 'en'
                                                 ? th_en
