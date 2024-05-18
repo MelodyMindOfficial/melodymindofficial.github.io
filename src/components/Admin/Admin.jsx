@@ -6,8 +6,11 @@ import './Admin.css';
 export default function Admin() {
     const language = localStorage.getItem('language');
     const [sectionProfile, setSectionProfile] = useState('profile');
-    const [userDataArray, setUserDataArray] = useState([]);
-    var userData = [];
+    try {
+        var userData = localStorage.getItem('userData');
+    } catch (error) {
+        var userData = [];
+    }
 
     function updateAccounts(e) {
         e.preventDefault();
@@ -29,7 +32,7 @@ export default function Admin() {
             .catch((err) => console.log(err));
     }
 
-    useEffect(() => setUserDataArray(userData), [userData]);
+    useEffect(() => localStorage.setItem('userData', userData), [userData]);
 
     return (
         <div className="adminContainer">
@@ -65,7 +68,7 @@ export default function Admin() {
                                                 <th key={e}>{e}</th>
                                             ))}
                                         </tr>
-                                        {userDataArray.map((e) => {
+                                        {userData.map((e) => {
                                             <tr>
                                                 {e.map((i) => (
                                                     <td key={i}>{i}</td>
