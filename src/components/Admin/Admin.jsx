@@ -9,7 +9,7 @@ export default function Admin() {
     try {
         var userData = localStorage.getItem('userData');
     } catch (error) {
-        var userData = [''];
+        var userData = { a: 'a', b: 'b' };
     }
 
     function updateAccounts(e) {
