@@ -34,12 +34,11 @@ export default function Admin() {
             .then((response) => response.json())
             .then((response) => {
                 userData = response[0].result;
-                console.log(userData);
+                localStorage.setItem('userData', userData);
+                console.log(localStorage.getItem('userData'));
             })
             .catch((err) => console.log(err));
     }
-
-    useEffect(() => localStorage.setItem('userData', userData), []);
 
     return (
         <div className="adminContainer">
