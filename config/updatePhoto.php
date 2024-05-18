@@ -17,7 +17,6 @@ if (!mysqli_fetch_assoc($sql)) {
 		$result = "Такой пользователь не существует";
 	}
 } else {
-	$img = addslashes(file_get_contents($_FILES[$imgData]['tmp_name']));
 	$sql = "UPDATE users SET photo = '$imgData' where id = '$id'";
 	$link->query($sql);
 	if ($link->query($sql)) {
