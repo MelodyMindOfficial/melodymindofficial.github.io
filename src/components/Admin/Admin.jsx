@@ -25,7 +25,7 @@ export default function Admin() {
             .then((response) => {
                 userData = response[0].result;
                 setUserDataArray(userData);
-                console.log(userData);
+                console.log(userDataArray);
             })
             .catch((err) => console.log(err));
     }
