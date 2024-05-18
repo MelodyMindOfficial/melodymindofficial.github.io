@@ -113,8 +113,11 @@ export default function Admin() {
                                             <tr>
                                                 <td>
                                                     <button
-                                                        onClick={() =>
-                                                            editAccount(e)
+                                                        onClick={(event) =>
+                                                            editAccount(
+                                                                event,
+                                                                e
+                                                            )
                                                         }
                                                     >
                                                         <i className="fa-solid fa-pen"></i>
