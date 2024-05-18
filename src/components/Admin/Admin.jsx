@@ -116,7 +116,7 @@ export default function Admin() {
                                                         onClick={(event) =>
                                                             editAccount(
                                                                 event,
-                                                                e
+                                                                e.id
                                                             )
                                                         }
                                                     >
