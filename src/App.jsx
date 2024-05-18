@@ -121,6 +121,13 @@ export default function App() {
         return location.reload();
     }
 
+    try {
+        var authData = JSON.parse(localStorage.getItem('authData'));
+        var authStatus = authData[10];
+    } catch (e) {
+        var authStatus = 0;
+    }
+
     return (
         <>
             {/* Preloader */}
@@ -153,7 +160,7 @@ export default function App() {
                 )}
                 <main style={{ marginTop: '115px' }}>
                     <Routes>
-                        {authorized.status && (
+                        {authStatus && (
                             <Route path="/admin" element={<Admin />} />
                         )}
                         <Route
