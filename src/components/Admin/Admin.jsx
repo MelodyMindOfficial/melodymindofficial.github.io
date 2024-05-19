@@ -67,7 +67,7 @@ export default function Admin() {
     function editAccount(e, account) {
         e.preventDefault();
 
-        window.location.pathname = '/admin?' + account;
+        window.location.pathname = '/admin_' + account;
     }
 
     return (
